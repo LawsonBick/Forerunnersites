@@ -50,20 +50,29 @@ export default function AboutPage() {
               />
               <div className="mt-10 max-w-2xl space-y-5 leading-relaxed text-ink-soft" data-reveal>
                 <p>
-                  I started {site.name} because too many good local businesses
-                  were stuck with websites that undersold them. The restaurant
-                  with a forty-year reputation and a site that couldn&apos;t
-                  show a menu on a phone. The detailer trusted with
-                  six-figure cars, invisible on Google. The cleaning company
-                  losing quote requests to phone tag. The work was excellent;
-                  the websites said otherwise.
+                  I grew up around Austin and spent most of my working life
+                  inside the kinds of businesses I now build websites for: a
+                  restaurant kitchen, a country club retail floor, and a desk
+                  where the whole job was explaining complicated things to
+                  people in plain language. I know what a Saturday rush looks
+                  like. I know what it costs when a customer can&apos;t find a
+                  menu, a price, or a way to book.
                 </p>
                 <p>
-                  So that&apos;s the specialty here: local and service-based
-                  businesses — restaurants, home services, automotive,
-                  professional practices — where the website&apos;s job is
-                  concrete. Get found. Look as good as the work actually is.
-                  Turn a visit into a call, a booking, or a reservation.
+                  That is the background I bring to a website. I studied
+                  economics at UT Austin with minors in business and
+                  entrepreneurship, and I started out teaching kids to write
+                  their first lines of Python — which turns out to be good
+                  preparation for this work. Most of it is taking something
+                  technical and making it make sense to the person who has to
+                  live with it.
+                </p>
+                <p>
+                  So the specialty here is local and service-based businesses —
+                  restaurants, home services, automotive, professional
+                  practices — where the website has a concrete job. Get found.
+                  Look as good as the work actually is. Turn a visit into a
+                  call, a booking, or a reservation.
                 </p>
                 <p>
                   Every site is designed and hand-built for the business it

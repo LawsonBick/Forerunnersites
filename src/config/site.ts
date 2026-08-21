@@ -63,9 +63,8 @@ export const site = {
    */
   availability: "Now booking projects for October 2026",
 
-  /** TODO: confirm the founder's name before launch. */
   founder: {
-    name: "Lawson",
+    name: "Lawson Bickerstaff",
     role: "Designer & developer",
   },
 
