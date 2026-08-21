@@ -130,18 +130,18 @@ export default function HomePage() {
               </h2>
               <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-ink-soft">
                 <p>
-                  I grew up around Austin and spent most of my working life
-                  inside the kinds of businesses I now build websites for: a
-                  restaurant kitchen, a country club retail floor, and a desk
+                  I grew up in Austin and spent most of my working life inside
+                  the kinds of businesses I now build websites for: a
+                  restaurant, car detailing, a country club retail floor, a desk
                   where the whole job was explaining complicated things in plain
-                  language. I know what a Saturday rush looks like, and what it
+                  English. I know what a Saturday rush looks like, and what it
                   costs when a customer can&apos;t find a menu, a price, or a way
                   to book.
                 </p>
                 <p>
-                  No account managers, no hand-offs, no template with your logo
-                  dropped in. Just careful work, explained plainly, built to make
-                  your business easier to trust and easier to choose.
+                  I make it an absolute priority to be responsive and work with
+                  my clients to ensure a strong product and effective results.
+                  Send me an inquiry and let&apos;s get started.
                 </p>
               </div>
               <div className="mt-7">
