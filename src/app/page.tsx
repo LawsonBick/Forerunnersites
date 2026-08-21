@@ -124,9 +124,9 @@ export default function HomePage() {
                 id="studio-heading"
                 className="max-w-3xl font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.3] tracking-[-0.005em] text-balance"
               >
-                I&apos;m Lawson. I run {site.name} out of Austin, and I handle
-                the strategy, design, development, performance, mobile
-                experience, and search foundations on every project myself.
+                Hi, I&apos;m Lawson. I run {site.name} out of Austin, and I
+                manage the strategy, design, development, and performance of
+                your website with precision.
               </h2>
               <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-ink-soft">
                 <p>
