@@ -1,0 +1,11 @@
+# Build + dependency artifacts (Vercel installs and builds these itself)
+node_modules
+.next
+out
+build
+
+# Local + editor cruft
+.DS_Store
+*.pem
+npm-debug.log*
+.env*.local

@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Forerunner Sites — agency website
 
-## Getting Started
+A production Next.js site for Forerunner Sites, an Austin, TX web design and
+development studio. Built with the App Router, TypeScript, and Tailwind CSS 4.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run lint       # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Deploys to Vercel with no extra configuration (set the project's
+**Root Directory** to `sitepilot/` if the repo root is the parent folder).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where to edit things
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| What | Where |
+| --- | --- |
+| Business details (name, email, phone, scheduling URL, socials, GA id, availability line) | `src/config/site.ts` — every placeholder is marked `TODO` |
+| Case studies (copy, palettes, screenshots) | `src/content/projects.ts` |
+| Services copy | `src/content/services.ts` |
+| Packages, comparison table, pricing FAQ | `src/content/pricing.ts` |
+| Process steps and "why us" list | `src/content/process.ts` |
+| Design tokens (colors, fonts, radii, shadows, easing) | `src/app/globals.css` (`@theme` block) |
+| Page layouts | `src/app/**/page.tsx` |
+| Shared components | `src/components/` |
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Live at **https://forerunner-sites.vercel.app** (Vercel project
+`forerunner-sites`). Redeploy from this directory with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+vercel deploy --prod --yes
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`site.url` reads `NEXT_PUBLIC_SITE_URL` and falls back to the Vercel URL, so
+canonical tags, `sitemap.xml`, `robots.txt`, and Open Graph metadata always
+point at wherever the site actually lives. To move to a custom domain: add it
+in Vercel (Project → Settings → Domains), point DNS at Vercel, then set
+`NEXT_PUBLIC_SITE_URL=https://yourdomain.com` and redeploy.
 
-## Deploy on Vercel
+## Contact form delivery
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`src/app/api/contact/route.ts` emails inquiries to `site.email` through
+Resend. Until `RESEND_API_KEY` is set the endpoint returns 503 and the form
+shows its error state, which points the visitor at the email address — it
+never silently swallows a lead.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To turn delivery on:
+
+1. Create a free account at [resend.com](https://resend.com) **using the same
+   address as `site.email`**, so the sandbox sender can reach your inbox.
+2. Create an API key at resend.com/api-keys.
+3. Add it to Vercel and redeploy:
+
+   ```bash
+   vercel env add RESEND_API_KEY production
+   vercel deploy --prod --yes
+   ```
+
+Mail sends from Resend's shared `onboarding@resend.dev` sender by default,
+which only delivers to the account owner's address. Once you verify your own
+domain in Resend, set `CONTACT_FROM` (e.g. `Forerunner Sites
+<inquiries@yourdomain.com>`) to send from your brand and lift that limit.
+Every inquiry sets `reply_to` to the sender, so replying goes straight to
+the prospect.
+
+For local testing, put the key in `.env.local` (already gitignored).
+
+## Before launch
+
+1. **`src/config/site.ts`** — fill in the remaining `TODO` values: phone,
+   scheduling URL, social profiles, founder name, and the availability line.
+2. **`RESEND_API_KEY`** — see "Contact form delivery" above. Until this is
+   set, the live form cannot accept inquiries.
+3. **About photo** — drop a portrait at `public/about/portrait.jpg` and swap
+   the placeholder block in `src/app/about/page.tsx` (comment marks the spot).
+4. **Google Analytics** — set `googleAnalyticsId` in the config to enable GA4
+   (scripts render only when an id is present).
+
+## Portfolio screenshots
+
+`public/work/*.jpg` are captures of the three live client sites. To refresh
+them, re-capture at these viewport sizes and overwrite the files:
+
+- `{slug}-desktop.jpg` — 1600×1000 viewport @2x
+- `{slug}-tall.jpg` — 1600×2400 viewport @1.5x
+- `{slug}-mobile.jpg` — 430×932 viewport @2x (mobile user agent)
+
+Slugs: `manuels`, `trz`, `cleanz`. Alt text lives in `src/content/projects.ts`.
