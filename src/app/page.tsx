@@ -31,7 +31,7 @@ export default function HomePage() {
         <Container className="pt-16 sm:pt-20 lg:pt-28">
           <div className="rise max-w-4xl">
             <h1 className="font-display text-[clamp(2.6rem,1.4rem+4.6vw,4.75rem)] leading-[1.04] tracking-[-0.015em]">
-              Your work is better than <em>your website.</em>
+              Get found. <em>Get chosen.</em>
             </h1>
             <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft sm:text-xl">
               I design and build fast, strategic websites for Austin
