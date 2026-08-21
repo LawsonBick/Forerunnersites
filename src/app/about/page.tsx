@@ -1,4 +1,7 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { site } from "@/config/site";
 import { Container } from "@/components/container";
 import { SectionHeading, Eyebrow } from "@/components/section-heading";
@@ -33,6 +36,16 @@ const beliefs = [
       "The best work happens when the person making it talks to the person paying for it. No telephone game, no markup on communication.",
   },
 ];
+
+/**
+ * The portrait is optional: the page renders the photo when
+ * public/about/portrait.jpg exists and a typographic placeholder when it
+ * does not, so the site can never ship a broken image. Regenerate the
+ * crop with `python3 scripts/make-portrait.py <image>`.
+ */
+const hasPortrait = fs.existsSync(
+  path.join(process.cwd(), "public", "about", "portrait.jpg")
+);
 
 export default function AboutPage() {
   return (
@@ -86,22 +99,29 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-5">
-              {/*
-                Portrait placeholder. Replace by dropping a photo at
-                public/about/portrait.jpg and swapping this block for:
-                <Image src="/about/portrait.jpg" alt="..." width={880} height={1100} />
-              */}
-              <figure data-reveal>
-                <div className="flex aspect-[4/5] items-end justify-between rounded-[6px] border border-line bg-wash p-6">
-                  <span
-                    aria-hidden="true"
-                    className="font-display text-[7rem] leading-none text-ink/10 italic"
-                  >
-                    {site.founder.name.charAt(0)}
-                  </span>
-                  <span aria-hidden="true" className="mb-2 inline-block h-2 w-2 bg-accent" />
-                </div>
-                <figcaption className="mt-3 flex items-baseline justify-between text-[13px]">
+              <figure data-reveal className="mx-auto max-w-[340px] lg:mx-0">
+                {hasPortrait ? (
+                  <div className="overflow-hidden rounded-full border border-line bg-white">
+                    <Image
+                      src="/about/portrait.jpg"
+                      alt={`${site.founder.name}, ${site.founder.role} at ${site.name}`}
+                      width={880}
+                      height={880}
+                      sizes="(min-width: 1024px) 340px, 70vw"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-square items-center justify-center rounded-full border border-line bg-wash">
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-[6rem] leading-none text-ink/15 italic"
+                    >
+                      {site.founder.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+                <figcaption className="mt-4 flex items-baseline justify-between border-t border-line pt-3 text-[13px]">
                   <span className="font-medium text-ink">{site.founder.name}</span>
                   <span className="text-ink-soft">{site.founder.role}</span>
                 </figcaption>
