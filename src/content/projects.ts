@@ -49,6 +49,16 @@ export interface Project {
    * large showcase. Sourced from the client's own site.
    */
   video?: { src: string; poster: string; label: string };
+  /** Live rebuild of the client's before/after reveal. */
+  beforeAfter?: {
+    before: string;
+    after: string;
+    caption: string;
+    beforeAlt: string;
+    afterAlt: string;
+  };
+  /** Full-page capture that scrolls itself inside the browser frame. */
+  autoScroll?: { src: string; alt: string; width: number; height: number };
 }
 
 export const projects: Project[] = [
@@ -213,6 +223,13 @@ export const projects: Project[] = [
         alt: "TRZ Shine & Detail website on a phone with a persistent booking button",
       },
     },
+    beforeAfter: {
+      before: "/work/trz-before.jpg",
+      after: "/work/trz-after.jpg",
+      caption: "Porsche 911 — exterior detail",
+      beforeAlt: "A Porsche 911 before detailing, paint dull and marked",
+      afterAlt: "The same Porsche 911 after detailing, paint corrected to a mirror finish",
+    },
   },
   {
     slug: "cleanz-atx",
@@ -291,6 +308,12 @@ export const projects: Project[] = [
         src: "/work/cleanz-mobile.jpg",
         alt: "CleanZ ATX website on a phone with the quote flow front and center",
       },
+    },
+    autoScroll: {
+      src: "/work/cleanz-scroll.jpg",
+      alt: "The full CleanZ ATX homepage, from the hero through services, pricing, and reviews",
+      width: 1100,
+      height: 8285,
     },
   },
 ];

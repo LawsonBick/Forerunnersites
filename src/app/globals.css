@@ -124,3 +124,29 @@
     transition: none;
   }
 }
+
+/* Auto-scrolling page preview (see AutoScrollPreview). Travel distance is
+   passed in per instance because it depends on the capture's aspect. */
+@keyframes page-scroll {
+  0%,
+  6% {
+    transform: translateY(0);
+  }
+  94%,
+  100% {
+    transform: translateY(var(--scroll-travel, -90%));
+  }
+}
+
+.animate-page-scroll {
+  animation-name: page-scroll;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-scroll {
+    animation: none;
+  }
+}

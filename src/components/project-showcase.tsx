@@ -1,6 +1,8 @@
 import { ArrowLink } from "@/components/button";
 import { BrowserFrame } from "@/components/frames";
 import { ProjectVideo } from "@/components/project-video";
+import { BeforeAfter } from "@/components/before-after";
+import { AutoScrollPreview } from "@/components/auto-scroll-preview";
 import { Tag } from "@/components/tag";
 import type { Project } from "@/content/projects";
 import { cx } from "@/lib/cx";
@@ -43,6 +45,10 @@ export function ProjectShowcase({
                 poster={project.video.poster}
                 label={project.video.label}
               />
+            ) : project.beforeAfter ? (
+              <BeforeAfter {...project.beforeAfter} />
+            ) : project.autoScroll ? (
+              <AutoScrollPreview {...project.autoScroll} />
             ) : undefined}
           </BrowserFrame>
           <p
