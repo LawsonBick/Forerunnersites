@@ -34,10 +34,10 @@ export default function HomePage() {
               Get found. <em>Get chosen.</em>
             </h1>
             <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft sm:text-xl">
-              I design and build fast, strategic websites for Austin
-              businesses that have outgrown average — restaurants, service
-              companies, and growing brands whose next customer is deciding
-              online right now.
+              {site.name} designs and builds fast, strategic websites for
+              Austin restaurants, service businesses, and growing brands ready
+              to move beyond average&mdash;because your next customer is
+              already deciding online.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <ButtonLink href={site.cta.primary.href}>{site.cta.primary.label}</ButtonLink>
