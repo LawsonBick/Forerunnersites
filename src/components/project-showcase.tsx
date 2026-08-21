@@ -1,5 +1,6 @@
 import { ArrowLink } from "@/components/button";
 import { BrowserFrame } from "@/components/frames";
+import { ProjectVideo } from "@/components/project-video";
 import { Tag } from "@/components/tag";
 import type { Project } from "@/content/projects";
 import { cx } from "@/lib/cx";
@@ -35,7 +36,15 @@ export function ProjectShowcase({
             sizes="(min-width: 1024px) 56vw, 100vw"
             url={project.displayUrl}
             priority={priority}
-          />
+          >
+            {project.video ? (
+              <ProjectVideo
+                src={project.video.src}
+                poster={project.video.poster}
+                label={project.video.label}
+              />
+            ) : undefined}
+          </BrowserFrame>
           <p
             className="mt-4 flex items-center justify-between text-[12px] font-medium tracking-wide"
             style={{ color: project.palette.panelFg }}

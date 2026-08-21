@@ -57,11 +57,6 @@ export const site = {
   /** TODO: set your GA4 measurement ID (e.g. "G-XXXXXXX") to enable analytics. */
   googleAnalyticsId: null as string | null,
 
-  /**
-   * Shown above the homepage hero. Keep it honest — update or empty it
-   * when your availability changes.
-   */
-  availability: "Now booking projects for October 2026",
 
   founder: {
     name: "Lawson Bickerstaff",

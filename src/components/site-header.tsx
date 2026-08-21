@@ -6,16 +6,8 @@ import { useEffect, useState } from "react";
 import { site } from "@/config/site";
 import { Container } from "@/components/container";
 import { ButtonLink } from "@/components/button";
+import { Wordmark } from "@/components/logo";
 import { cx } from "@/lib/cx";
-
-export function Wordmark({ className }: { className?: string }) {
-  return (
-    <span className={cx("inline-flex items-baseline gap-2", className)}>
-      <span aria-hidden="true" className="inline-block h-2 w-2 self-center bg-accent" />
-      <span className="text-[17px] font-semibold tracking-[-0.01em]">{site.name}</span>
-    </span>
-  );
-}
 
 export function SiteHeader() {
   const pathname = usePathname();

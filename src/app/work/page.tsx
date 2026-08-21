@@ -22,7 +22,7 @@ export default function WorkPage() {
             entrance="rise"
             eyebrow="Work"
             title="Real businesses, measured against a simple standard: does the site win the customer?"
-            lede="Every project here belongs to an Austin-area business owner with a reputation on the line. The work is judged the way they judge it — by whether visitors become diners, bookings, and quote requests."
+            lede="Every project here belongs to an Austin-area business owner with a reputation on the line. I judge the work the way they do — by whether visitors turn into diners, bookings, and quote requests."
           />
           <div className="mt-16 space-y-20 lg:mt-24 lg:space-y-28">
             {projects.map((project, i) => (

@@ -1,4 +1,7 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/config/site";
 import { projects } from "@/content/projects";
@@ -16,24 +19,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+const hasPortrait = fs.existsSync(
+  path.join(process.cwd(), "public", "about", "portrait.jpg")
+);
+
 export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="overflow-hidden">
-        <Container className="pt-10 sm:pt-14 lg:pt-20">
-          <div className="rise flex items-center gap-4">
-            <p className="flex shrink-0 items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-soft">
-              <span aria-hidden="true" className="inline-block h-[7px] w-[7px] bg-accent" />
-              {site.availability}
-            </p>
-            <span aria-hidden="true" className="hidden h-px flex-1 bg-line sm:block" />
-            <p className="hidden shrink-0 text-[12px] font-medium uppercase tracking-[0.16em] text-ink-soft lg:block">
-              {site.location.city}, {site.location.regionFull}
-            </p>
-          </div>
-
-          <div className="rise mt-10 max-w-4xl [animation-delay:100ms] sm:mt-14">
+        <Container className="pt-16 sm:pt-20 lg:pt-28">
+          <div className="rise max-w-4xl">
             <h1 className="font-display text-[clamp(2.6rem,1.4rem+4.6vw,4.75rem)] leading-[1.04] tracking-[-0.015em]">
               A website that <em>earns the call.</em>
             </h1>
@@ -59,10 +55,7 @@ export default function HomePage() {
               <Link
                 key={project.slug}
                 href={`/work/${project.slug}`}
-                className={[
-                  "group block min-w-[80%] snap-center sm:min-w-[55%] md:min-w-0",
-                  i === 0 ? "md:mt-10" : i === 2 ? "md:mt-16" : "",
-                ].join(" ")}
+                className="group block flex-[0_0_82%] snap-center sm:flex-[0_0_48%] md:flex-none"
               >
                 <div
                   className="rounded-[6px] p-3 transition-transform duration-300 group-hover:-translate-y-1 sm:p-4"
@@ -91,51 +84,84 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ── Credibility statement ────────────────────────────────── */}
-      <section className="border-t border-line">
+      {/* ── The studio ───────────────────────────────────────────── */}
+      <section className="border-t border-line" aria-labelledby="studio-heading">
         <Container className="py-20 lg:py-28">
-          <div className="grid gap-10 lg:grid-cols-12" data-reveal>
-            <div className="lg:col-span-3">
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14" data-reveal>
+            <div className="lg:col-span-4">
               <Eyebrow>The studio</Eyebrow>
+              <figure className="mt-6 max-w-[220px]">
+                {hasPortrait ? (
+                  <div className="overflow-hidden rounded-full border border-line bg-white">
+                    <Image
+                      src="/about/portrait.jpg"
+                      alt={`${site.founder.name}, ${site.founder.role} at ${site.name}`}
+                      width={880}
+                      height={880}
+                      sizes="220px"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-square items-center justify-center rounded-full border border-line bg-wash">
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-6xl leading-none text-ink/15 italic"
+                    >
+                      {site.founder.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+                <figcaption className="mt-3 border-t border-line pt-3 text-[13px]">
+                  <span className="block font-medium text-ink">{site.founder.name}</span>
+                  <span className="block text-ink-soft">{site.founder.role}</span>
+                </figcaption>
+              </figure>
             </div>
-            <div className="lg:col-span-9">
-              <p className="max-w-3xl font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.3] tracking-[-0.005em]">
-                {site.name} is an Austin studio that works directly with business
-                owners — one person handling strategy, design, development,
-                performance, mobile experience, and the search foundations
-                underneath it all.
-              </p>
-              <p className="mt-6 max-w-2xl leading-relaxed text-ink-soft">
-                No account managers, no hand-offs, no template with your logo
-                dropped in. Just careful work, explained plainly, built to make
-                your business easier to trust and easier to choose.
-              </p>
+
+            <div className="lg:col-span-8">
+              <h2
+                id="studio-heading"
+                className="max-w-3xl font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.3] tracking-[-0.005em] text-balance"
+              >
+                I&apos;m Lawson. I run {site.name} out of Austin, and I handle
+                the strategy, design, development, performance, mobile
+                experience, and search foundations on every project myself.
+              </h2>
+              <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-ink-soft">
+                <p>
+                  I grew up around Austin and spent most of my working life
+                  inside the kinds of businesses I now build websites for: a
+                  restaurant kitchen, a country club retail floor, and a desk
+                  where the whole job was explaining complicated things in plain
+                  language. I know what a Saturday rush looks like, and what it
+                  costs when a customer can&apos;t find a menu, a price, or a way
+                  to book.
+                </p>
+                <p>
+                  No account managers, no hand-offs, no template with your logo
+                  dropped in. Just careful work, explained plainly, built to make
+                  your business easier to trust and easier to choose.
+                </p>
+              </div>
+              <div className="mt-7">
+                <ArrowLink href="/about">More about the studio</ArrowLink>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
       {/* ── Featured work ────────────────────────────────────────── */}
-      <section className="border-t border-line" aria-labelledby="work-heading">
+      <section className="border-t border-line" aria-label="Selected work">
         <Container className="py-20 lg:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading
-              eyebrow="Selected work"
-              title={
-                <span id="work-heading">
-                  Three Austin businesses, three different jobs to do.
-                </span>
-              }
-              lede="A forty-year-old restaurant, a premium mobile detailer, and a home-services company. Each got a site built around how its customers decide — not a reskin of the same layout."
-            />
-            <ArrowLink href="/work" className="mb-1">
-              All work
-            </ArrowLink>
-          </div>
-          <div className="mt-14 space-y-20 lg:mt-20 lg:space-y-28">
+          <div className="space-y-20 lg:space-y-28">
             {projects.map((project, i) => (
               <ProjectShowcase key={project.slug} project={project} flip={i % 2 === 1} />
             ))}
+          </div>
+          <div className="mt-14 border-t border-line pt-6" data-reveal>
+            <ArrowLink href="/work">See all work</ArrowLink>
           </div>
         </Container>
       </section>

@@ -17,8 +17,14 @@ interface FrameImageProps {
 export function BrowserFrame({
   url,
   className,
+  children,
   ...img
-}: FrameImageProps & { url?: string; className?: string }) {
+}: FrameImageProps & {
+  url?: string;
+  className?: string;
+  /** Replaces the screenshot — used for video showcases. */
+  children?: React.ReactNode;
+}) {
   return (
     <figure
       className={cx(
@@ -38,16 +44,18 @@ export function BrowserFrame({
           </span>
         ) : null}
       </div>
-      <Image
-        src={img.src}
-        alt={img.alt}
-        width={img.width}
-        height={img.height}
-        sizes={img.sizes}
-        priority={img.priority}
-        fetchPriority={img.priority ? "high" : undefined}
-        className="w-full"
-      />
+      {children ?? (
+        <Image
+          src={img.src}
+          alt={img.alt}
+          width={img.width}
+          height={img.height}
+          sizes={img.sizes}
+          priority={img.priority}
+          fetchPriority={img.priority ? "high" : undefined}
+          className="w-full"
+        />
+      )}
     </figure>
   );
 }

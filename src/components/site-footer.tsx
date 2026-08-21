@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/config/site";
 import { Container } from "@/components/container";
+import { Wordmark } from "@/components/logo";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -15,13 +16,10 @@ export function SiteFooter() {
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="inline-flex items-baseline gap-2">
-              <span aria-hidden="true" className="inline-block h-2 w-2 self-center bg-accent" />
-              <span className="text-[17px] font-semibold tracking-[-0.01em]">{site.name}</span>
-            </p>
+            <Wordmark inverse />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper-soft">
-              Strategic websites for local businesses, service companies,
-              restaurants, and growing brands.
+              Strategic websites for Austin businesses, designed and built by
+              Lawson Bickerstaff.
             </p>
             <p className="mt-6 text-sm text-paper-soft">
               {site.location.city}, {site.location.regionFull}

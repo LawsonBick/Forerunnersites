@@ -35,7 +35,7 @@ export default function ServicesPage() {
             entrance="rise"
             eyebrow="Services"
             title="One studio, accountable for the whole website."
-            lede="Most agencies split your project across a strategist, a designer, a developer, and an account manager. Here, those are the same person — which means nothing gets lost between them, and every decision traces back to what your business needs."
+            lede="Most agencies split your project across a strategist, a designer, a developer, and an account manager. I do all four jobs myself, so nothing gets lost in a hand-off and every decision traces back to what your business actually needs."
           />
 
           <div className="mt-16">
@@ -87,7 +87,7 @@ export default function ServicesPage() {
             Not sure what your project needs? <em>That&apos;s a fine place to start.</em>
           </>
         }
-        copy="Describe the business and the problem — outdated site, no site, not enough inquiries — and I'll tell you what I'd build, what I'd skip, and what it would cost."
+        copy="Describe your business and the problem — outdated site, no site, not enough inquiries — and I'll tell you what I would build, what I would skip, and what it would cost."
       />
 
       <script

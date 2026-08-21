@@ -7,41 +7,43 @@ export const processSteps: ProcessStep[] = [
   {
     name: "Discover",
     detail:
-      "A conversation about your business, your customers, and what the website has to accomplish. No jargon, no forty-page questionnaire.",
+      "We talk about your business, your customers, and what the site has to accomplish. No jargon, no forty-page questionnaire.",
   },
   {
     name: "Define",
     detail:
-      "A clear sitemap, page plan, and written scope. You'll know exactly what's being built, why, and what it costs before work begins.",
+      "I write up a sitemap, a page plan, and a scope. You will know exactly what I am building, why, and what it costs before I start.",
   },
   {
     name: "Design",
     detail:
-      "The look and feel, worked out in the open. You review real pages — not abstract mood boards — and your feedback shapes them.",
+      "I work the look and feel out in the open. You review real pages, not abstract mood boards, and your feedback changes them.",
   },
   {
     name: "Build",
     detail:
-      "Hand-coded, fast, and responsive. You watch progress on a live preview link as the site comes together.",
+      "I hand-code every page. You get a live preview link in the first week and watch the site come together.",
   },
   {
     name: "Launch",
     detail:
-      "Domain, analytics, and search setup, plus a walkthrough of everything. You launch with a site you actually understand.",
+      "I handle the domain, analytics, and search setup, then walk you through all of it. You launch understanding your own site.",
   },
 ];
 
 export const processNote =
-  "One person, start to finish. You communicate directly with the person designing and building your website — at every step, on every decision.";
+  "I'm Lawson, and I handle all five steps myself. You have my email and my phone from the first conversation to launch day — no account manager relaying your notes to someone you have never met.";
 
 export const whyUs: { title: string; detail: string }[] = [
   {
-    title: "Direct communication",
-    detail: "You talk to the person building your site, not an account manager relaying notes.",
+    title: "You work with me",
+    detail:
+      "Lawson, start to finish. Ask a question and it goes to the person who wrote the code, not a middleman.",
   },
   {
-    title: "Thoughtful custom work",
-    detail: "Design decisions made for your business, not pulled from a theme marketplace.",
+    title: "Built for you specifically",
+    detail:
+      "I design around your customers and your goals. Nothing here comes off a theme marketplace shelf.",
   },
   {
     title: "Mobile-first execution",
@@ -53,7 +55,8 @@ export const whyUs: { title: string; detail: string }[] = [
   },
   {
     title: "Transparent scope",
-    detail: "Clear pricing and deliverables in writing before work begins. No surprise invoices.",
+    detail:
+      "You get pricing and deliverables in writing before I start. I have never sent a surprise invoice and I do not intend to.",
   },
   {
     title: "Business-focused decisions",
@@ -61,6 +64,7 @@ export const whyUs: { title: string; detail: string }[] = [
   },
   {
     title: "No agency overhead",
-    detail: "No layers, no handoffs, no retainer you didn't ask for. You pay for the work, not the org chart.",
+    detail:
+      "There is no org chart to pay for here. No layers, no hand-offs, no retainer you did not ask for.",
   },
 ];

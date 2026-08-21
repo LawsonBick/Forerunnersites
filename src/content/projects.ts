@@ -44,6 +44,11 @@ export interface Project {
     tall: { src: string; alt: string };
     mobile: { src: string; alt: string };
   };
+  /**
+   * Optional silent clip shown instead of the desktop screenshot in the
+   * large showcase. Sourced from the client's own site.
+   */
+  video?: { src: string; poster: string; label: string };
 }
 
 export const projects: Project[] = [
@@ -123,6 +128,11 @@ export const projects: Project[] = [
         src: "/work/manuels-mobile.jpg",
         alt: "Manuel's website on a phone, with menus and reservations one tap away",
       },
+    },
+    video: {
+      src: "/work/manuels-fajitas.mp4",
+      poster: "/work/manuels-fajitas-poster.jpg",
+      label: "Sizzling fajitas being served, from the Manuel's homepage",
     },
   },
   {
