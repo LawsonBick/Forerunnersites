@@ -179,7 +179,7 @@ export default function AboutPage() {
       <CtaBand
         title={
           <>
-            If your work is better than your website, <em>we should talk.</em>
+            Let&apos;s make the website <em>match the work.</em>
           </>
         }
       />

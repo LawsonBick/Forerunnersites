@@ -31,10 +31,10 @@ export default function HomePage() {
         <Container className="pt-16 sm:pt-20 lg:pt-28">
           <div className="rise max-w-4xl">
             <h1 className="font-display text-[clamp(2.6rem,1.4rem+4.6vw,4.75rem)] leading-[1.04] tracking-[-0.015em]">
-              A website that <em>earns the call.</em>
+              Your work is better than <em>your website.</em>
             </h1>
             <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft sm:text-xl">
-              {site.name} designs and builds fast, strategic websites for Austin
+              I design and build fast, strategic websites for Austin
               businesses that have outgrown average — restaurants, service
               companies, and growing brands whose next customer is deciding
               online right now.
