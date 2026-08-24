@@ -47,7 +47,7 @@ export function SiteHeader() {
       )}
     >
       <Container className="flex h-16 items-center justify-between lg:h-[72px]">
-        <Link href="/" className="text-ink" aria-label={`${site.name} — home`}>
+        <Link href="/" className="logo-hover text-ink" aria-label={`${site.name} — home`}>
           <Wordmark />
         </Link>
 
@@ -58,10 +58,8 @@ export function SiteHeader() {
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cx(
-                "text-sm transition-colors",
-                isActive(item.href)
-                  ? "font-medium text-ink underline decoration-accent decoration-2 underline-offset-[10px]"
-                  : "text-ink-soft hover:text-ink"
+                "nav-link text-sm transition-colors",
+                isActive(item.href) ? "font-medium text-ink" : "text-ink-soft hover:text-ink"
               )}
             >
               {item.label}

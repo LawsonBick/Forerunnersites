@@ -8,7 +8,7 @@ import { cx } from "@/lib/cx";
  */
 export function PricingCards({ detailed = false }: { detailed?: boolean }) {
   return (
-    <div className="grid gap-6 lg:grid-cols-3" data-reveal>
+    <div className="stagger grid gap-6 lg:grid-cols-3" data-reveal>
       {packages.map((pkg) => {
         const items = detailed ? pkg.includes : pkg.includes.slice(0, 6);
         return (

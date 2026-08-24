@@ -184,7 +184,7 @@ export default function AboutPage() {
           <h2 id="beliefs-heading" className="sr-only">
             Studio principles
           </h2>
-          <div className="mt-8 grid gap-x-14 sm:grid-cols-2" data-reveal>
+          <div className="stagger mt-8 grid gap-x-14 sm:grid-cols-2" data-reveal>
             {beliefs.map((belief) => (
               <div key={belief.title} className="border-t border-line py-7">
                 <h3 className="max-w-md font-display text-xl leading-snug">{belief.title}</h3>
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 understand when it launches — not a black box with an invoice
                 attached.
               </h2>
-              <div className="mt-8 grid gap-x-12 sm:grid-cols-2" data-reveal>
+              <div className="stagger mt-8 grid gap-x-12 sm:grid-cols-2" data-reveal>
                 {commitments.map((item) => (
                   <div key={item.title} className="border-t border-line py-5">
                     <h3 className="text-[15px] font-medium text-ink">{item.title}</h3>

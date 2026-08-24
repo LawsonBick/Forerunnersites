@@ -58,7 +58,7 @@ export default async function ContactPage({
                 <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
                   What happens next
                 </h2>
-                <ol className="mt-4">
+                <ol className="stagger mt-4" data-reveal>
                   {nextSteps.map((step, i) => (
                     <li key={step.title} className="flex gap-4 border-t border-line py-4">
                       <span className="text-[13px] font-semibold text-accent tabular-nums">

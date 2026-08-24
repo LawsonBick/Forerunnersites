@@ -22,9 +22,9 @@ export function LogoMark({
       viewBox="0 0 20 20"
       aria-hidden="true"
       focusable="false"
-      className={cx("shrink-0", className)}
+      className={cx("logo-mark shrink-0", className)}
     >
-      <rect x="0" y="10" width="10" height="10" className="fill-accent" />
+      <rect x="0" y="10" width="10" height="10" className="lm-solid fill-accent" />
       <rect
         x="10.9"
         y="0.9"
@@ -32,7 +32,7 @@ export function LogoMark({
         height="8.2"
         fill="none"
         strokeWidth="1.8"
-        className={inverse ? "stroke-paper" : "stroke-ink"}
+        className={cx("lm-outline", inverse ? "stroke-paper" : "stroke-ink")}
       />
     </svg>
   );

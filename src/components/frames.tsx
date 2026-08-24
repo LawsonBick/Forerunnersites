@@ -53,7 +53,7 @@ export function BrowserFrame({
           sizes={img.sizes}
           priority={img.priority}
           fetchPriority={img.priority ? "high" : undefined}
-          className="w-full"
+          className="w-full transition-transform duration-[650ms] ease-out group-hover:scale-[1.025] motion-reduce:transform-none"
         />
       )}
     </figure>

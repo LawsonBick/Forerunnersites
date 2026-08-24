@@ -29,17 +29,24 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="overflow-hidden">
         <Container className="pt-16 sm:pt-20 lg:pt-28">
-          <div className="rise max-w-4xl">
+          <div className="max-w-4xl">
             <h1 className="font-display text-[clamp(2.6rem,1.4rem+4.6vw,4.75rem)] leading-[1.04] tracking-[-0.015em]">
-              Get found. <em>Get chosen.</em>
+              <span className="mask-line">
+                <span className="mask-line-inner">Get found.</span>
+              </span>{" "}
+              <span className="mask-line">
+                <span className="mask-line-inner [animation-delay:140ms]">
+                  <em>Get chosen.</em>
+                </span>
+              </span>
             </h1>
-            <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft sm:text-xl">
+            <p className="rise mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft [animation-delay:280ms] sm:text-xl">
               {site.name} designs and builds fast, strategic websites for
               Austin restaurants, service businesses, and growing brands ready
               to move beyond average&mdash;because your next customer is
               already deciding online.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="rise mt-8 flex flex-wrap items-center gap-4 [animation-delay:400ms]">
               <ButtonLink href={site.cta.primary.href}>{site.cta.primary.label}</ButtonLink>
               <ButtonLink href={site.cta.secondary.href} variant="secondary">
                 {site.cta.secondary.label}
@@ -179,7 +186,7 @@ export default function HomePage() {
               About each service
             </ArrowLink>
           </div>
-          <ul className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+          <ul className="stagger mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
             {services.map((service) => (
               <li key={service.title} className="border-t border-line py-6">
                 <h3 className="text-[16px] font-medium">{service.title}</h3>
@@ -200,7 +207,7 @@ export default function HomePage() {
             title={<span id="process-heading">Five steps, no mystery.</span>}
             lede="You'll always know where the project stands, what's next, and what's needed from you."
           />
-          <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5" data-reveal>
+          <ol className="stagger mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5" data-reveal>
             {processSteps.map((step, i) => (
               <li key={step.name} className="border-t-2 border-ink pt-4">
                 <p className="text-[13px] font-semibold tracking-[0.08em] text-accent tabular-nums">
@@ -246,7 +253,7 @@ export default function HomePage() {
             eyebrow="Why Forerunner"
             title={<span id="why-heading">What you get that an agency won&apos;t give you.</span>}
           />
-          <ul className="mt-12 grid gap-x-14 sm:grid-cols-2" data-reveal>
+          <ul className="stagger mt-12 grid gap-x-14 sm:grid-cols-2" data-reveal>
             {whyUs.map((item) => (
               <li key={item.title} className="border-t border-line py-5">
                 <h3 className="text-[16px] font-medium">{item.title}</h3>
