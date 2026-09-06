@@ -28,7 +28,7 @@ const beliefs = [
   {
     title: "Design decisions are business decisions.",
     detail:
-      "Which page comes first, what the button says, where the phone number sits — these change what a website produces. They deserve the same care as the visuals.",
+      "Which page comes first, what the button says, where the phone number sits: these change what a website produces. They deserve the same care as the visuals.",
   },
   {
     title: "Direct beats layered.",
@@ -76,21 +76,57 @@ export default function AboutPage() {
       <section>
         <Container className="pt-12 pb-20 sm:pt-16 lg:pt-20 lg:pb-28">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
+            {/* The portrait leads the page on narrow screens. From lg up the
+                grid order puts it back alongside the text, on the right. */}
+            <div className="lg:order-2 lg:col-span-5">
+              <figure
+                data-reveal
+                className="mx-auto max-w-[340px] lg:sticky lg:top-28 lg:mx-0"
+              >
+                {hasPortrait ? (
+                  <div className="overflow-hidden rounded-full border border-line bg-white">
+                    <Image
+                      src="/about/portrait.jpg"
+                      alt={`${site.founder.name}, ${site.founder.role} at ${site.name}`}
+                      width={880}
+                      height={880}
+                      sizes="(min-width: 1024px) 340px, 70vw"
+                      className="h-full w-full object-cover"
+                      priority
+                    />
+                  </div>
+                ) : (
+                  <div className="flex aspect-square items-center justify-center rounded-full border border-line bg-wash">
+                    <span
+                      aria-hidden="true"
+                      className="font-display text-[6rem] leading-none text-ink/15 italic"
+                    >
+                      {site.founder.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
+                <figcaption className="mt-4 flex items-baseline justify-between border-t border-line pt-3 text-[13px]">
+                  <span className="font-medium text-ink">{site.founder.name}</span>
+                  <span className="text-ink-soft">{site.founder.role}</span>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div className="lg:order-1 lg:col-span-7">
               <SectionHeading
                 as="h1"
                 entrance="rise"
                 eyebrow="About"
                 title="An owner-led studio, built for owner-led businesses."
-                lede={`${site.name} is a one-person web studio in Austin, Texas. When you work with the studio, you work with me — from the first conversation through launch, and for every decision in between.`}
+                lede={`${site.name} is a one-person web studio in Austin, Texas. When you work with the studio, you work with me, from the first conversation through launch, and for every decision in between.`}
               />
               <div className="mt-10 max-w-2xl space-y-5 leading-relaxed text-ink-soft" data-reveal>
                 <p>
                   I started building websites because I kept running into the
                   same gap. The businesses I worked in and around Austin were
-                  genuinely good — the food, the service, the craftsmanship —
-                  and then you would look them up and find something that made
-                  them seem ordinary. A menu you could not read on a phone. A
+                  genuinely good. The food, the service, the craftsmanship. And then
+                  you would look them up and find something that made them seem
+                  ordinary. A menu you could not read on a phone. A
                   quote form nobody answered. A page that took eight seconds to
                   load. The work deserved better than the website it was hiding
                   behind.
@@ -118,8 +154,8 @@ export default function AboutPage() {
                 </p>
                 <p>
                   So this studio is built for local and service-based businesses
-                  — restaurants, home services, automotive, professional
-                  practices — where a website has a concrete job to do. Get
+                  like restaurants, home services, automotive, and professional
+                  practices, where a website has a concrete job to do. Get
                   found by someone searching. Look as good as the work actually
                   is. Turn a visit into a call, a booking, or a reservation. If
                   what you need is a brand manifesto or a fifty-page enterprise
@@ -140,39 +176,6 @@ export default function AboutPage() {
                   after launch I am still the person who picks up.
                 </p>
               </div>
-              </div>
-
-            <div className="lg:col-span-5">
-              <figure
-                data-reveal
-                className="mx-auto max-w-[340px] lg:sticky lg:top-28 lg:mx-0"
-              >
-                {hasPortrait ? (
-                  <div className="overflow-hidden rounded-full border border-line bg-white">
-                    <Image
-                      src="/about/portrait.jpg"
-                      alt={`${site.founder.name}, ${site.founder.role} at ${site.name}`}
-                      width={880}
-                      height={880}
-                      sizes="(min-width: 1024px) 340px, 70vw"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex aspect-square items-center justify-center rounded-full border border-line bg-wash">
-                    <span
-                      aria-hidden="true"
-                      className="font-display text-[6rem] leading-none text-ink/15 italic"
-                    >
-                      {site.founder.name.charAt(0)}
-                    </span>
-                  </div>
-                )}
-                <figcaption className="mt-4 flex items-baseline justify-between border-t border-line pt-3 text-[13px]">
-                  <span className="font-medium text-ink">{site.founder.name}</span>
-                  <span className="text-ink-soft">{site.founder.role}</span>
-                </figcaption>
-              </figure>
             </div>
           </div>
         </Container>
@@ -209,7 +212,7 @@ export default function AboutPage() {
                 className="max-w-3xl font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.3] text-balance"
               >
                 Expect straight answers, visible progress, and a site you
-                understand when it launches — not a black box with an invoice
+                understand when it launches, not a black box with an invoice
                 attached.
               </h2>
               <div className="stagger mt-8 grid gap-x-12 sm:grid-cols-2" data-reveal>
