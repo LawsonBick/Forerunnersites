@@ -9,7 +9,9 @@
   --color-paper: #faf9f6;
   --color-ink: #1b1a16;
   --color-ink-soft: #5a564c;
-  --color-ink-faint: #8a8578;
+  /* Darkened from #8a8578 (3.5:1) to clear WCAG AA (4.5:1) on paper, wash,
+     and white, since it is the placeholder colour in the contact form. */
+  --color-ink-faint: #706b5f;
   --color-line: #e6e3da;
   --color-wash: #f2f0e9;
   --color-accent: #2434c8;
