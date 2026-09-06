@@ -37,11 +37,21 @@ Live at **https://forerunner-sites.vercel.app** (Vercel project
 vercel deploy --prod --yes
 ```
 
-`site.url` reads `NEXT_PUBLIC_SITE_URL` and falls back to the Vercel URL, so
-canonical tags, `sitemap.xml`, `robots.txt`, and Open Graph metadata always
-point at wherever the site actually lives. To move to a custom domain: add it
-in Vercel (Project → Settings → Domains), point DNS at Vercel, then set
-`NEXT_PUBLIC_SITE_URL=https://yourdomain.com` and redeploy.
+`site.url` is the canonical production origin, **https://forerunnersites.com**,
+and every canonical tag, `sitemap.xml`, `robots.txt`, Open Graph URL, and
+structured-data `@id` is built from it. That domain must be attached to the
+Vercel project (Project → Settings → Domains, then point DNS at Vercel) for
+those URLs to resolve. Once it is, the `forerunner-sites.vercel.app` alias
+redirects to it automatically: `next.config.ts` enables that redirect only
+when Vercel reports the custom domain as the production URL, so deploying
+before DNS is ready cannot lock you out. `NEXT_PUBLIC_SITE_URL` exists only
+as an override if the domain ever changes.
+
+Preview deployments are served with `noindex` and a `Disallow: /` robots
+file, so branch previews never compete with the live site in search.
+
+See `SEO-AUDIT.md` for the search strategy, the keyword-to-page map, and
+the launch checklist of items that still need your input.
 
 ## Contact form delivery
 
@@ -73,8 +83,12 @@ For local testing, put the key in `.env.local` (already gitignored).
 
 ## Before launch
 
+0. **Attach the domain.** Add forerunnersites.com in Vercel and point DNS at
+   it. Every canonical URL already assumes this domain.
 1. **`src/config/site.ts`** — fill in the remaining `TODO` values: phone,
-   scheduling URL, social profiles, founder name, and the availability line.
+   scheduling URL, social profiles, and the Google Business Profile URL.
+   Add the Search Console verification token to
+   `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel (or verify via DNS).
 2. **`RESEND_API_KEY`** — see "Contact form delivery" above. Until this is
    set, the live form cannot accept inquiries.
 3. **About photo** — drop a portrait at `public/about/portrait.jpg` and swap
