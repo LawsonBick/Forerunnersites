@@ -82,8 +82,13 @@ export const site = {
     x: null as string | null,
   },
 
-  /** TODO: set your GA4 measurement ID (e.g. "G-XXXXXXX") to enable analytics. */
-  googleAnalyticsId: null as string | null,
+  /**
+   * GA4 measurement ID. Setting it renders the gtag scripts in the root
+   * layout and lets the contact form report its generate_lead event.
+   * Mark that event as a key event in GA4 (Admin → Events) once the first
+   * real inquiry has fired it.
+   */
+  googleAnalyticsId: "G-031VPY8S8R" as string | null,
 
 
   founder: {
