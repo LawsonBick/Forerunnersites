@@ -22,6 +22,10 @@ export function LogoMark({
       viewBox="0 0 20 20"
       aria-hidden="true"
       focusable="false"
+      // Both squares sit flush against the viewBox edge, so the default
+      // viewport clip shaves their outer row whenever the header lands the
+      // mark on a fractional pixel.
+      overflow="visible"
       className={cx("logo-mark shrink-0", className)}
     >
       <rect x="0" y="10" width="10" height="10" className="lm-solid fill-accent" />

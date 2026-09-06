@@ -248,11 +248,13 @@
 }
 
 .logo-hover:hover .lm-solid {
-  transform: translate(10.9px, -9.1px);
+  transform: translate(10px, -10px);
 }
 
+/* The outline's 1.8 stroke straddles its path, so its visual box spans a full
+   quadrant: it swaps by 10 like the solid one, not by its path coordinates. */
 .logo-hover:hover .lm-outline {
-  transform: translate(-10.9px, 9.1px);
+  transform: translate(-10px, 10px);
 }
 
 /* FAQ answers ease in instead of snapping open. */
