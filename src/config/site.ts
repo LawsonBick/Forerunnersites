@@ -28,10 +28,15 @@ export const site = {
    * aim every one of them at a redirect. To move to the bare apex, flip
    * the primary domain in Vercel first, then change this line.
    *
-   * NEXT_PUBLIC_SITE_URL exists only as an escape hatch if the domain ever
-   * changes. Leave it unset in Vercel.
+   * NEXT_PUBLIC_SITE_URL is an escape hatch if the domain ever changes.
+   * The Vercel project currently defines it as an empty string, so this
+   * falls back on any blank value rather than only on an unset one: `??`
+   * would keep the "" and metadataBase would then throw on `new URL("")`.
    */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.forerunnersites.com").replace(/\/+$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.forerunnersites.com").replace(
+    /\/+$/,
+    ""
+  ),
 
   tagline: "Websites for Austin businesses",
   description:
