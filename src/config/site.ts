@@ -22,14 +22,16 @@ export const site = {
    * built from this, so preview deployments and the *.vercel.app alias can
    * never advertise themselves as the real site.
    *
+   * This MUST match the primary domain in Vercel (Settings → Domains).
+   * That project currently makes www primary and 308s the apex to it, so
+   * the canonical is the www host: pointing canonicals at the apex would
+   * aim every one of them at a redirect. To move to the bare apex, flip
+   * the primary domain in Vercel first, then change this line.
+   *
    * NEXT_PUBLIC_SITE_URL exists only as an escape hatch if the domain ever
    * changes. Leave it unset in Vercel.
-   *
-   * TODO: forerunnersites.com must be attached to the Vercel project
-   * (Settings → Domains) for these canonicals to resolve. Until then the
-   * site is only reachable at forerunner-sites.vercel.app.
    */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://forerunnersites.com").replace(/\/+$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.forerunnersites.com").replace(/\/+$/, ""),
 
   tagline: "Websites for Austin businesses",
   description:

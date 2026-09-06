@@ -1,7 +1,7 @@
 # SEO audit and strategy — Forerunner Sites
 
 Working document for search, local discovery, performance, accessibility,
-and lead generation on forerunnersites.com. Written 2026-09-06 against the
+and lead generation on www.forerunnersites.com. Written 2026-09-06 against the
 Next.js 16 App Router codebase in this directory. Update it when pages,
 positioning, or targets change.
 
@@ -59,7 +59,7 @@ belong on the same page; they are not separate targets.
 
 **Branded variants to own:** Forerunner Sites, Forerunner Sites Austin,
 forerunnersites, forerunner web design, fore runner sites. All resolve
-naturally to the homepage once the domain is live; no separate pages.
+naturally to the homepage; no separate pages.
 
 **Deliberately not created.** Per-neighborhood location pages (West
 Austin, Lakeway, Round Rock…) and per-industry service pages. The repository
@@ -101,8 +101,10 @@ Highest-impact problems found:
 8. **The contact page rendered per request** just to read `?package=`.
 9. **`ink-faint` (#8a8578) failed WCAG AA** at 3.5:1 and was the form
    placeholder colour.
-10. No web manifest, no apple-touch-icon, no lowercase-URL handling, and
-    no www/alias redirects.
+10. No web manifest, no apple-touch-icon, and no lowercase-URL handling.
+11. **`forerunner-sites.vercel.app` served the whole site unredirected**,
+    duplicating the real domain. (The apex is redirected to www by Vercel,
+    but this alias is not.)
 
 ---
 
@@ -110,7 +112,7 @@ Highest-impact problems found:
 
 ### Technical SEO
 - `src/config/site.ts`: canonical production origin is now
-  `https://forerunnersites.com` (override via `NEXT_PUBLIC_SITE_URL` only).
+  `https://www.forerunnersites.com` (override via `NEXT_PUBLIC_SITE_URL` only).
   Added `contentUpdated`, `googleSiteVerification` (from env), and a
   `googleBusinessProfileUrl` slot.
 - `src/lib/seo.ts`: `buildMetadata()` gives every page a complete, consistent
@@ -123,11 +125,18 @@ Highest-impact problems found:
   `/api/`; references the sitemap on the canonical origin.
 - `src/app/sitemap.ts`: canonical URLs only; `<lastmod>` from
   `site.contentUpdated` and each project's `updated` date.
-- `next.config.ts`: `www.` → apex redirect; `*.vercel.app` alias → canonical
-  redirect that activates itself only once Vercel reports the custom domain
-  as production (so deploying before DNS cannot break the site);
+- `next.config.ts`: `forerunner-sites.vercel.app` → canonical redirect,
+  active only once Vercel reports a custom domain as production;
   `poweredByHeader: false`; AVIF + WebP image formats; one-week cache
-  headers for `/work/*` media.
+  headers for `/work/*` media. **Deliberately contains no apex/www rule** —
+  see the note below.
+**Host canonicalisation has exactly one owner: Vercel.** The project's domain
+settings make `www.forerunnersites.com` primary and 308 the bare apex to it.
+An app-level redirect pointing the other way would send every request
+bouncing between the two hosts until the browser gave up, so `next.config.ts`
+has no apex/www rule at all and `site.url` is set to the www host to match.
+Change one and you must change the other, Vercel first.
+
 - `src/proxy.ts`: 308 redirect for any path containing uppercase letters.
   Trailing slashes are already normalised by Next.js. **Trade-off:** a
   proxy runs on every page request (assets excluded), which on Vercel adds
@@ -197,7 +206,7 @@ Nothing below has been invented; each renders automatically once filled in.
 
 | Item | Where | Why it matters |
 | --- | --- | --- |
-| **Attach forerunnersites.com to the Vercel project and point DNS** | Vercel → Settings → Domains | Every canonical URL assumes this domain. This is the single highest-priority action. |
+| **Decide apex vs www, if you dislike the current choice** | Vercel → Settings → Domains | The site is live on `www.forerunnersites.com`, with the bare apex 308ing to it, and `site.url` matches. Changing to the bare apex means flipping the primary domain in Vercel **first**, then updating `site.url`. Doing only one of the two breaks the site (see the host canonicalisation note in §4). |
 | Google Search Console verification token | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` env var (or verify via DNS) | Submit the sitemap, monitor indexing and queries. |
 | GA4 measurement ID | `site.googleAnalyticsId` | Enables analytics and the `generate_lead` key event. |
 | Phone number | `site.phone` | Renders in footer/contact and in schema `telephone`; adds a second conversion path. |

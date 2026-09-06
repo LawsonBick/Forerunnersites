@@ -12,8 +12,9 @@ npm run build      # production build
 npm run lint       # eslint
 ```
 
-Deploys to Vercel with no extra configuration (set the project's
-**Root Directory** to `sitepilot/` if the repo root is the parent folder).
+Deploys to Vercel with no extra configuration. This directory is itself the
+git repository root, so the Vercel project's **Root Directory** stays at the
+default (`.`) — do not set it to `sitepilot/`.
 
 ## Where to edit things
 
@@ -30,22 +31,29 @@ Deploys to Vercel with no extra configuration (set the project's
 
 ## Deployment
 
-Live at **https://forerunner-sites.vercel.app** (Vercel project
-`forerunner-sites`). Redeploy from this directory with:
+Live at **https://www.forerunnersites.com** (Vercel project
+`forerunner-sites`, connected to the GitHub repo `LawsonBick/Forerunnersites`
+with `main` as the production branch). Pushing to `main` deploys to
+production. To deploy from this directory instead:
 
 ```bash
 vercel deploy --prod --yes
 ```
 
-`site.url` is the canonical production origin, **https://forerunnersites.com**,
-and every canonical tag, `sitemap.xml`, `robots.txt`, Open Graph URL, and
-structured-data `@id` is built from it. That domain must be attached to the
-Vercel project (Project → Settings → Domains, then point DNS at Vercel) for
-those URLs to resolve. Once it is, the `forerunner-sites.vercel.app` alias
-redirects to it automatically: `next.config.ts` enables that redirect only
-when Vercel reports the custom domain as the production URL, so deploying
-before DNS is ready cannot lock you out. `NEXT_PUBLIC_SITE_URL` exists only
-as an override if the domain ever changes.
+`site.url` is the canonical production origin and every canonical tag,
+`sitemap.xml`, `robots.txt`, Open Graph URL, and structured-data `@id` is
+built from it. `NEXT_PUBLIC_SITE_URL` exists only as an override if the
+domain ever changes.
+
+**`site.url` must match the primary domain set in Vercel.** Vercel currently
+makes `www.forerunnersites.com` primary and 308s the bare apex to it, so the
+canonical is the www host. Host canonicalisation is owned by Vercel alone:
+`next.config.ts` deliberately contains no apex/www rule, because an app-level
+rule pointing the opposite way to Vercel's would bounce requests between the
+two hosts forever. If you ever prefer the bare apex, change the primary
+domain in Vercel **first**, then update `site.url`. The one host rule the app
+does own is `forerunner-sites.vercel.app` → canonical, since Vercel serves
+that alias without redirecting and it would otherwise duplicate the site.
 
 Preview deployments are served with `noindex` and a `Disallow: /` robots
 file, so branch previews never compete with the live site in search.
@@ -83,8 +91,6 @@ For local testing, put the key in `.env.local` (already gitignored).
 
 ## Before launch
 
-0. **Attach the domain.** Add forerunnersites.com in Vercel and point DNS at
-   it. Every canonical URL already assumes this domain.
 1. **`src/config/site.ts`** — fill in the remaining `TODO` values: phone,
    scheduling URL, social profiles, and the Google Business Profile URL.
    Add the Search Console verification token to

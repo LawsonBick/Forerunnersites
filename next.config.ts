@@ -1,21 +1,20 @@
 import type { NextConfig } from "next";
 import { site } from "./src/config/site";
 
-const canonical = new URL(site.url);
-
 /**
- * The project's Vercel alias. Once the custom domain is attached it is a
- * duplicate of the real site and must redirect, but until then it is the
- * only place the site exists, so the redirect is gated below.
+ * The project's Vercel alias. Unlike the apex, Vercel does not redirect it,
+ * so it serves the whole site as a duplicate of the real domain.
  */
 const VERCEL_ALIAS = "forerunner-sites.vercel.app";
 
 /**
- * Vercel exposes the project's production domain at build time: the
- * shortest custom domain if one is attached, otherwise the *.vercel.app
- * alias. So this is true exactly when forerunnersites.com is live.
+ * Vercel exposes the project's production domain at build time: a custom
+ * domain once one is attached, otherwise the *.vercel.app alias. Testing
+ * for "not a vercel.app host" rather than an exact string means this keeps
+ * working whether the primary domain is the apex or www.
  */
-const customDomainAttached = process.env.VERCEL_PROJECT_PRODUCTION_URL === canonical.host;
+const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const customDomainAttached = Boolean(productionUrl && !productionUrl.endsWith(".vercel.app"));
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -26,15 +25,18 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
-    const toCanonical = (host: string) => ({
-      source: "/:path*",
-      has: [{ type: "host" as const, value: host }],
-      destination: `${site.url}/:path*`,
-      permanent: true,
-    });
+    // Deliberately no apex/www rule here. Vercel's domain settings already
+    // redirect one to the other, and a rule in the app pointing the
+    // opposite way would bounce requests between the two forever. Host
+    // canonicalisation has exactly one owner, and it is Vercel.
+    if (!customDomainAttached) return [];
     return [
-      toCanonical(`www.${canonical.host}`),
-      ...(customDomainAttached ? [toCanonical(VERCEL_ALIAS)] : []),
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: VERCEL_ALIAS }],
+        destination: `${site.url}/:path*`,
+        permanent: true,
+      },
     ];
   },
 
