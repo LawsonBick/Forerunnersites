@@ -11,7 +11,7 @@ export const services: Service[] = [
     title: "Website strategy",
     summary: "Every build starts with how your customers decide, not with a template.",
     detail:
-      "Before anything gets designed, we work out what the site has to accomplish: who it's for, what they need to see to trust you, and which action each page should drive. The result is a plan you can read in one sitting — not a deck, a decision.",
+      "Before anything gets designed, we work out what the site has to accomplish: who it's for, what they need to see to trust you, and which action each page should drive. The result is a plan you can read in one sitting. Not a deck, a decision.",
   },
   {
     title: "UX & content structure",
@@ -23,7 +23,7 @@ export const services: Service[] = [
     title: "Custom web design",
     summary: "A visual identity that matches how good your work already is.",
     detail:
-      "No themes, no page builders. Typography, color, spacing, and imagery chosen for your business specifically — so the site looks like you at your best, and not like four of your competitors.",
+      "No themes, no page builders. Typography, color, spacing, and imagery chosen for your business specifically, so the site looks like you at your best, and not like four of your competitors.",
   },
   {
     title: "Responsive development",
@@ -35,7 +35,7 @@ export const services: Service[] = [
     title: "Local SEO foundations",
     summary: "Structure, metadata, and schema so Austin can find you.",
     detail:
-      "Titles and descriptions written for real searches, structured data that tells Google what you do and where, clean URLs, and a site architecture search engines can read. Foundations first — no gimmicks, no keyword stuffing.",
+      "Titles and descriptions written for real searches, structured data that tells Google what you do and where, clean URLs, and a site architecture search engines can read. Foundations first. No gimmicks, no keyword stuffing.",
   },
   {
     title: "Performance optimization",
@@ -47,7 +47,7 @@ export const services: Service[] = [
     title: "Analytics & conversion tracking",
     summary: "Know which pages earn calls, quotes, and bookings.",
     detail:
-      "Google Analytics and Search Console configured properly, with conversion events on the actions that matter — form submissions, calls, bookings — so you can see what the site is actually producing.",
+      "Google Analytics and Search Console configured properly, with conversion events on the actions that matter, like form submissions, calls, and bookings, so you can see what the site is actually producing.",
   },
   {
     title: "Website redesigns",
@@ -57,8 +57,8 @@ export const services: Service[] = [
   },
   {
     title: "Ongoing support",
-    summary: "Updates, fixes, and improvements after launch — from the person who built it.",
+    summary: "Updates, fixes, and improvements after launch, from the person who built it.",
     detail:
-      "Content updates, seasonal changes, new pages, and small improvements, handled directly by the person who wrote the code. Support plans are simple and separate from project pricing — no forced retainers.",
+      "Content updates, seasonal changes, new pages, and small improvements, handled directly by the person who wrote the code. Support plans are simple and separate from project pricing, with no forced retainers.",
   },
 ];

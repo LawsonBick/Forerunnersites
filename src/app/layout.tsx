@@ -23,15 +23,15 @@ const newsreader = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Web design & development studio in Austin, TX`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | Web design & development studio in Austin, TX`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
     type: "website",
     siteName: site.name,
     locale: "en_US",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${site.name} — ${site.tagline}` }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${site.name}: ${site.tagline}` }],
   },
   twitter: {
     card: "summary_large_image",

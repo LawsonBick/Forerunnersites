@@ -32,7 +32,7 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const processNote =
-  "I'm Lawson, and I handle all five steps myself. You have my email and my phone from the first conversation to launch day — no account manager relaying your notes to someone you have never met.";
+  "I'm Lawson, and I handle all five steps myself. You have my email and my phone from the first conversation to launch day. No account manager relays your notes to someone you have never met.";
 
 export const whyUs: { title: string; detail: string }[] = [
   {
@@ -60,7 +60,7 @@ export const whyUs: { title: string; detail: string }[] = [
   },
   {
     title: "Business-focused decisions",
-    detail: "Every page has a job — earn the call, the booking, or the order — and is judged against it.",
+    detail: "Every page has one job: earn the call, the booking, or the order. Each page is judged against it.",
   },
   {
     title: "No agency overhead",

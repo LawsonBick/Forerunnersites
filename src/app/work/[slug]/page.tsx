@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.name} — Case study`,
+    title: `${project.name} case study`,
     description: project.tagline,
     alternates: { canonical: `/work/${project.slug}` },
     openGraph: {
@@ -277,7 +277,7 @@ export default async function CaseStudyPage({ params }: Params) {
             Want a site that does this <em>for your business?</em>
           </>
         }
-        copy="Tell me what you do and who your customers are. You'll get an honest read on what a site like this would involve — scope, timeline, and price."
+        copy="Tell me what you do and who your customers are. You'll get an honest read on what a site like this would involve: scope, timeline, and price."
       />
     </>
   );

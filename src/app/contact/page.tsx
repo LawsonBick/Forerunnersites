@@ -44,7 +44,7 @@ export default async function ContactPage({
           entrance="rise"
           eyebrow="Start a project"
           title="Tell me where your website is letting you down."
-          lede="A few honest details are all this takes. If we're a fit, you'll have a clear proposal in hand within days — and if we're not, I'll point you somewhere useful."
+          lede="A few honest details are all this takes. If we're a fit, you'll have a clear proposal in hand within days, and if we're not, I'll point you somewhere useful."
         />
 
         <div className="mt-14 grid gap-14 lg:grid-cols-12 lg:gap-16">
@@ -80,7 +80,7 @@ export default async function ContactPage({
                   Prefer email?
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  Skip the form entirely — same inbox, same reply time.
+                  Skip the form entirely. Same inbox, same reply time.
                 </p>
                 <a
                   href={`mailto:${site.email}`}
@@ -107,7 +107,7 @@ export default async function ContactPage({
                     Rather just talk?
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                    Book a free 20-minute discovery call — no pitch, just a
+                    Book a free 20-minute discovery call. No pitch, just a
                     conversation about what your business needs.
                   </p>
                   <a
@@ -123,7 +123,7 @@ export default async function ContactPage({
 
               <p className="border-t border-line pt-5 text-[13px] leading-relaxed text-ink-soft">
                 Based in {site.location.city}, {site.location.regionFull}. Your
-                details are used only to respond to this inquiry — no lists, no
+                details are used only to respond to this inquiry. No lists, no
                 newsletters, no sharing.
               </p>
             </div>

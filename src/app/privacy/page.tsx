@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: `How ${site.name} handles the information visitors share — plainly stated.`,
+  description: `How ${site.name} handles the information visitors share, plainly stated.`,
   alternates: { canonical: "/privacy" },
 };
 
@@ -14,13 +14,13 @@ const sections: { title: string; body: string[] }[] = [
     title: "What this site collects",
     body: [
       `When you submit the project inquiry form, ${site.name} receives the details you chose to share: your name, email address, and anything you wrote about your business and project. Nothing on this site asks for payment details or sensitive personal information.`,
-      "If analytics are enabled, the site collects standard, aggregated usage data — pages visited, approximate location, device type — to understand how visitors use the site. This data does not identify you personally.",
+      "If analytics are enabled, the site collects standard, aggregated usage data such as pages visited, approximate location, and device type, to understand how visitors use the site. This data does not identify you personally.",
     ],
   },
   {
     title: "How that information is used",
     body: [
-      "Inquiry details are used for exactly one thing: responding to you about your project. They are not added to a mailing list, shared with third parties, or sold — ever.",
+      "Inquiry details are used for exactly one thing: responding to you about your project. They are not added to a mailing list, shared with third parties, or sold. Ever.",
       "Analytics data is used to improve the site itself, such as noticing which pages are unclear or where visitors get stuck.",
     ],
   },

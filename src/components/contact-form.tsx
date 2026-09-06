@@ -47,9 +47,9 @@ function Field({
 }
 
 const packageOptions = [
-  { value: "launch", label: "Launch — $500" },
-  { value: "growth", label: "Growth — $1,500" },
-  { value: "custom", label: "Custom — $3,000+" },
+  { value: "launch", label: "Launch ($500)" },
+  { value: "growth", label: "Growth ($1,500)" },
+  { value: "custom", label: "Custom ($3,000+)" },
   { value: "not-sure", label: "Not sure yet" },
 ];
 
@@ -119,7 +119,7 @@ export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
     if (!email) {
       nextErrors.email = "Please add your email so I can reply.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      nextErrors.email = "That email doesn't look complete — check for a typo.";
+      nextErrors.email = "That email doesn't look complete. Check for a typo.";
     }
     if (!details) {
       nextErrors.details = "A sentence or two about the project helps me give you a useful reply.";
@@ -166,7 +166,7 @@ export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
           <span aria-hidden="true" className="inline-block h-[7px] w-[7px] bg-accent" />
           Request received
         </p>
-        <h2 className="mt-4 font-display text-3xl">Thanks — your inquiry is in.</h2>
+        <h2 className="mt-4 font-display text-3xl">Thanks, your inquiry is in.</h2>
         <p className="mt-4 max-w-xl leading-relaxed text-ink-soft">
           I read every inquiry personally and reply within one business day, usually
           sooner. The reply will come from{" "}
@@ -342,7 +342,7 @@ export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
       <fieldset>
         <legend className={labelClasses}>
           Features you think you need{" "}
-          <span className="font-normal text-ink-soft">(optional — check any)</span>
+          <span className="font-normal text-ink-soft">(optional, check any)</span>
         </legend>
         <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
           {featureOptions.map((o) => (
@@ -406,7 +406,7 @@ export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
             <a href={`mailto:${site.email}`} className="font-medium underline underline-offset-2">
               {site.email}
             </a>{" "}
-            directly — same result, same reply time.
+            directly. Same result, same reply time.
           </p>
         </div>
       ) : null}

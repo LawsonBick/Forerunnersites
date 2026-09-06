@@ -81,7 +81,7 @@ export async function POST(req: Request) {
     // Fail loudly rather than silently dropping a real lead. The form's
     // error state tells the visitor to email directly instead.
     console.error(
-      `[contact] RESEND_API_KEY is not set — inquiry from ${email} was NOT delivered.`
+      `[contact] RESEND_API_KEY is not set. Inquiry from ${email} was NOT delivered.`
     );
     return NextResponse.json(
       { ok: false, error: "Email delivery is not configured yet." },
@@ -125,7 +125,7 @@ export async function POST(req: Request) {
         from: process.env.CONTACT_FROM || DEFAULT_FROM,
         to: [site.email],
         reply_to: email,
-        subject: `New project inquiry — ${name}`,
+        subject: `New project inquiry from ${name}`,
         text,
         html,
       }),

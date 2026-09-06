@@ -10,7 +10,7 @@ import { CtaBand } from "@/components/cta-band";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Website strategy, UX, custom design, responsive development, local SEO foundations, performance, analytics, redesigns, and ongoing support — from one Austin studio.",
+    "Website strategy, UX, custom design, responsive development, local SEO foundations, performance, analytics, redesigns, and ongoing support, all from one Austin studio.",
   alternates: { canonical: "/services" },
 };
 
@@ -87,7 +87,7 @@ export default function ServicesPage() {
             Not sure what your project needs? <em>That&apos;s a fine place to start.</em>
           </>
         }
-        copy="Describe your business and the problem — outdated site, no site, not enough inquiries — and I'll tell you what I would build, what I would skip, and what it would cost."
+        copy="Describe your business and the problem, whether that is an outdated site, no site, or not enough inquiries, and I'll tell you what I would build, what I would skip, and what it would cost."
       />
 
       <script

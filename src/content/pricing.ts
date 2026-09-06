@@ -21,7 +21,7 @@ export const packages: Package[] = [
     priceNote: "one-time",
     bestFor: "A new business that needs a credible online presence quickly.",
     summary:
-      "A focused one-page website that makes you easy to find, easy to trust, and easy to contact — live within about a week.",
+      "A focused one-page website that makes you easy to find, easy to trust, and easy to contact. Live within about a week.",
     includes: [
       "One-page website",
       "Professionally arranged semi-custom design system",
@@ -35,7 +35,7 @@ export const packages: Package[] = [
       "One revision round",
     ],
     expectation:
-      "Launch is a focused one-page build using your logo, copy, and imagery — not a fully custom brand or a multi-page site. It's the fastest honest way to get a credible presence live.",
+      "Launch is a focused one-page build using your logo, copy, and imagery, not a fully custom brand or a multi-page site. It's the fastest honest way to get a credible presence live.",
     timeline: "5–7 business days",
     revisions: "One revision round",
     cta: { label: "Choose Launch", href: "/contact?package=launch" },
@@ -78,7 +78,7 @@ export const packages: Package[] = [
     priceNote: "starting at",
     bestFor: "A business that needs a distinct brand experience, advanced functionality, or a larger content structure.",
     summary:
-      "A fully custom engagement scoped around your business — discovery, strategy, bespoke design, and whatever functionality the work requires.",
+      "A fully custom engagement scoped around your business: discovery, strategy, bespoke design, and whatever functionality the work requires.",
     includes: [
       "Discovery & strategy session",
       "Custom scope & sitemap",
@@ -99,7 +99,7 @@ export const packages: Package[] = [
       "Launch support & handoff",
     ],
     expectation:
-      "Custom projects are scoped individually, so the price reflects exactly what's being built — nothing more. You'll get a written proposal with scope, timeline, and cost before anything begins.",
+      "Custom projects are scoped individually, so the price reflects exactly what's being built, and nothing more. You'll get a written proposal with scope, timeline, and cost before anything begins.",
     timeline: "4–6+ weeks, depending on scope",
     revisions: "Three structured revision rounds",
     cta: { label: "Request a Custom Proposal", href: "/contact?package=custom" },
@@ -113,8 +113,8 @@ export const comparison: [string, string, string, string][] = [
   ["Copy", "Client-provided", "Refined from your material", "Guidance & messaging"],
   ["Forms & integrations", "Contact form", "Quote, booking, or reservation", "Advanced & third-party"],
   ["SEO", "Basic metadata", "Local SEO foundations", "Technical & on-page"],
-  ["Analytics", "—", "GA4 + Search Console", "Plus conversion events"],
-  ["CMS / editable content", "—", "—", "When scoped"],
+  ["Analytics", "Not included", "GA4 + Search Console", "Plus conversion events"],
+  ["CMS / editable content", "Not included", "Not included", "When scoped"],
   ["Revision rounds", "One", "Two", "Three"],
   ["Timeline", "5–7 business days", "2–3 weeks", "4–6+ weeks"],
   ["Price", "$500", "$1,500", "From $3,000"],
@@ -135,12 +135,12 @@ export const pricingFaqs: Faq[] = [
   {
     question: "What do I need to have ready before we start?",
     answer:
-      "Your logo, any photography you have, and source material for the copy — existing text, bullet points, even voice notes. For Growth and Custom projects, part of the process is turning rough material into finished pages, so it doesn't need to be polished. If you're missing something important, we'll figure out a plan for it before work begins.",
+      "Your logo, any photography you have, and source material for the copy, whether that is existing text, bullet points, or even voice notes. For Growth and Custom projects, part of the process is turning rough material into finished pages, so it doesn't need to be polished. If you're missing something important, we'll figure out a plan for it before work begins.",
   },
   {
     question: "What's not included in the package price?",
     answer:
-      "Domain registration, hosting, paid third-party software (like booking platforms or e-commerce fees), professional photography, and extensive copywriting from scratch. None of these are hidden costs — most are small, and you'll know exactly what applies to your project before anything is signed.",
+      "Domain registration, hosting, paid third-party software (like booking platforms or e-commerce fees), professional photography, and extensive copywriting from scratch. None of these are hidden costs. Most are small, and you'll know exactly what applies to your project before anything is signed.",
   },
   {
     question: "How do payments work?",
@@ -155,7 +155,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: "Can I update the website myself after launch?",
     answer:
-      "Custom projects can include a CMS so you can edit content directly. For Launch and Growth sites, updates are handled through a simple support arrangement — usually faster and safer than wrestling with an editing interface for occasional changes.",
+      "Custom projects can include a CMS so you can edit content directly. For Launch and Growth sites, updates are handled through a simple support arrangement, which is usually faster and safer than wrestling with an editing interface for occasional changes.",
   },
   {
     question: "What if I need more pages or features later?",

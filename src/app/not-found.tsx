@@ -21,7 +21,7 @@ export default function NotFound() {
           <p className="mt-5 text-lg leading-relaxed text-ink-soft">
             The page you&apos;re looking for moved, was renamed, or never
             existed. Broken links are exactly the kind of thing this studio
-            gets hired to fix, so — apologies for the irony. Here&apos;s a way
+            gets hired to fix, so apologies for the irony. Here&apos;s a way
             forward:
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">

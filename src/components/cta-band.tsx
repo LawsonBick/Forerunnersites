@@ -26,7 +26,7 @@ export function CtaBand({
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-paper-soft">
             {copy ??
-              "Tell me about your business and what the website needs to do. You'll get a straight answer on scope, timeline, and price — usually within one business day."}
+              "Tell me about your business and what the website needs to do. You'll get a straight answer on scope, timeline, and price, usually within one business day."}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
             <ButtonLink href={site.cta.primary.href}>{site.cta.primary.label}</ButtonLink>

@@ -75,13 +75,13 @@ export const projects: Project[] = [
     shortSolution:
       "A structured, mobile-first site that puts menus and reservations one tap away and lets the food carry the design.",
     overview:
-      "Manuel's has served interior Mexican cuisine in Austin since 1984 — scratch-made tortillas, regional recipes, and a dining room people book for birthdays and business dinners alike. The website is the restaurant's digital front door, and it has to do a lot: present multiple menus, take reservations, route online orders, book private events, and hold up to the standard the kitchen sets every night.",
+      "Manuel's has served interior Mexican cuisine in Austin since 1984: scratch-made tortillas, regional recipes, and a dining room people book for birthdays and business dinners alike. The website is the restaurant's digital front door, and it has to do a lot: present multiple menus, take reservations, route online orders, book private events, and hold up to the standard the kitchen sets every night.",
     challenge:
-      "Restaurant websites fail in a predictable way: too much content, no hierarchy. Manuel's had every kind of content a restaurant can have — dinner, brunch, and happy hour menus with dietary options, a private dining program, gift cards, and a rewards club — and all of it mattered to someone. The risk was a site where everything shouts and nothing gets found, especially on a phone, where most diners arrive minutes before deciding where to eat.",
+      "Restaurant websites fail in a predictable way: too much content, no hierarchy. Manuel's had every kind of content a restaurant can have: dinner, brunch, and happy hour menus with dietary options, a private dining program, gift cards, and a rewards club. All of it mattered to someone. The risk was a site where everything shouts and nothing gets found, especially on a phone, where most diners arrive minutes before deciding where to eat.",
     approach:
-      "The build started with an inventory of the jobs visitors show up with: see the menu, book a table, order to-go, plan an event, find hours and directions. Every page and navigation decision was made against that list. High-intent actions — reserve, order, menus — stay one tap away from anywhere on the site, while deeper content like private dining and the rewards program gets its own well-marked home instead of crowding the main path.",
+      "The build started with an inventory of the jobs visitors show up with: see the menu, book a table, order to-go, plan an event, find hours and directions. Every page and navigation decision was made against that list. High-intent actions like reserve, order, and menus stay one tap away from anywhere on the site, while deeper content like private dining and the rewards program gets its own well-marked home instead of crowding the main path.",
     designDirection:
-      "The design borrows its palette from the room itself: deep espresso tones, warm neutrals, and the red of the Manuel's neon sign. Typography stays quiet and confident so the photography — plated dishes, the patio under the oaks, cocktails at the bar — does the persuading. It reads as the restaurant, not as a template with the restaurant's logo on it.",
+      "The design borrows its palette from the room itself: deep espresso tones, warm neutrals, and the red of the Manuel's neon sign. Typography stays quiet and confident so the photography of plated dishes, the patio under the oaks, and cocktails at the bar does the persuading. It reads as the restaurant, not as a template with the restaurant's logo on it.",
     functionality: [
       {
         title: "Menu system with dietary filtering",
@@ -105,11 +105,11 @@ export const projects: Project[] = [
       {
         title: "Gift cards & rewards",
         detail:
-          "Supporting programs — gift cards, the frequent-diner club, catering partners — organized without cluttering the main navigation.",
+          "Supporting programs like gift cards, the frequent-diner club, and catering partners, organized without cluttering the main navigation.",
       },
     ],
     mobile:
-      "Most visitors are standing somewhere deciding where to eat. On mobile, the site leads with the essentials — menus, reservations, hours, directions — each reachable in one tap, with menus set at a size you can read without pinching.",
+      "Most visitors are standing somewhere deciding where to eat. On mobile, the site leads with the essentials: menus, reservations, hours, and directions, each reachable in one tap, with menus set at a size you can read without pinching.",
     outcome:
       "Manuel's now has an online presence that matches the standard of the dining room: a clear structure search engines can read, menus and reservations that work as well on a phone as on a laptop, and a design that lets forty years of cooking speak for itself.",
     services: [
@@ -154,22 +154,22 @@ export const projects: Project[] = [
     location: "West Austin, TX",
     tagline: "A premium mobile detailer whose website finally works as hard as he does.",
     shortChallenge:
-      "An owner-operated detailer trusted with Rolls-Royces and Bentleys — with a word-of-mouth reputation that had outrun his web presence.",
+      "An owner-operated detailer trusted with Rolls-Royces and Bentleys, with a word-of-mouth reputation that had outrun his web presence.",
     shortSolution:
       "A warm, confident site with transparent pricing and a booking path short enough to finish from a driveway.",
     overview:
-      "TRZ Shine & Detail is a mobile detailing service covering Westlake, Barton Creek, Lakeway, and the rest of West Austin. The owner, Gage, details every vehicle himself — including as the official detailer for Barton Creek Country Club — and his clients trust him with cars most people won't park near. The website's job was to extend that trust to people who haven't met him yet.",
+      "TRZ Shine & Detail is a mobile detailing service covering Westlake, Barton Creek, Lakeway, and the rest of West Austin. The owner, Gage, details every vehicle himself, including as the official detailer for Barton Creek Country Club, and his clients trust him with cars most people won't park near. The website's job was to extend that trust to people who haven't met him yet.",
     challenge:
-      "Detailing is a low-trust industry: pricing is opaque, quality varies wildly, and the person who answers the phone often isn't the person holding the buffer. TRZ's actual business was the opposite of all that — owner-operated, insured, meticulous — but the web presence didn't say so. The site needed to signal 'trusted with a Rolls-Royce' while staying approachable for someone booking a daily driver.",
+      "Detailing is a low-trust industry: pricing is opaque, quality varies wildly, and the person who answers the phone often isn't the person holding the buffer. TRZ's actual business was the opposite of all that: owner-operated, insured, and meticulous. The web presence just didn't say so. The site needed to signal 'trusted with a Rolls-Royce' while staying approachable for someone booking a daily driver.",
     approach:
-      "Lead with proof, then remove friction. The site puts real client vehicles and before-and-after results ahead of any claims, publishes straightforward pricing for every service tier, and keeps the path from 'first visit' to 'booked detail' as short as possible. Membership plans give regulars a reason to stay on a schedule, and an FAQ answers the trust questions — insurance, timing, process — before they're asked.",
+      "Lead with proof, then remove friction. The site puts real client vehicles and before-and-after results ahead of any claims, publishes straightforward pricing for every service tier, and keeps the path from 'first visit' to 'booked detail' as short as possible. Membership plans give regulars a reason to stay on a schedule, and an FAQ answers the trust questions about insurance, timing, and process before they're asked.",
     designDirection:
-      "The direction comes straight from the TRZ badge: warm cream, deep espresso brown, and burnt orange, with a script accent that keeps the brand human. It's deliberately warmer than the black-and-chrome look most detailers reach for — premium without being cold, and unmistakably TRZ.",
+      "The direction comes straight from the TRZ badge: warm cream, deep espresso brown, and burnt orange, with a script accent that keeps the brand human. It's deliberately warmer than the black-and-chrome look most detailers reach for: premium without being cold, and unmistakably TRZ.",
     functionality: [
       {
         title: "Transparent service pricing",
         detail:
-          "Exterior, interior, full detail, and ceramic coating — each with published price ranges and what's included, so there are no surprises.",
+          "Exterior, interior, full detail, and ceramic coating, each with published price ranges and what's included, so there are no surprises.",
       },
       {
         title: "Before-and-after gallery",
@@ -184,7 +184,7 @@ export const projects: Project[] = [
       {
         title: "Direct booking",
         detail:
-          "A short booking flow with text confirmation — no account creation, no phone tag.",
+          "A short booking flow with text confirmation. No account creation, no phone tag.",
       },
       {
         title: "Trust signals throughout",
@@ -226,7 +226,7 @@ export const projects: Project[] = [
     beforeAfter: {
       before: "/work/trz-before.jpg",
       after: "/work/trz-after.jpg",
-      caption: "Porsche 911 — exterior detail",
+      caption: "Porsche 911 exterior detail",
       beforeAlt: "A Porsche 911 before detailing, paint dull and marked",
       afterAlt: "The same Porsche 911 after detailing, paint corrected to a mirror finish",
     },
@@ -240,22 +240,22 @@ export const projects: Project[] = [
     location: "Lakeway & West Austin, TX",
     tagline: "Trust, pricing, and scheduling in one place for a Lake Travis cleaning company.",
     shortChallenge:
-      "In-home services live or die on trust. CleanZ needed proof, pricing, and scheduling in one place — without making homeowners pick up the phone.",
+      "In-home services live or die on trust. CleanZ needed proof, pricing, and scheduling in one place, without making homeowners pick up the phone.",
     shortSolution:
       "A conversion-focused site with itemized pricing, real reviews, and a fast quote flow built for phones.",
     overview:
-      "CleanZ ATX handles exterior cleaning — window washing, pressure and soft washing, gutters, roofs, and solar panels — for homeowners across Lakeway, Bee Cave, Steiner Ranch, and the Lake Travis area. It's a young, owner-led company competing on reliability and transparency in neighborhoods where word travels fast.",
+      "CleanZ ATX handles exterior cleaning, including window washing, pressure and soft washing, gutters, roofs, and solar panels, for homeowners across Lakeway, Bee Cave, Steiner Ranch, and the Lake Travis area. It's a young, owner-led company competing on reliability and transparency in neighborhoods where word travels fast.",
     challenge:
-      "Hiring someone to work on your home is a trust decision, and the traditional quote process — call, wait, play phone tag, get a number — loses customers at every step. CleanZ needed a site that could establish credibility fast, answer the price question honestly, and turn a visit into a scheduled job without a single phone call.",
+      "Hiring someone to work on your home is a trust decision, and the traditional quote process of calling, waiting, playing phone tag, and finally getting a number loses customers at every step. CleanZ needed a site that could establish credibility fast, answer the price question honestly, and turn a visit into a scheduled job without a single phone call.",
     approach:
       "Make the quote the centerpiece. The site is built around a fast quote flow that collects property details in about a minute, backed by itemized per-window and per-square-foot pricing published right on the site. Around that core: real Google reviews with neighborhood names, before-and-after results, insurance details, and service pages structured for the local searches homeowners actually type.",
     designDirection:
-      "CleanZ's brand is deep navy and clear cyan — clean, crisp, and professional, which is exactly the impression an exterior cleaning company needs to make. The design keeps that palette disciplined, uses real job photos from the neighborhoods CleanZ serves, and avoids the clip-art feel that plagues home-services websites.",
+      "CleanZ's brand is deep navy and clear cyan: clean, crisp, and professional, which is exactly the impression an exterior cleaning company needs to make. The design keeps that palette disciplined, uses real job photos from the neighborhoods CleanZ serves, and avoids the clip-art feel that plagues home-services websites.",
     functionality: [
       {
         title: "Fast quote flow",
         detail:
-          "A short, phone-friendly form that captures property details and service needs in about a minute — no phone tag required.",
+          "A short, phone-friendly form that captures property details and service needs in about a minute, with no phone tag required.",
       },
       {
         title: "Itemized public pricing",

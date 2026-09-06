@@ -43,7 +43,7 @@ export default function HomePage() {
             <p className="rise mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft [animation-delay:280ms] sm:text-xl">
               {site.name} designs and builds fast, strategic websites for
               Austin restaurants, service businesses, and growing brands ready
-              to move beyond average&mdash;because your next customer is
+              to move beyond average, because your next customer is
               already deciding online.
             </p>
             <div className="rise mt-8 flex flex-wrap items-center gap-4 [animation-delay:400ms]">

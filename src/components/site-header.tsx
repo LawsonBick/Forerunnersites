@@ -47,7 +47,7 @@ export function SiteHeader() {
       )}
     >
       <Container className="flex h-16 items-center justify-between lg:h-[72px]">
-        <Link href="/" className="logo-hover text-ink" aria-label={`${site.name} — home`}>
+        <Link href="/" className="logo-hover text-ink" aria-label={`${site.name} home`}>
           <Wordmark />
         </Link>
 

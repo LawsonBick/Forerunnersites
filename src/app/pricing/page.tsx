@@ -33,7 +33,7 @@ export default function PricingPage() {
             entrance="rise"
             eyebrow="Pricing"
             title="One-time project prices. No retainers, no surprises."
-            lede="Every package is a real, valuable build — the differences are scope and customization, and they're spelled out below. Domain registration, hosting, paid third-party software, professional photography, and extensive copywriting are separate unless included in a custom proposal."
+            lede="Every package is a real, valuable build. The differences are scope and customization, and they're spelled out below. Domain registration, hosting, paid third-party software, professional photography, and extensive copywriting are separate unless included in a custom proposal."
           />
           <div className="mt-12">
             <PricingCards detailed />
@@ -103,7 +103,7 @@ export default function PricingPage() {
               <h3 className="font-display text-2xl">Not sure which option fits?</h3>
               <p className="mt-2 leading-relaxed text-ink-soft">
                 Send a few sentences about your business and I&apos;ll recommend the
-                smallest package that actually solves your problem — even if
+                smallest package that actually solves your problem, even if
                 that&apos;s the $500 one.
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function PricingPage() {
               </h2>
               <p className="mt-4 leading-relaxed text-ink-soft">
                 Ongoing maintenance and optimization plans are available
-                separately after launch — ask about them in your inquiry.
+                separately after launch. Ask about them in your inquiry.
               </p>
             </div>
             <div className="lg:col-span-8">
