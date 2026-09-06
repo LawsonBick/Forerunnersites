@@ -24,7 +24,7 @@ export function AutoScrollPreview({
   alt,
   width,
   height,
-  seconds = 34,
+  seconds = 20,
 }: {
   src: string;
   alt: string;
