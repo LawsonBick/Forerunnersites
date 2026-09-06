@@ -17,19 +17,40 @@ export const site = {
   legalName: "Forerunner Sites",
 
   /**
-   * Canonical base URL used by metadata, canonical tags, Open Graph,
-   * sitemap.xml, robots.txt, and structured data.
+   * The one canonical production origin. Every canonical tag, sitemap
+   * entry, robots.txt line, Open Graph URL, and structured-data @id is
+   * built from this, so preview deployments and the *.vercel.app alias can
+   * never advertise themselves as the real site.
    *
-   * Defaults to the live Vercel URL because that is where the site is
-   * actually served today. Once forerunnersites.com is pointed at this
-   * Vercel project, set NEXT_PUBLIC_SITE_URL="https://forerunnersites.com"
-   * in the Vercel project env vars and every canonical follows it.
+   * NEXT_PUBLIC_SITE_URL exists only as an escape hatch if the domain ever
+   * changes. Leave it unset in Vercel.
+   *
+   * TODO: forerunnersites.com must be attached to the Vercel project
+   * (Settings → Domains) for these canonicals to resolve. Until then the
+   * site is only reachable at forerunner-sites.vercel.app.
    */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://forerunner-sites.vercel.app",
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://forerunnersites.com").replace(/\/+$/, ""),
 
   tagline: "Websites for Austin businesses",
   description:
     "Forerunner Sites is an Austin, Texas web studio that designs and builds fast, strategic websites for local businesses, service companies, restaurants, and growing brands.",
+
+  /**
+   * Date the site's content last materially changed, in ISO form. Feeds
+   * sitemap <lastmod> for the static pages, so bump it when copy changes.
+   * (Project pages carry their own `updated` date in content/projects.ts.)
+   */
+  contentUpdated: "2026-09-06",
+
+  /**
+   * TODO: paste the Google Search Console HTML-tag verification token
+   * (just the content value) into NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in
+   * Vercel, or verify via DNS instead and leave this unset.
+   */
+  googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? null,
+
+  /** TODO: add the public Google Business Profile URL once the listing is live. */
+  googleBusinessProfileUrl: null as string | null,
 
   location: {
     city: "Austin",

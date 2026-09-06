@@ -20,6 +20,10 @@ export interface Project {
   industry: string;
   location: string;
   tagline: string;
+  /** ISO date the case study was last materially edited; feeds sitemap lastmod and schema. */
+  updated: string;
+  /** Search snippet. Title is appended with " | Forerunner Sites", so keep it under ~40 chars. */
+  seo: { title: string; description: string };
   /** One-line challenge/solution pair used on the homepage and work index. */
   shortChallenge: string;
   shortSolution: string;
@@ -70,6 +74,12 @@ export const projects: Project[] = [
     industry: "Restaurant & hospitality",
     location: "Austin, TX",
     tagline: "An Austin dining institution, organized for the way people actually use a restaurant website.",
+    updated: "2026-09-06",
+    seo: {
+      title: "Manuel's: Austin Restaurant Website",
+      description:
+        "How Forerunner Sites rebuilt the Manuel's restaurant website around menus, Resy reservations, and to-go ordering, mobile-first, for an Austin institution.",
+    },
     shortChallenge:
       "Four decades of interior Mexican cooking and a content-heavy site to match: menus, brunch, happy hour, private dining, reservations, and online ordering.",
     shortSolution:
@@ -153,6 +163,12 @@ export const projects: Project[] = [
     industry: "Automotive detailing",
     location: "West Austin, TX",
     tagline: "A premium mobile detailer whose website finally works as hard as he does.",
+    updated: "2026-09-06",
+    seo: {
+      title: "TRZ Shine & Detail: Car Detailing Website",
+      description:
+        "A West Austin mobile detailing website by Forerunner Sites: transparent pricing, a before-and-after gallery, and a booking flow built for phones.",
+    },
     shortChallenge:
       "An owner-operated detailer trusted with Rolls-Royces and Bentleys, with a word-of-mouth reputation that had outrun his web presence.",
     shortSolution:
@@ -239,6 +255,12 @@ export const projects: Project[] = [
     industry: "Exterior cleaning services",
     location: "Lakeway & West Austin, TX",
     tagline: "Trust, pricing, and scheduling in one place for a Lake Travis cleaning company.",
+    updated: "2026-09-06",
+    seo: {
+      title: "CleanZ ATX: Exterior Cleaning Website",
+      description:
+        "An exterior cleaning website for CleanZ ATX in Lakeway, by Forerunner Sites: itemized pricing, real reviews, and a one-minute quote flow built for phones.",
+    },
     shortChallenge:
       "In-home services live or die on trust. CleanZ needed proof, pricing, and scheduling in one place, without making homeowners pick up the phone.",
     shortSolution:
