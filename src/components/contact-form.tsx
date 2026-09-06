@@ -1,9 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import { Button } from "@/components/button";
 import { site } from "@/config/site";
 import { cx } from "@/lib/cx";
+
+declare global {
+  interface Window {
+    /** Present only when GA4 is configured in site.ts. */
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 const inputClasses =
   "block w-full rounded-[var(--radius-xs)] border bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-faint transition-colors focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20";
@@ -96,14 +103,25 @@ const heardOptions = [
 type Status = "idle" | "submitting" | "success" | "error";
 type Errors = Partial<Record<"name" | "email" | "details", string>>;
 
-export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
+/**
+ * Pricing links arrive as /contact?package=growth. The query string is
+ * read as an external value so the page stays static and the server
+ * render (no window) simply sees no preselection.
+ */
+const noop = () => () => {};
+function readPackageParam() {
+  const wanted = new URLSearchParams(window.location.search).get("package");
+  return wanted && packageOptions.some((o) => o.value === wanted) ? wanted : null;
+}
+
+export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Errors>({});
+  const [chosenPkg, setChosenPkg] = useState<string | null>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
 
-  const initialPackage = packageOptions.some((o) => o.value === defaultPackage)
-    ? defaultPackage
-    : "not-sure";
+  const urlPkg = useSyncExternalStore(noop, readPackageParam, () => null);
+  const pkg = chosenPkg ?? urlPkg ?? "not-sure";
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -150,6 +168,12 @@ export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
+      // A delivered inquiry is the site's one conversion. Recorded as GA4's
+      // standard lead event so it can be marked a key event without code.
+      window.gtag?.("event", "generate_lead", {
+        method: "contact_form",
+        package: String(data.get("package") ?? ""),
+      });
     } catch {
       setStatus("error");
     }
@@ -290,7 +314,8 @@ export function ContactForm({ defaultPackage }: { defaultPackage?: string }) {
           <select
             id="package"
             name="package"
-            defaultValue={initialPackage}
+            value={pkg}
+            onChange={(e) => setChosenPkg(e.target.value)}
             className={cx(inputClasses, "border-ink/20")}
           >
             {packageOptions.map((o) => (

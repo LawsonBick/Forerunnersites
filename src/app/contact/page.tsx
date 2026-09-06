@@ -3,13 +3,18 @@ import { site } from "@/config/site";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { ContactForm } from "@/components/contact-form";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Start a Project",
+const page = {
+  title: "Start a Website Project",
   description:
-    "Tell Forerunner Sites about your business and what your website needs to do. Every inquiry gets a personal reply within one business day.",
-  alternates: { canonical: "/contact" },
+    "Tell Forerunner Sites about your business and what the website needs to do. Every inquiry gets a personal reply within one business day and a written proposal.",
+  path: "/contact",
 };
+
+export const metadata: Metadata = buildMetadata(page);
 
 const nextSteps = [
   {
@@ -28,14 +33,12 @@ const nextSteps = [
   },
 ];
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const params = await searchParams;
-  const pkg = typeof params.package === "string" ? params.package : undefined;
-
+/**
+ * Fully static. The `?package=` preselect that pricing links pass along is
+ * read by the form on the client, so this page never has to render per
+ * request just to look at a query string.
+ */
+export default function ContactPage() {
   return (
     <section>
       <Container className="pt-12 pb-20 sm:pt-16 lg:pt-20 lg:pb-28">
@@ -49,7 +52,7 @@ export default async function ContactPage({
 
         <div className="mt-14 grid gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7" data-reveal>
-            <ContactForm defaultPackage={pkg} />
+            <ContactForm />
           </div>
 
           <aside className="lg:col-span-5" data-reveal>
@@ -130,6 +133,8 @@ export default async function ContactPage({
           </aside>
         </div>
       </Container>
+
+      <JsonLd data={webPageSchema({ ...page, type: "ContactPage" })} />
     </section>
   );
 }
