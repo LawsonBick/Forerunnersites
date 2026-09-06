@@ -34,10 +34,10 @@ function sweepAt(t: number) {
 
 /**
  * The before/after reveal from the client's own site, rebuilt so it is
- * live rather than a screenshot. It demonstrates itself once when it
- * scrolls into view, then hands control to the visitor — drag, or use
- * the arrow keys. Under prefers-reduced-motion it simply sits at the
- * midpoint and waits to be moved.
+ * live rather than a screenshot. It sweeps itself back and forth while it
+ * is on screen, and hands control to the visitor on the first drag or
+ * arrow key. Under prefers-reduced-motion it simply sits at the midpoint
+ * and waits to be moved.
  */
 export function BeforeAfter({
   before,
@@ -61,7 +61,9 @@ export function BeforeAfter({
     () => false
   );
 
-  // Demonstrate once, on first scroll into view.
+  // Keep demonstrating while on screen, so the control is never sitting
+  // still when someone arrives at it. Runs only while visible, and stops
+  // for good the moment the visitor takes over.
   useEffect(() => {
     if (reduced || touched) return;
     const el = wrapRef.current;
@@ -70,19 +72,23 @@ export function BeforeAfter({
     let raf = 0;
     let startedAt = 0;
     const DURATION = 3400;
+    const REST = 900; // a beat at the midpoint between passes
 
     const tick = (now: number) => {
       if (!startedAt) startedAt = now;
-      const t = Math.min(1, (now - startedAt) / DURATION);
-      setPos(sweepAt(t));
-      if (t < 1) raf = requestAnimationFrame(tick);
+      const elapsed = (now - startedAt) % (DURATION + REST);
+      setPos(sweepAt(Math.min(1, elapsed / DURATION)));
+      raf = requestAnimationFrame(tick);
     };
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !raf) {
+          startedAt = 0;
           raf = requestAnimationFrame(tick);
-          io.disconnect();
+        } else if (!entry.isIntersecting && raf) {
+          cancelAnimationFrame(raf);
+          raf = 0;
         }
       },
       { threshold: 0.4 }
@@ -130,13 +136,17 @@ export function BeforeAfter({
         onPointerMove={onPointerMove}
         className="relative aspect-[16/10] w-full cursor-ew-resize touch-none overflow-hidden bg-ink select-none"
       >
+        {/* The photos are portrait, so the 16/10 frame keeps only a middle
+            band. The two offsets differ because each shot sits the car at a
+            different height; they are tuned to land it in the same place on
+            screen, so it does not jump as the handle crosses. */}
         <Image
           src={after}
           alt={afterAlt}
           fill
           sizes="(min-width: 1024px) 56vw, 100vw"
           className="object-cover"
-          style={{ objectPosition: "center 23%" }}
+          style={{ objectPosition: "center 69%" }}
         />
         <div
           className="absolute inset-0 overflow-hidden"
@@ -148,7 +158,7 @@ export function BeforeAfter({
             fill
             sizes="(min-width: 1024px) 56vw, 100vw"
             className="object-cover"
-            style={{ objectPosition: "center 3%" }}
+            style={{ objectPosition: "center 59%" }}
           />
         </div>
 
