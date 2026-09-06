@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, projects, relatedProjects } from "@/content/projects";
+import { services } from "@/content/services";
 import { Container } from "@/components/container";
 import { ButtonLink, ArrowLink } from "@/components/button";
 import { Eyebrow } from "@/components/section-heading";
 import { BrowserFrame, PhoneFrame } from "@/components/frames";
 import { Tag } from "@/components/tag";
 import { CtaBand } from "@/components/cta-band";
+import { Breadcrumbs, type Crumb } from "@/components/breadcrumbs";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema, caseStudySchema, webPageSchema } from "@/lib/schema";
+import { slugify } from "@/lib/slug";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -21,15 +27,22 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  return {
-    title: `${project.name} case study`,
-    description: project.tagline,
-    alternates: { canonical: `/work/${project.slug}` },
-    openGraph: {
-      images: [{ url: project.images.desktop.src, alt: project.images.desktop.alt }],
+  return buildMetadata({
+    title: project.seo.title,
+    description: project.seo.description,
+    path: `/work/${project.slug}`,
+    ogType: "article",
+    image: {
+      url: project.images.desktop.src,
+      width: 2600,
+      height: 1625,
+      alt: project.images.desktop.alt,
     },
-  };
+  });
 }
+
+/** Service tags deep-link to the matching entry on the services page when one exists. */
+const serviceAnchors = new Set(services.map((s) => slugify(s.title)));
 
 /** A labeled prose block: label rail on the left, content on the right. */
 function CaseSection({
@@ -55,6 +68,12 @@ export default async function CaseStudyPage({ params }: Params) {
   if (!project) notFound();
 
   const related = relatedProjects(project.slug);
+  const path = `/work/${project.slug}`;
+  const crumbs: Crumb[] = [
+    { label: "Home", href: "/" },
+    { label: "Work", href: "/work" },
+    { label: project.name },
+  ];
 
   return (
     <>
@@ -62,18 +81,7 @@ export default async function CaseStudyPage({ params }: Params) {
         {/* Header */}
         <Container className="pt-12 sm:pt-16 lg:pt-20">
           <div className="rise">
-            <Link
-              href="/work"
-              className="group inline-flex items-center gap-1.5 text-sm font-medium text-ink-soft transition-colors hover:text-ink"
-            >
-              <span
-                aria-hidden="true"
-                className="transition-transform duration-200 group-hover:-translate-x-0.5"
-              >
-                ←
-              </span>
-              All work
-            </Link>
+            <Breadcrumbs items={crumbs} />
             <div className="mt-8 flex flex-wrap items-baseline justify-between gap-4">
               <h1 className="font-display text-[clamp(2.4rem,1.4rem+3.8vw,4.25rem)] leading-[1.05] tracking-[-0.015em]">
                 {project.name}
@@ -120,7 +128,7 @@ export default async function CaseStudyPage({ params }: Params) {
         </Container>
 
         {/* Hero screenshot on the client's brand panel */}
-        <Container className="mt-12" >
+        <Container className="mt-12">
           <div
             className="rise rounded-[6px] p-4 [animation-delay:150ms] sm:p-10 lg:p-14"
             style={{ backgroundColor: project.palette.panel }}
@@ -207,11 +215,23 @@ export default async function CaseStudyPage({ params }: Params) {
                 Services delivered
               </h3>
               <ul className="mt-3 flex max-w-2xl flex-wrap gap-2">
-                {project.services.map((s) => (
-                  <li key={s}>
-                    <Tag>{s}</Tag>
-                  </li>
-                ))}
+                {project.services.map((s) => {
+                  const anchor = slugify(s);
+                  return (
+                    <li key={s}>
+                      {serviceAnchors.has(anchor) ? (
+                        <Link
+                          href={`/services#${anchor}`}
+                          className="inline-block transition-colors hover:text-ink"
+                        >
+                          <Tag className="hover:border-ink/40">{s}</Tag>
+                        </Link>
+                      ) : (
+                        <Tag>{s}</Tag>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div className="mt-9">
@@ -278,6 +298,22 @@ export default async function CaseStudyPage({ params }: Params) {
           </>
         }
         copy="Tell me what you do and who your customers are. You'll get an honest read on what a site like this would involve: scope, timeline, and price."
+      />
+
+      <JsonLd
+        data={[
+          webPageSchema({
+            path,
+            title: project.seo.title,
+            description: project.seo.description,
+            type: "ItemPage",
+            image: project.images.desktop.src,
+            dateModified: project.updated,
+            breadcrumbs: crumbs,
+          }),
+          breadcrumbSchema(crumbs, path),
+          caseStudySchema(project),
+        ]}
       />
     </>
   );

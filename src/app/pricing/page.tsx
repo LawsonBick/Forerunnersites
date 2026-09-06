@@ -1,27 +1,23 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 import { comparison, packages, pricingFaqs, pricingNotes } from "@/content/pricing";
 import { Container } from "@/components/container";
 import { SectionHeading, Eyebrow } from "@/components/section-heading";
-import { ButtonLink } from "@/components/button";
+import { ButtonLink, ArrowLink } from "@/components/button";
 import { PricingCards } from "@/components/pricing-cards";
 import { FaqList } from "@/components/faq-list";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { faqSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Pricing",
+const page = {
+  title: "Website Design Pricing & Packages",
   description:
-    "Three clear one-time packages: Launch at $500, Growth at $1,500, and Custom from $3,000. Honest scope, transparent comparisons, and a pricing FAQ.",
-  alternates: { canonical: "/pricing" },
+    "One-time website design pricing for Austin businesses: Launch at $500, Growth at $1,500, Custom from $3,000. Compare packages and read the pricing FAQ.",
+  path: "/pricing",
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: pricingFaqs.map((f) => ({
-    "@type": "Question",
-    name: f.question,
-    acceptedAnswer: { "@type": "Answer", text: f.answer },
-  })),
-};
+export const metadata: Metadata = buildMetadata(page);
 
 export default function PricingPage() {
   return (
@@ -32,9 +28,10 @@ export default function PricingPage() {
             as="h1"
             entrance="rise"
             eyebrow="Pricing"
-            title="One-time project prices. No retainers, no surprises."
+            title="One-time website pricing. No retainers, no surprises."
             lede="Every package is a real, valuable build. The differences are scope and customization, and they're spelled out below. Domain registration, hosting, paid third-party software, professional photography, and extensive copywriting are separate unless included in a custom proposal."
           />
+          <h2 className="sr-only">The three packages</h2>
           <div className="mt-12">
             <PricingCards detailed />
           </div>
@@ -125,6 +122,10 @@ export default function PricingPage() {
                 Ongoing maintenance and optimization plans are available
                 separately after launch. Ask about them in your inquiry.
               </p>
+              <div className="mt-6 flex flex-col gap-3">
+                <ArrowLink href="/services">What each service involves</ArrowLink>
+                <ArrowLink href="/work">See finished projects at each scale</ArrowLink>
+              </div>
             </div>
             <div className="lg:col-span-8">
               <FaqList faqs={pricingFaqs} />
@@ -133,9 +134,11 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      <JsonLd
+        data={[
+          webPageSchema({ ...page, dateModified: site.contentUpdated }),
+          faqSchema(pricingFaqs, page.path),
+        ]}
       />
     </>
   );

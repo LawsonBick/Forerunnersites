@@ -15,10 +15,13 @@ export function ProjectShowcase({
   project,
   flip = false,
   priority = false,
+  headingLevel: Heading = "h3",
 }: {
   project: Project;
   flip?: boolean;
   priority?: boolean;
+  /** h2 where the showcase sits directly under the page h1 (the work index). */
+  headingLevel?: "h2" | "h3";
 }) {
   return (
     <article
@@ -70,9 +73,9 @@ export function ProjectShowcase({
 
       <div className={cx("lg:col-span-5", flip && "lg:order-1")}>
         <Tag>{project.industry}</Tag>
-        <h3 className="mt-4 font-display text-3xl leading-tight tracking-[-0.01em] sm:text-4xl">
+        <Heading className="mt-4 font-display text-3xl leading-tight tracking-[-0.01em] sm:text-4xl">
           {project.name}
-        </h3>
+        </Heading>
         <dl className="mt-6 space-y-5">
           <div>
             <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft">

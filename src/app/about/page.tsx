@@ -6,13 +6,18 @@ import { site } from "@/config/site";
 import { Container } from "@/components/container";
 import { SectionHeading, Eyebrow } from "@/components/section-heading";
 import { CtaBand } from "@/components/cta-band";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "About",
+const page = {
+  title: "About: An Owner-Led Austin Web Studio",
   description:
-    "Forerunner Sites is an owner-led web studio in Austin, Texas. You work directly with the person designing and building your website, from the first conversation through launch.",
-  alternates: { canonical: "/about" },
+    "Forerunner Sites is a one-person web design studio in Austin, Texas, run by Lawson Bickerstaff. You work directly with the person who builds your site.",
+  path: "/about",
 };
+
+export const metadata: Metadata = buildMetadata(page);
 
 const beliefs = [
   {
@@ -117,7 +122,7 @@ export default function AboutPage() {
                 as="h1"
                 entrance="rise"
                 eyebrow="About"
-                title="An owner-led studio, built for owner-led businesses."
+                title="An owner-led Austin web studio, built for owner-led businesses."
                 lede={`${site.name} is a one-person web studio in Austin, Texas. When you work with the studio, you work with me, from the first conversation through launch, and for every decision in between.`}
               />
               <div className="mt-10 max-w-2xl space-y-5 leading-relaxed text-ink-soft" data-reveal>
@@ -236,6 +241,10 @@ export default function AboutPage() {
             Let&apos;s make the website <em>match the work.</em>
           </>
         }
+      />
+
+      <JsonLd
+        data={webPageSchema({ ...page, type: "AboutPage", dateModified: site.contentUpdated })}
       />
     </>
   );

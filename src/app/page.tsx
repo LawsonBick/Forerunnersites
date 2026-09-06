@@ -14,10 +14,18 @@ import { BrowserFrame } from "@/components/frames";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { PricingCards } from "@/components/pricing-cards";
 import { CtaBand } from "@/components/cta-band";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
+const page = {
+  title: `Web Design & Development in Austin, TX | ${site.name}`,
+  description:
+    "Forerunner Sites designs and builds fast, hand-coded websites for Austin restaurants, service businesses, and growing brands. One-time pricing from $500.",
+  path: "/",
 };
+
+export const metadata: Metadata = buildMetadata({ ...page, absoluteTitle: true });
 
 const hasPortrait = fs.existsSync(
   path.join(process.cwd(), "public", "about", "portrait.jpg")
@@ -160,8 +168,11 @@ export default function HomePage() {
       </section>
 
       {/* ── Featured work ────────────────────────────────────────── */}
-      <section className="border-t border-line" aria-label="Selected work">
+      <section className="border-t border-line" aria-labelledby="work-heading">
         <Container className="py-20 lg:py-28">
+          <h2 id="work-heading" className="sr-only">
+            Selected website projects for Austin businesses
+          </h2>
           <div className="space-y-20 lg:space-y-28">
             {projects.map((project, i) => (
               <ProjectShowcase key={project.slug} project={project} flip={i % 2 === 1} />
@@ -272,6 +283,8 @@ export default function HomePage() {
           </>
         }
       />
+
+      <JsonLd data={webPageSchema({ ...page, dateModified: site.contentUpdated })} />
     </>
   );
 }

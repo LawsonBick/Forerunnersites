@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 import { projects } from "@/content/projects";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { CtaBand } from "@/components/cta-band";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Work",
+const page = {
+  title: "Web Design Portfolio: Austin Businesses",
   description:
-    "Selected website projects for Austin businesses: Manuel's, TRZ Shine & Detail, and CleanZ ATX. Strategy, design, and development by Forerunner Sites.",
-  alternates: { canonical: "/work" },
+    "Website case studies for Austin businesses: Manuel's, TRZ Shine & Detail, and CleanZ ATX. How strategy, design, and development turn visitors into customers.",
+  path: "/work",
 };
+
+export const metadata: Metadata = buildMetadata(page);
 
 export default function WorkPage() {
   return (
@@ -21,7 +27,7 @@ export default function WorkPage() {
             as="h1"
             entrance="rise"
             eyebrow="Work"
-            title="Real businesses, measured against a simple standard: does the site win the customer?"
+            title="Websites for Austin businesses, judged by one standard: does the site win the customer?"
             lede="Every project here belongs to an Austin-area business owner with a reputation on the line. I judge the work the way they do, by whether visitors turn into diners, bookings, and quote requests."
           />
           <div className="mt-16 space-y-20 lg:mt-24 lg:space-y-28">
@@ -31,6 +37,7 @@ export default function WorkPage() {
                 project={project}
                 flip={i % 2 === 1}
                 priority={i === 0}
+                headingLevel="h2"
               />
             ))}
           </div>
@@ -43,6 +50,10 @@ export default function WorkPage() {
             The next case study could be <em>your business.</em>
           </>
         }
+      />
+
+      <JsonLd
+        data={webPageSchema({ ...page, type: "CollectionPage", dateModified: site.contentUpdated })}
       />
     </>
   );

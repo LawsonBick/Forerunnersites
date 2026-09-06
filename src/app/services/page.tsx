@@ -6,24 +6,19 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { ArrowLink } from "@/components/button";
 import { CtaBand } from "@/components/cta-band";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { serviceSchemas, webPageSchema } from "@/lib/schema";
+import { slugify } from "@/lib/slug";
 
-export const metadata: Metadata = {
-  title: "Services",
+const page = {
+  title: "Web Design & SEO Services in Austin",
   description:
-    "Website strategy, UX, custom design, responsive development, local SEO foundations, performance, analytics, redesigns, and ongoing support, all from one Austin studio.",
-  alternates: { canonical: "/services" },
+    "Website strategy, custom design, responsive development, local SEO, performance, analytics, and redesigns for Austin businesses, from one accountable studio.",
+  path: "/services",
 };
 
-const servicesSchema = {
-  "@context": "https://schema.org",
-  "@graph": services.map((s) => ({
-    "@type": "Service",
-    name: s.title,
-    description: s.detail,
-    provider: { "@type": "ProfessionalService", name: site.name, url: site.url },
-    areaServed: `${site.location.city}, ${site.location.regionFull}`,
-  })),
-};
+export const metadata: Metadata = buildMetadata(page);
 
 export default function ServicesPage() {
   return (
@@ -34,7 +29,7 @@ export default function ServicesPage() {
             as="h1"
             entrance="rise"
             eyebrow="Services"
-            title="One studio, accountable for the whole website."
+            title="Web design services for Austin businesses, from one accountable studio."
             lede="Most agencies split your project across a strategist, a designer, a developer, and an account manager. I do all four jobs myself, so nothing gets lost in a hand-off and every decision traces back to what your business actually needs."
           />
 
@@ -42,7 +37,8 @@ export default function ServicesPage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="grid gap-3 border-t border-line py-8 lg:grid-cols-12 lg:gap-6 lg:py-10"
+                id={slugify(service.title)}
+                className="grid scroll-mt-28 gap-3 border-t border-line py-8 lg:grid-cols-12 lg:gap-6 lg:py-10"
                 data-reveal
               >
                 <h2 className="font-display text-2xl lg:col-span-4">{service.title}</h2>
@@ -51,6 +47,13 @@ export default function ServicesPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-6" data-reveal>
+            <ArrowLink href="/work">See these services in finished websites</ArrowLink>
+            <ArrowLink href="/pricing" className="text-ink-soft hover:text-ink">
+              Compare the three packages
+            </ArrowLink>
           </div>
         </Container>
       </section>
@@ -90,9 +93,11 @@ export default function ServicesPage() {
         copy="Describe your business and the problem, whether that is an outdated site, no site, or not enough inquiries, and I'll tell you what I would build, what I would skip, and what it would cost."
       />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      <JsonLd
+        data={[
+          webPageSchema({ ...page, dateModified: site.contentUpdated }),
+          ...serviceSchemas(),
+        ]}
       />
     </>
   );

@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import { site } from "@/config/site";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
+import { JsonLd } from "@/components/json-ld";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Privacy",
-  description: `How ${site.name} handles the information visitors share, plainly stated.`,
-  alternates: { canonical: "/privacy" },
+const page = {
+  title: "Privacy Policy",
+  description:
+    "How Forerunner Sites handles information shared through its contact form and analytics, in plain language: what is collected, why, and how to have it removed.",
+  path: "/privacy",
 };
+
+export const metadata: Metadata = buildMetadata(page);
 
 const sections: { title: string; body: string[] }[] = [
   {
@@ -82,6 +88,8 @@ export default function PrivacyPage() {
           </div>
         </div>
       </Container>
+
+      <JsonLd data={webPageSchema({ ...page, dateModified: "2026-08-01" })} />
     </section>
   );
 }
