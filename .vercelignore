@@ -9,3 +9,6 @@ build
 *.pem
 npm-debug.log*
 .env*.local
+
+# Internal planning and QA documentation is not part of the website
+docs

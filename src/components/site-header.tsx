@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
 import { Container } from "@/components/container";
 import { ButtonLink } from "@/components/button";
@@ -11,6 +11,7 @@ import { cx } from "@/lib/cx";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,11 +31,29 @@ export function SiteHeader() {
   }, [open]);
   useEffect(() => {
     if (!open) return;
+    const background = [...document.querySelectorAll<HTMLElement>("main, footer")];
+    const priorInert = background.map((element) => element.inert);
+    background.forEach((element) => { element.inert = true; });
+    const close = () => { setOpen(false); menuButton.current?.focus(); };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") close();
+      if (e.key !== "Tab") return;
+      const items = [...document.querySelectorAll<HTMLElement>("header a[href], header button")]
+        .filter((element) => element.getClientRects().length > 0);
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
     };
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onResize = () => { if (desktop.matches) setOpen(false); };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    desktop.addEventListener("change", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      desktop.removeEventListener("change", onResize);
+      background.forEach((element, i) => { element.inert = priorInert[i]; });
+    };
   }, [open]);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
@@ -51,7 +70,7 @@ export function SiteHeader() {
           <Wordmark />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
           {site.nav.map((item) => (
             <Link
               key={item.href}
@@ -71,8 +90,9 @@ export function SiteHeader() {
         </nav>
 
         <button
+          ref={menuButton}
           type="button"
-          className="relative flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
+          className="relative flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
@@ -99,7 +119,7 @@ export function SiteHeader() {
       <div
         id="mobile-menu"
         className={cx(
-          "fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-paper md:hidden",
+          "fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-paper lg:hidden",
           open ? "block" : "hidden"
         )}
         onClick={(e) => {

@@ -1,3 +1,4 @@
+import { ConversionTracking } from "@/components/conversion-tracking";
 import type { Metadata, Viewport } from "next";
 import { Archivo, Newsreader } from "next/font/google";
 import Script from "next/script";
@@ -102,6 +103,7 @@ export default function RootLayout({
         </main>
         <SiteFooter />
         <RevealManager />
+        {site.googleAnalyticsId ? <ConversionTracking /> : null}
         {/* The studio, its founder, and the site: one graph, referenced by
             @id from every page's own WebPage node. */}
         <JsonLd data={[organizationSchema(), founderSchema(), webSiteSchema()]} />

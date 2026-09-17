@@ -3,7 +3,7 @@ import { site } from "@/config/site";
 
 /**
  * Receives project inquiries from the contact form and emails them to
- * `site.email` via Resend's REST API.
+ * `CONTACT_TO` (the existing Gmail inbox by default) via Resend's REST API.
  *
  * Configuration (see README "Contact form delivery"):
  *   RESEND_API_KEY   required — from resend.com/api-keys
@@ -40,9 +40,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Invalid request body." }, { status: 400 });
   }
 
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    return NextResponse.json({ ok: false, error: "Invalid request body." }, { status: 400 });
+  }
+
   // Honeypot: bots fill hidden fields. Accept and discard so they see success.
   if (typeof data.company_site === "string" && data.company_site.length > 0) {
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, delivered: false });
   }
 
   const name = clean(data.name, 200);
@@ -123,7 +127,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         from: process.env.CONTACT_FROM || DEFAULT_FROM,
-        to: [site.email],
+        to: [process.env.CONTACT_TO?.trim() || "lawbick@gmail.com"],
         reply_to: email,
         subject: `New project inquiry from ${name}`,
         text,
@@ -147,5 +151,5 @@ export async function POST(req: Request) {
     );
   }
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, delivered: true });
 }

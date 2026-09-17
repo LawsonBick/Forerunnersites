@@ -1,3 +1,4 @@
+import { ServiceDirectory } from "@/components/service-directory";
 import type { Metadata } from "next";
 import { site } from "@/config/site";
 import { services } from "@/content/services";
@@ -83,6 +84,8 @@ export default function ServicesPage() {
           </div>
         </Container>
       </section>
+
+      <ServiceDirectory />
 
       <CtaBand
         title={

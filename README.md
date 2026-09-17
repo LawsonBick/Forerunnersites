@@ -63,15 +63,15 @@ the launch checklist of items that still need your input.
 
 ## Contact form delivery
 
-`src/app/api/contact/route.ts` emails inquiries to `site.email` through
+`src/app/api/contact/route.ts` emails inquiries to the server-only `CONTACT_TO` destination (existing Gmail by default) through
 Resend. Until `RESEND_API_KEY` is set the endpoint returns 503 and the form
 shows its error state, which points the visitor at the email address — it
 never silently swallows a lead.
 
 To turn delivery on:
 
-1. Create a free account at [resend.com](https://resend.com) **using the same
-   address as `site.email`**, so the sandbox sender can reach your inbox.
+1. Create a free account at [resend.com](https://resend.com) **using the existing delivery
+   inbox**, so the sandbox sender can reach your inbox.
 2. Create an API key at resend.com/api-keys.
 3. Add it to Vercel and redeploy:
 
@@ -112,3 +112,7 @@ them, re-capture at these viewport sizes and overwrite the files:
 - `{slug}-mobile.jpg` — 430×932 viewport @2x (mobile user agent)
 
 Slugs: `manuels`, `trz`, `cleanz`. Alt text lives in `src/content/projects.ts`.
+
+## Organic acquisition upgrade
+
+See `docs/SEO-UPGRADE-AUDIT.md` for the current audit and `docs/CONTENT-AND-LAUNCH.md` for content editing, analytics events, mailbox setup and release checks. Public email and form recipient are intentionally separate. Run `node scripts/check-contact.mjs` for mocked delivery tests and `python3 scripts/check-seo.py http://127.0.0.1:3100` against a production build for the page crawl.

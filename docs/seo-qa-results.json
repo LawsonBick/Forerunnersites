@@ -1,0 +1,33 @@
+{
+  "pages": 22,
+  "unique_titles": 22,
+  "unique_descriptions": 22,
+  "local_media_sources": 14,
+  "internal_links_and_anchors": "pass",
+  "metadata_and_schema": "pass",
+  "robots_and_404": "pass",
+  "routes": [
+    "/",
+    "/resources",
+    "/services",
+    "/pricing",
+    "/work",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/austin-web-design",
+    "/small-business-web-design-austin",
+    "/restaurant-web-design",
+    "/service-business-web-design",
+    "/website-redesign-austin",
+    "/resources/how-much-does-a-website-cost-in-austin",
+    "/resources/how-much-should-small-business-spend-on-website",
+    "/resources/signs-restaurant-website-costing-customers",
+    "/resources/local-seo-service-businesses-austin",
+    "/resources/website-redesign-checklist",
+    "/resources/restaurant-website-design-guide",
+    "/work/manuels",
+    "/work/trz-detail",
+    "/work/cleanz-atx"
+  ]
+}

@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/config/site";
+import { landingPages } from "@/content/landing-pages";
+import { resources } from "@/content/resources";
 import { projects } from "@/content/projects";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -12,6 +14,7 @@ import { absoluteUrl } from "@/lib/seo";
  */
 const staticRoutes: { path: string; priority: number; changeFrequency: "monthly" | "yearly" }[] = [
   { path: "/", priority: 1, changeFrequency: "monthly" },
+  { path: "/resources", priority: 0.7, changeFrequency: "monthly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
   { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
   { path: "/work", priority: 0.8, changeFrequency: "monthly" },
@@ -30,6 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFrequency,
       priority: route.priority,
     })),
+    ...landingPages.map((p) => ({ url: absoluteUrl(`/${p.slug}`), lastModified: new Date(p.updated), changeFrequency: "monthly" as const, priority: 0.8 })),
+    ...resources.map((r) => ({ url: absoluteUrl(`/resources/${r.slug}`), lastModified: new Date(r.modified), changeFrequency: "monthly" as const, priority: 0.6 })),
     ...projects.map((p) => ({
       url: absoluteUrl(`/work/${p.slug}`),
       lastModified: new Date(p.updated),

@@ -1,3 +1,5 @@
+> Historical audit (September 6). The September 16 implementation adds commercial pages and resources; see [the current audit](docs/SEO-UPGRADE-AUDIT.md) and [launch handoff](docs/CONTENT-AND-LAUNCH.md).
+
 # SEO audit and strategy — Forerunner Sites
 
 Working document for search, local discovery, performance, accessibility,

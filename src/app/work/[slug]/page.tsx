@@ -1,3 +1,8 @@
+import { projectContext } from "@/content/project-context";
+import { projectResults } from "@/content/social-proof";
+import { ProjectResults } from "@/components/social-proof";
+import { getLandingPage } from "@/content/landing-pages";
+import { getResource } from "@/content/resources";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -67,6 +72,7 @@ export default async function CaseStudyPage({ params }: Params) {
   const project = getProject(slug);
   if (!project) notFound();
 
+  const context = projectContext[project.slug];
   const related = relatedProjects(project.slug);
   const path = `/work/${project.slug}`;
   const crumbs: Crumb[] = [
@@ -208,6 +214,12 @@ export default async function CaseStudyPage({ params }: Params) {
             </div>
           </CaseSection>
 
+          {context ? <>
+            <CaseSection label="Development approach"><p className="max-w-3xl leading-relaxed text-ink-soft">{context.development}</p></CaseSection>
+            <CaseSection label="Search considerations"><p className="max-w-3xl leading-relaxed text-ink-soft">{context.search}</p></CaseSection>
+            <CaseSection label="Conversion decisions"><p className="max-w-3xl leading-relaxed text-ink-soft">{context.conversion}</p><div className="mt-6 flex flex-col items-start gap-4"><ArrowLink href={`/${context.service}`}>{getLandingPage(context.service)?.title}</ArrowLink><ArrowLink href={`/resources/${context.resource}`}>{getResource(context.resource)?.title}</ArrowLink></div></CaseSection>
+          </> : null}
+          <ProjectResults results={projectResults[project.slug] ?? []} />
           <CaseSection label="The outcome">
             <p className="max-w-3xl text-lg leading-relaxed">{project.outcome}</p>
             <div className="mt-8">

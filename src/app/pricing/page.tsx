@@ -123,6 +123,7 @@ export default function PricingPage() {
                 separately after launch. Ask about them in your inquiry.
               </p>
               <div className="mt-6 flex flex-col gap-3">
+                <ArrowLink href="/resources/how-much-does-a-website-cost-in-austin">How to compare website quotes</ArrowLink>
                 <ArrowLink href="/services">What each service involves</ArrowLink>
                 <ArrowLink href="/work">See finished projects at each scale</ArrowLink>
               </div>

@@ -1,3 +1,4 @@
+import { landingPages } from "@/content/landing-pages";
 import Link from "next/link";
 import { site } from "@/config/site";
 import { Container } from "@/components/container";
@@ -82,6 +83,8 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
+
+        <nav aria-label="Website services" className="mt-10 border-t border-line-dark pt-6"><ul className="flex flex-wrap gap-x-6 gap-y-3">{landingPages.map((page) => <li key={page.slug}><Link href={`/${page.slug}`} className="text-sm text-paper-soft underline-offset-4 hover:text-paper hover:underline">{page.title}</Link></li>)}</ul></nav>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-line-dark pt-6 text-[13px] text-paper-soft sm:flex-row sm:items-center sm:justify-between">
           <p>

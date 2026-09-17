@@ -7,7 +7,7 @@
  * the tag, which React's plain string interpolation would not prevent.
  */
 export function JsonLd({ data }: { data: object | object[] }) {
-  const payload = Array.isArray(data) ? { "@context": "https://schema.org", "@graph": data } : data;
+  const payload = Array.isArray(data) ? { "@context": "https://schema.org", "@graph": data } : { "@context": "https://schema.org", ...data };
   return (
     <script
       type="application/ld+json"

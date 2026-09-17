@@ -20,20 +20,20 @@ const sections: { title: string; body: string[] }[] = [
     title: "What this site collects",
     body: [
       `When you submit the project inquiry form, ${site.name} receives the details you chose to share: your name, email address, and anything you wrote about your business and project. Nothing on this site asks for payment details or sensitive personal information.`,
-      "If analytics are enabled, the site collects standard, aggregated usage data such as pages visited, approximate location, and device type, to understand how visitors use the site. This data does not identify you personally.",
+      "If analytics are enabled, the site collects standard, aggregated usage data such as pages visited, approximate location, and device type, to understand how visitors use the site. Analytics uses pseudonymous identifiers; inquiry field contents are not sent as analytics events.",
     ],
   },
   {
     title: "How that information is used",
     body: [
-      "Inquiry details are used for exactly one thing: responding to you about your project. They are not added to a mailing list, shared with third parties, or sold. Ever.",
+      "Inquiry details are used for exactly one thing: responding to you about your project. They are processed through Resend for email delivery and the business email provider for correspondence. They are not sold or added to a mailing list.",
       "Analytics data is used to improve the site itself, such as noticing which pages are unclear or where visitors get stuck.",
     ],
   },
   {
     title: "Cookies",
     body: [
-      "This site does not use advertising or tracking cookies. If analytics are enabled, the analytics provider may set a small number of cookies to distinguish visits; these can be blocked in your browser without affecting the site.",
+      "This site uses Google Analytics to understand visits and interactions such as inquiry and contact-link activity. Google Analytics may set cookies to distinguish visits. You can block these in your browser without affecting the inquiry form. The site does not run advertising campaigns through these events.",
     ],
   },
   {
@@ -84,12 +84,12 @@ export default function PrivacyPage() {
               </a>
               .
             </p>
-            <p className="mt-6 text-[13px] text-ink-soft">Last updated August 2026.</p>
+            <p className="mt-6 text-[13px] text-ink-soft">Last updated September 16, 2026.</p>
           </div>
         </div>
       </Container>
 
-      <JsonLd data={webPageSchema({ ...page, dateModified: "2026-08-01" })} />
+      <JsonLd data={webPageSchema({ ...page, dateModified: "2026-09-16" })} />
     </section>
   );
 }

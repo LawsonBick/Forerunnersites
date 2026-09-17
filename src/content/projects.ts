@@ -74,7 +74,7 @@ export const projects: Project[] = [
     industry: "Restaurant & hospitality",
     location: "Austin, TX",
     tagline: "An Austin dining institution, organized for the way people actually use a restaurant website.",
-    updated: "2026-09-06",
+    updated: "2026-09-16",
     seo: {
       title: "Manuel's: Austin Restaurant Website",
       description:
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     industry: "Automotive detailing",
     location: "West Austin, TX",
     tagline: "A premium mobile detailer whose website finally works as hard as he does.",
-    updated: "2026-09-06",
+    updated: "2026-09-16",
     seo: {
       title: "TRZ Shine & Detail: Car Detailing Website",
       description:
@@ -255,7 +255,7 @@ export const projects: Project[] = [
     industry: "Exterior cleaning services",
     location: "Lakeway & West Austin, TX",
     tagline: "Trust, pricing, and scheduling in one place for a Lake Travis cleaning company.",
-    updated: "2026-09-06",
+    updated: "2026-09-16",
     seo: {
       title: "CleanZ ATX: Exterior Cleaning Website",
       description:

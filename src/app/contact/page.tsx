@@ -83,7 +83,7 @@ export default function ContactPage() {
                   Prefer email?
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  Skip the form entirely. Same inbox, same reply time.
+                  Skip the form entirely. Your email comes directly to the studio.
                 </p>
                 <a
                   href={`mailto:${site.email}`}
@@ -127,7 +127,7 @@ export default function ContactPage() {
               <p className="border-t border-line pt-5 text-[13px] leading-relaxed text-ink-soft">
                 Based in {site.location.city}, {site.location.regionFull}. Your
                 details are used only to respond to this inquiry. No lists, no
-                newsletters, no sharing.
+                newsletters, or sale of your information.
               </p>
             </div>
           </aside>

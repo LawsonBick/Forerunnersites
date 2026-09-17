@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
         // Portfolio media is fetched straight from /public (the video and
         // its poster bypass the image optimizer). Files are replaced in
         // place when refreshed, so cache for a week rather than forever.
-        source: "/work/:file*",
+        source: "/work/:file([^/]+\\.(?:jpg|jpeg|png|webp|avif|mp4))",
         headers: [
           { key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" },
         ],

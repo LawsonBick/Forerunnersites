@@ -167,10 +167,12 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Request failed");
+      const result = await res.json();
+      if (!result.ok) throw new Error("Request failed");
       setStatus("success");
       // A delivered inquiry is the site's one conversion. Recorded as GA4's
       // standard lead event so it can be marked a key event without code.
-      window.gtag?.("event", "generate_lead", {
+      if (result.delivered) window.gtag?.("event", "generate_lead", {
         method: "contact_form",
         package: String(data.get("package") ?? ""),
       });

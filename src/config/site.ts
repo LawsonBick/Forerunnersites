@@ -47,7 +47,7 @@ export const site = {
    * sitemap <lastmod> for the static pages, so bump it when copy changes.
    * (Project pages carry their own `updated` date in content/projects.ts.)
    */
-  contentUpdated: "2026-09-06",
+  contentUpdated: "2026-09-16",
 
   /**
    * TODO: paste the Google Search Console HTML-tag verification token
@@ -67,7 +67,8 @@ export const site = {
   },
 
   /** Public inbox — used for mailto links, the contact page, and the privacy page. */
-  email: "lawbick@gmail.com",
+  // Set to hello@forerunnersites.com after the mailbox is provisioned and tested.
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || "lawbick@gmail.com",
 
   /** TODO: add your phone number as a string (e.g. "(512) 555-0100") or leave null to hide it. */
   phone: null as string | null,
@@ -102,6 +103,7 @@ export const site = {
     { label: "Work", href: "/work" },
     { label: "Services", href: "/services" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Resources", href: "/resources" },
     { label: "About", href: "/about" },
   ],
 
@@ -114,6 +116,7 @@ export const site = {
     { label: "Work", href: "/work" },
     { label: "Services", href: "/services" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Resources", href: "/resources" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

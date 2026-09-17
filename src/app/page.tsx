@@ -1,3 +1,4 @@
+import { ServiceDirectory } from "@/components/service-directory";
 import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
@@ -276,6 +277,8 @@ export default function HomePage() {
       </section>
 
       {/* ── Final CTA ────────────────────────────────────────────── */}
+      <ServiceDirectory />
+
       <CtaBand
         title={
           <>
