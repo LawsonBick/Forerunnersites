@@ -26,7 +26,7 @@ export default function HomePage() {
       <section className="home-hero relative overflow-hidden">
         <Container className="grid items-center gap-12 pt-6 pb-14 lg:grid-cols-[1.04fr_1fr] lg:gap-12 lg:pt-12 lg:pb-20">
           <div>
-            <Eyebrow className="rise">
+            <Eyebrow className="rise [&>span]:bg-brand">
               Independent web studio / Austin, TX
             </Eyebrow>
             <h1 className="hero-title mt-5 uppercase">
