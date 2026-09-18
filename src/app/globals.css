@@ -321,11 +321,11 @@ details[open] > p {
   text-transform: uppercase;
 }
 .hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
   font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  line-height: 1.15;
+  letter-spacing: 0.18em;
 }
 /* Archivo is the signature face shared with the "Made by Forerunner" label. */
 h1,
