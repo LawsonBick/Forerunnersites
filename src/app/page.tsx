@@ -45,7 +45,7 @@ export default function HomePage() {
               <br />
               <span className="mask-line">
                 <em
-                  className="mask-line-inner text-accent"
+                  className="mask-line-inner text-black"
                   style={{ animationDelay: "140ms" }}
                 >
                   impression.
