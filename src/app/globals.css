@@ -5,7 +5,7 @@
 /* ------------------------------------------------------------------ */
 
 @theme {
-  /* Palette: white, neutral charcoal, and a crisp sky-blue accent. */
+  /* Palette: white, charcoal, deep blue actions, and sky-blue supporting surfaces. */
   --color-paper: #ffffff;
   --color-ink: #202124;
   --color-ink-soft: #54575c;
@@ -15,6 +15,8 @@
   --color-line: #dceaf1;
   --color-wash: #edf7ff;
   --color-accent-soft: #dcefff;
+  --color-brand: #2546dc;
+  --color-brand-hover: #1934b4;
   --color-accent: #79bdf2;
   --color-accent-deep: #60a9e8;
 

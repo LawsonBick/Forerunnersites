@@ -29,7 +29,7 @@ export function CtaBand({
               "Tell me what your business needs. I’ll reply personally with a clear next step."}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <ButtonLink href={site.cta.primary.href} variant="inverse">{site.cta.primary.label}</ButtonLink>
+            <ButtonLink href={site.cta.primary.href} variant="primary">{site.cta.primary.label}</ButtonLink>
             <a
               href={`mailto:${site.email}`}
               className="text-sm text-ink underline underline-offset-4 transition-colors hover:text-ink"

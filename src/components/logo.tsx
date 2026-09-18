@@ -28,7 +28,7 @@ export function LogoMark({
       overflow="visible"
       className={cx("logo-mark shrink-0", className)}
     >
-      <rect x="0" y="10" width="10" height="10" className="lm-solid fill-accent" />
+      <rect x="0" y="10" width="10" height="10" className="lm-solid fill-brand" />
       <rect
         x="10.9"
         y="0.9"
@@ -36,7 +36,7 @@ export function LogoMark({
         height="8.2"
         fill="none"
         strokeWidth="1.8"
-        className={cx("lm-outline", inverse ? "stroke-paper" : "stroke-accent")}
+        className={cx("lm-outline", inverse ? "stroke-paper" : "stroke-brand")}
       />
     </svg>
   );
