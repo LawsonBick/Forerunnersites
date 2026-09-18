@@ -31,7 +31,7 @@ export default function HomePage() {
             </Eyebrow>
             <h1 className="hero-title mt-5 uppercase">
               <span className="mask-line">
-                <span className="mask-line-inner">A better</span>
+                <span className="mask-line-inner">Websites</span>
               </span>
               <br />
               <span className="mask-line">
@@ -39,7 +39,7 @@ export default function HomePage() {
                   className="mask-line-inner"
                   style={{ animationDelay: "70ms" }}
                 >
-                  first
+                  that mean
                 </span>
               </span>
               <br />
@@ -48,7 +48,7 @@ export default function HomePage() {
                   className="mask-line-inner text-black"
                   style={{ animationDelay: "140ms" }}
                 >
-                  impression.
+                  business.
                 </em>
               </span>
             </h1>
