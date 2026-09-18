@@ -68,25 +68,12 @@ export default function HomePage() {
           </div>
           <div className="hero-visual rise">
             <ProjectReel
-              projects={projects.map(
-                ({
-                  slug,
-                  name,
-                  images,
-                  displayUrl,
-                  video,
-                  beforeAfter,
-                  autoScroll,
-                }) => ({
-                  slug,
-                  name,
-                  images,
-                  displayUrl,
-                  video,
-                  beforeAfter,
-                  autoScroll,
-                }),
-              )}
+              projects={projects.map(({ slug, name, images, displayUrl }) => ({
+                slug,
+                name,
+                images,
+                displayUrl,
+              }))}
             />
             <div className="hero-visual-note">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />

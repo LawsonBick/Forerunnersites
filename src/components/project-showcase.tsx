@@ -14,11 +14,10 @@ export function ProjectShowcase({
   priority?: boolean;
   headingLevel?: "h2" | "h3";
 }) {
-  const feature = project.video
-    ? "A taste of the experience"
-    : project.beforeAfter
-      ? "Drag to see the difference"
-      : "Explore the full experience";
+  const feature =
+    project.slug === "manuels"
+      ? "A look through the homepage"
+      : "An automatic tour of the website";
   return (
     <article className="project-story grid items-center gap-8 lg:grid-cols-12 lg:gap-14">
       <div

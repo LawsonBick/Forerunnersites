@@ -1,10 +1,16 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-
 import { ProjectMedia, type ProjectPreview } from "@/components/project-media";
 
-/** Visitor-controlled reel: no timed slide changes or focus movement. */
+const previewLabels: Record<string, { short: string; detail: string }> = {
+  manuels: { short: "Manuel’s", detail: "Restaurant & hospitality" },
+  "trz-detail": { short: "TRZ", detail: "Automotive detailing" },
+  "cleanz-atx": { short: "CleanZ", detail: "Exterior cleaning" },
+  "apex-window-cleaning": { short: "Apex", detail: "Window & exterior care" },
+};
+
+/** An open project gallery; visitors control the selection and media. */
 export function ProjectReel({
   projects,
 }: {
@@ -14,10 +20,11 @@ export function ProjectReel({
   const project = projects[selected];
   return (
     <div className="hero-reel">
-      <div className="flex justify-between gap-4 pb-5 text-[10px] font-medium uppercase tracking-[0.18em] text-white/80">
+      <div className="flex items-center justify-between gap-4 pb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-ink-soft">
         <span>Made by Forerunner</span>
-        <span>
-          0{selected + 1} / 0{projects.length}
+        <span className="tabular-nums">
+          0{selected + 1} <span className="mx-1 text-ink/30">/</span> 0
+          {projects.length}
         </span>
       </div>
       <div
@@ -28,19 +35,28 @@ export function ProjectReel({
       >
         <ProjectMedia project={project} priority={selected === 0} />
       </div>
-      <div className="mt-6 flex items-center justify-between gap-3">
-        <Link
-          className="text-base font-medium text-white underline-offset-4 hover:underline"
-          href={`/work/${project.slug}`}
-        >
-          {project.name} <span aria-hidden="true">↗</span>
-        </Link>
-        <span className="hidden text-[11px] text-white/75 sm:block">
-          Interactive preview
+      <Link
+        href={`/work/${project.slug}`}
+        className="reel-project-link group mt-5 flex items-center justify-between gap-5 py-1"
+      >
+        <div>
+          <span className="block text-xl font-medium tracking-[-0.025em] text-ink sm:text-2xl">
+            {project.name}
+          </span>
+          <span className="mt-1.5 block text-[11px] text-ink-soft">
+            {previewLabels[project.slug]?.detail ??
+              "Website design & development"}
+          </span>
+        </div>
+        <span className="flex items-center gap-3 text-xs text-ink-soft">
+          <span className="hidden sm:block">View project</span>
+          <span aria-hidden="true" className="reel-project-arrow">
+            ↗
+          </span>
         </span>
-      </div>
+      </Link>
       <div
-        className="mt-6 grid grid-cols-4 border-t border-white/25 pt-1"
+        className="reel-selectors mt-6 grid grid-cols-4"
         aria-label="Choose a project preview"
       >
         {projects.map((p, i) => (
@@ -50,18 +66,15 @@ export function ProjectReel({
             aria-pressed={selected === i}
             aria-controls="featured-preview"
             onClick={() => setSelected(i)}
-            className={`reel-selector min-h-12 py-3 text-left text-xs transition-colors ${selected === i ? "text-white" : "text-white/85 hover:text-white"}`}
+            className="reel-selector flex min-h-14 items-center gap-2 py-3 text-left text-xs font-medium sm:gap-3"
           >
-            <span aria-hidden="true" className="mr-2 text-[9px] opacity-80">
+            <span
+              aria-hidden="true"
+              className="text-[9px] tabular-nums opacity-55"
+            >
               0{i + 1}
             </span>
-            {p.slug === "manuels"
-              ? "Manuel’s"
-              : p.slug === "trz-detail"
-                ? "TRZ"
-                : p.slug === "cleanz-atx"
-                  ? "CleanZ"
-                  : "Apex"}
+            {previewLabels[p.slug]?.short ?? p.name}
           </button>
         ))}
       </div>

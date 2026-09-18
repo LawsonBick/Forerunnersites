@@ -48,23 +48,6 @@ export interface Project {
     tall: { src: string; alt: string };
     mobile: { src: string; alt: string };
   };
-  /**
-   * Optional silent clip shown instead of the desktop screenshot in the
-   * large showcase. Sourced from the client's own site.
-   */
-  video?: { src: string; poster: string; label: string };
-  /** Live rebuild of the client's before/after reveal. */
-  beforeAfter?: {
-    before: string;
-    after: string;
-    caption: string;
-    beforeAlt: string;
-    afterAlt: string;
-    beforePosition?: string;
-    afterPosition?: string;
-  };
-  /** Full-page capture that scrolls itself inside the browser frame. */
-  autoScroll?: { src: string; alt: string; width: number; height: number };
 }
 
 export const projects: Project[] = [
@@ -75,7 +58,8 @@ export const projects: Project[] = [
     displayUrl: "manuels.com",
     industry: "Restaurant & hospitality",
     location: "Austin, TX",
-    tagline: "An Austin dining institution, organized for the way people actually use a restaurant website.",
+    tagline:
+      "An Austin dining institution, organized for the way people actually use a restaurant website.",
     updated: "2026-09-16",
     seo: {
       title: "Manuel's: Austin Restaurant Website",
@@ -151,11 +135,6 @@ export const projects: Project[] = [
         alt: "Manuel's website on a phone, with menus and reservations one tap away",
       },
     },
-    video: {
-      src: "/work/manuels-fajitas.mp4",
-      poster: "/work/manuels-fajitas-poster.jpg",
-      label: "Sizzling fajitas being served, from the Manuel's homepage",
-    },
   },
   {
     slug: "trz-detail",
@@ -164,7 +143,8 @@ export const projects: Project[] = [
     displayUrl: "trzdetail.com",
     industry: "Automotive detailing",
     location: "West Austin, TX",
-    tagline: "A premium mobile detailer whose website finally works as hard as he does.",
+    tagline:
+      "A premium mobile detailer whose website finally works as hard as he does.",
     updated: "2026-09-16",
     seo: {
       title: "TRZ Shine & Detail: Car Detailing Website",
@@ -241,13 +221,6 @@ export const projects: Project[] = [
         alt: "TRZ Shine & Detail website on a phone with a persistent booking button",
       },
     },
-    beforeAfter: {
-      before: "/work/trz-before.jpg",
-      after: "/work/trz-after.jpg",
-      caption: "Porsche 911 exterior detail",
-      beforeAlt: "A Porsche 911 before detailing, paint dull and marked",
-      afterAlt: "The same Porsche 911 after detailing, paint corrected to a mirror finish",
-    },
   },
   {
     slug: "cleanz-atx",
@@ -256,7 +229,8 @@ export const projects: Project[] = [
     displayUrl: "cleanzatx.com",
     industry: "Exterior cleaning services",
     location: "Lakeway & West Austin, TX",
-    tagline: "Trust, pricing, and scheduling in one place for a Lake Travis cleaning company.",
+    tagline:
+      "Trust, pricing, and scheduling in one place for a Lake Travis cleaning company.",
     updated: "2026-09-16",
     seo: {
       title: "CleanZ ATX: Exterior Cleaning Website",
@@ -333,83 +307,91 @@ export const projects: Project[] = [
         alt: "CleanZ ATX website on a phone with the quote flow front and center",
       },
     },
-    autoScroll: {
-      src: "/work/cleanz-scroll.jpg",
-      alt: "The full CleanZ ATX homepage, from the hero through services, pricing, and reviews",
-      width: 1100,
-      height: 8285,
-    },
   },
   {
-    "slug": "apex-window-cleaning",
-    beforeAfter: { before: "/work/apex-before.webp", after: "/work/apex-after.webp", caption: "Apex / Stone chimney cleaning", beforeAlt: "Stone chimney with dark surface buildup before Apex cleaned it", afterAlt: "The stone chimney after exterior cleaning by Apex", beforePosition: "center 48%", afterPosition: "center 48%" },
-    "name": "Apex Window Cleaning",
-    "url": "https://www.apexwindowcleaningatx.com/",
-    "displayUrl": "apexwindowcleaningatx.com",
-    "industry": "Window & exterior cleaning",
-    "location": "Spicewood & Austin, TX",
-    "tagline": "A clearer path from exploring exterior care to requesting a quote.",
-    "updated": "2026-09-18",
-    "seo": {
-      "title": "Apex Window Cleaning: Website Design",
-      "description": "A window and exterior cleaning website by Forerunner Sites for Apex: service pages, real project photography, and a mobile-friendly quote form."
+    slug: "apex-window-cleaning",
+    name: "Apex Window Cleaning",
+    url: "https://www.apexwindowcleaningatx.com/",
+    displayUrl: "apexwindowcleaningatx.com",
+    industry: "Window & exterior cleaning",
+    location: "Spicewood & Austin, TX",
+    tagline:
+      "A clearer path from exploring exterior care to requesting a quote.",
+    updated: "2026-09-18",
+    seo: {
+      title: "Apex Window Cleaning: Website Design",
+      description:
+        "A window and exterior cleaning website by Forerunner Sites for Apex: service pages, real project photography, and a mobile-friendly quote form.",
     },
-    "shortChallenge": "Help homeowners understand the services, see the work, and request the right cleaning scope across Austin and Lake Travis.",
-    "shortSolution": "An airy, photography-led website with dedicated service pages, before-and-after comparisons, and a straightforward quote request.",
-    "overview": "Apex Window Cleaning is based in Spicewood and serves Austin and the Lake Travis area. The business offers window cleaning, pressure washing, and solar panel cleaning. Its website brings these services together with project photography, local coverage information, and direct ways to contact the business.",
-    "challenge": "Window cleaning and pressure washing involve different surfaces, access needs, and questions. The website needed to explain those differences while giving homeowners a simple route to an estimate. Project photos and service details needed room to be useful without burying the next step.",
-    "approach": "Organize the site around three visitor tasks: understand the service, inspect the work, and ask for a quote. Dedicated service and area pages provide the detail, while the homepage introduces the work through photography and before-and-after comparisons. Quote and phone links remain easy to find throughout the experience.",
-    "designDirection": "Light blue backgrounds, deep blue typography, and generous spacing echo the glass and open views in the project photography. Large architectural images lead the design, with a restrained blue accent guiding visitors toward service details and quote requests.",
-    "functionality": [
+    shortChallenge:
+      "Help homeowners understand the services, see the work, and request the right cleaning scope across Austin and Lake Travis.",
+    shortSolution:
+      "An airy, photography-led website with dedicated service pages, before-and-after comparisons, and a straightforward quote request.",
+    overview:
+      "Apex Window Cleaning is based in Spicewood and serves Austin and the Lake Travis area. The business offers window cleaning, pressure washing, and solar panel cleaning. Its website brings these services together with project photography, local coverage information, and direct ways to contact the business.",
+    challenge:
+      "Window cleaning and pressure washing involve different surfaces, access needs, and questions. The website needed to explain those differences while giving homeowners a simple route to an estimate. Project photos and service details needed room to be useful without burying the next step.",
+    approach:
+      "Organize the site around three visitor tasks: understand the service, inspect the work, and ask for a quote. Dedicated service and area pages provide the detail, while the homepage introduces the work through photography and before-and-after comparisons. Quote and phone links remain easy to find throughout the experience.",
+    designDirection:
+      "Light blue backgrounds, deep blue typography, and generous spacing echo the glass and open views in the project photography. Large architectural images lead the design, with a restrained blue accent guiding visitors toward service details and quote requests.",
+    functionality: [
       {
-        "title": "Dedicated service pages",
-        "detail": "Window cleaning, pressure washing, and solar panel cleaning each have a clear explanation of scope and the details to discuss before work is agreed."
+        title: "Dedicated service pages",
+        detail:
+          "Window cleaning, pressure washing, and solar panel cleaning each have a clear explanation of scope and the details to discuss before work is agreed.",
       },
       {
-        "title": "Interactive before-and-after comparisons",
-        "detail": "Slider comparisons show exterior cleaning work using original project photos, with keyboard controls and captions explaining what is pictured."
+        title: "Interactive before-and-after comparisons",
+        detail:
+          "Slider comparisons show exterior cleaning work using original project photos, with keyboard controls and captions explaining what is pictured.",
       },
       {
-        "title": "A focused quote form",
-        "detail": "Visitors choose a service, enter their city or ZIP code, and select phone or email contact to begin a conversation about the job."
+        title: "A focused quote form",
+        detail:
+          "Visitors choose a service, enter their city or ZIP code, and select phone or email contact to begin a conversation about the job.",
       },
       {
-        "title": "Local coverage information",
-        "detail": "Service-area pages explain coverage around Spicewood, Lakeway, Bee Cave, and Austin, with links back to relevant services and the inquiry path."
+        title: "Local coverage information",
+        detail:
+          "Service-area pages explain coverage around Spicewood, Lakeway, Bee Cave, and Austin, with links back to relevant services and the inquiry path.",
       },
       {
-        "title": "Direct contact on mobile",
-        "detail": "A persistent mobile bar keeps calling Apex and opening the quote form within reach while visitors browse."
-      }
+        title: "Direct contact on mobile",
+        detail:
+          "A persistent mobile bar keeps calling Apex and opening the quote form within reach while visitors browse.",
+      },
     ],
-    "mobile": "The mobile layout stacks the service information and photographs into a clear reading order. A persistent call-and-quote bar keeps the next step visible, while the quote form uses labeled fields and a choice of contact method.",
-    "outcome": "Apex has a cohesive website where homeowners can explore services, review real project photos, check local coverage, and request an estimate. The service details and contact paths give homeowners a practical starting point for discussing the work with Apex.",
-    "services": [
+    mobile:
+      "The mobile layout stacks the service information and photographs into a clear reading order. A persistent call-and-quote bar keeps the next step visible, while the quote form uses labeled fields and a choice of contact method.",
+    outcome:
+      "Apex has a cohesive website where homeowners can explore services, review real project photos, check local coverage, and request an estimate. The service details and contact paths give homeowners a practical starting point for discussing the work with Apex.",
+    services: [
       "Custom design",
       "Site architecture",
       "Responsive development",
       "Quote form development",
-      "Local SEO foundations"
+      "Local SEO foundations",
     ],
-    "palette": {
-      "panel": "#eaf7fc",
-      "panelFg": "#123f60",
-      "accent": "#0878b7"
+    palette: {
+      panel: "#eaf7fc",
+      panelFg: "#123f60",
+      accent: "#0878b7",
     },
-    "images": {
-      "desktop": {
-        "src": "/work/apex-desktop.jpg",
-        "alt": "Apex Window Cleaning homepage with blue service headings beside a photograph of architectural glass"
+    images: {
+      desktop: {
+        src: "/work/apex-desktop.jpg",
+        alt: "Apex Window Cleaning homepage with blue service headings beside a photograph of architectural glass",
       },
-      "tall": {
-        "src": "/work/apex-tall.jpg",
-        "alt": "Apex project gallery showing a before-and-after stone chimney cleaning comparison"
+      tall: {
+        src: "/work/apex-tall.jpg",
+        alt: "Apex project gallery showing a before-and-after stone chimney cleaning comparison",
       },
-      "mobile": {
-        "src": "/work/apex-mobile.jpg",
-        "alt": "Apex website on a phone with a quote button, architectural photography, and persistent call and quote links"
-      }
-    }
+      mobile: {
+        src: "/work/apex-mobile.jpg",
+        alt: "Apex website on a phone with a quote button, architectural photography, and persistent call and quote links",
+      },
+    },
   },
 ];
 

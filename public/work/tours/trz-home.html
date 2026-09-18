@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html class="" lang="en">
+<head><meta charset="utf-8"/>
+
+
+
+
+
+
+
+
+<title>Mobile Car Detailing in Austin, TX | TRZ Shine &amp; Detail</title>
+
+
+<link href="/work/tours/assets/c5f95edc08d17879.css" rel="stylesheet"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+  /* Accessibility (BUILD-SPEC §10): a visible focus ring on every interactive
+     element, and no motion for people who ask for none. */
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible, select:focus-visible, input:focus-visible{
+    outline:3px solid var(--orange-dk); outline-offset:2px; border-radius:4px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  }
+  :root{
+    --cream:#F7EBD6;
+    --cream-2:#FBF3E4;
+    --card:#FFFDF9;
+    --orange:#DD7B2F;
+    --orange-dk:#C4661E;
+    --brown:#43301E;
+    --brown-2:#2E2114;
+    --muted:#7A6650;
+    --line:#E6D5B8;
+    --shadow:0 10px 30px rgba(67,48,30,.12);
+    --shadow-lg:0 24px 60px rgba(67,48,30,.18);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--brown-2);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Archivo',sans-serif;line-height:1.08;letter-spacing:-.02em;color:var(--brown-2)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .script{font-family:'Kaushan Script',cursive;color:var(--orange);font-weight:400}
+  .eyebrow{font-family:'Archivo';font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-dk)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Archivo';font-weight:800;font-size:.98rem;padding:.85rem 1.5rem;border-radius:100px;cursor:pointer;border:none;transition:.18s;letter-spacing:.01em}
+  .btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(221,123,47,.35)}
+  .btn-primary:hover{background:var(--orange-dk);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--brown-2);border:2px solid var(--brown-2)}
+  .btn-ghost:hover{background:var(--brown-2);color:var(--cream)}
+  .btn-cream{background:var(--cream);color:var(--brown-2)}
+  .btn-cream:hover{background:#fff}
+  section{padding:78px 0}
+  .center{text-align:center}
+  .lead{color:var(--muted);font-size:1.08rem;max-width:640px}
+  .center .lead{margin-left:auto;margin-right:auto}
+
+  /* ---------- Logo mark ---------- */
+  .logo{display:flex;align-items:stretch;height:42px}
+  .logo .tiles{display:flex;flex-direction:column;gap:2px;z-index:2}
+  .logo .tile{width:19px;height:12.6px;background:var(--orange);color:#fff;font-family:'Alfa Slab One';font-size:.58rem;display:flex;align-items:center;justify-content:center;border-radius:3px;line-height:1}
+  .logo .banner{background:var(--brown);display:flex;flex-direction:column;justify-content:center;padding:3px 16px 4px 13px;margin-left:-3px;clip-path:polygon(0 0,100% 0,91% 100%,0 100%);position:relative}
+  .logo .banner .shine{font-family:'Kaushan Script';font-size:1.3rem;line-height:.84;color:var(--cream)}
+  .logo .banner .sub{font-family:'Archivo';font-weight:800;font-size:.54rem;letter-spacing:.15em;color:var(--cream);text-transform:uppercase;margin-top:1px}
+  .logo .banner .star{position:absolute;top:0;right:15px;color:var(--cream);font-size:.6rem;line-height:1}
+
+  /* ---------- Header ---------- */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(247,235,214,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header.nav .bar{display:flex;align-items:center;justify-content:space-between;height:70px}
+  nav.links{display:flex;gap:26px}
+  nav.links a{font-family:'Archivo';font-weight:600;font-size:.94rem;color:var(--brown);opacity:.85}
+  nav.links a:hover{opacity:1;color:var(--orange-dk)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .nav-phone{font-family:'Archivo';font-weight:800;font-size:.94rem;color:var(--brown);display:flex;align-items:center;gap:6px}
+  @media(max-width:900px){nav.links{display:none}.nav-phone{display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;background:
+     radial-gradient(1200px 500px at 78% -10%, rgba(221,123,47,.18), transparent 60%),
+     linear-gradient(160deg,#F7EBD6 0%, #F3E2C6 100%);
+     padding:60px 0 70px}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  .hero h1{font-size:3.5rem;font-weight:900}
+  .hero h1 .script{font-size:3.7rem;display:inline-block}
+  /* 2026-09-11: the H1 is the search term ("Mobile Car Detailing in Austin, TX"),
+     shown as the orange eyebrow; the slogan below it is a <p> styled exactly as
+     the old H1 so the hero looks the same. .hero h1.hero-kw out-specifies both
+     .hero h1 rules, including the phone one. */
+  .hero h1.hero-kw{font-size:.82rem;font-weight:800;line-height:1.4;letter-spacing:.16em;color:var(--orange-dk);margin:0 0 10px}
+  .hero .hero-title{font-family:'Archivo',sans-serif;line-height:1.08;letter-spacing:-.02em;color:var(--brown-2);font-size:3.5rem;font-weight:900}
+  .hero .hero-title .script{font-size:3.7rem;display:inline-block}
+  .rating-badge{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);padding:.5rem .9rem;border-radius:100px;box-shadow:var(--shadow);font-size:.9rem;font-weight:600;margin-bottom:22px}
+  .rating-badge .stars{color:#F5A623;letter-spacing:1px}
+  .rating-badge b{font-family:'Archivo';font-weight:800}
+  .hero p.sub{font-size:1.15rem;color:var(--muted);margin:18px 0 26px;max-width:520px}
+  .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:30px;margin-top:34px}
+  .hero-stats .s b{font-family:'Archivo';font-weight:900;font-size:1.7rem;display:block;color:var(--brown-2)}
+  .hero-stats .s span{font-size:.82rem;color:var(--muted);font-weight:600}
+  .hero-photo{position:relative;height:430px;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);
+     background:linear-gradient(135deg,#5a4632,#2e2114 55%, #17110a);border:1px solid rgba(255,255,255,.08)}
+  .hero-photo .glint{position:absolute;inset:0;background:
+     radial-gradient(600px 200px at 20% 10%, rgba(255,255,255,.22), transparent 60%),
+     radial-gradient(300px 300px at 85% 90%, rgba(221,123,47,.35), transparent 60%)}
+  .photo-tag{position:absolute;left:16px;bottom:16px;background:rgba(0,0,0,.55);color:#fff;font-size:.76rem;font-weight:600;padding:.35rem .7rem;border-radius:8px;backdrop-filter:blur(4px);z-index:3}
+  .starburst{position:absolute;top:22px;right:22px;width:64px;height:64px;z-index:3;opacity:.95}
+  @media(max-width:820px){.hero .grid{grid-template-columns:1fr}.hero h1{font-size:2.6rem}.hero h1 .script{font-size:2.7rem}.hero .hero-title{font-size:2.6rem}.hero .hero-title .script{font-size:2.7rem}.hero-photo{height:300px}}
+
+  /* ---------- Trust strip ---------- */
+  .trust-strip{background:var(--brown-2);color:var(--cream);padding:16px 0}
+  .trust-strip .row{display:flex;justify-content:center;gap:38px;flex-wrap:wrap;font-family:'Archivo';font-weight:600;font-size:.9rem;opacity:.92}
+  .trust-strip .row span{display:flex;align-items:center;gap:8px}
+  .trust-strip .row .dot{color:var(--orange)}
+
+  /* ---------- Process ---------- */
+  .proc-head{max-width:760px}
+  .proc-title{font-size:3rem;font-weight:900;margin-top:12px;letter-spacing:-.02em;line-height:1}
+  .procgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:46px}
+  .procstep{border-top:2px solid var(--line);padding-top:18px}
+  .procstep .pnum{font-family:'Archivo';font-weight:800;font-size:.9rem;color:var(--orange);letter-spacing:.12em;margin-bottom:16px}
+  .procstep h4{font-family:'Archivo';font-weight:800;font-size:1.02rem;text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px}
+  .procstep p{font-size:.9rem;color:var(--muted)}
+  @media(max-width:820px){.proc-title{font-size:2.2rem}.procgrid{grid-template-columns:1fr 1fr;gap:22px}}
+  @media(max-width:520px){.procgrid{grid-template-columns:1fr}}
+
+  /* injected SVG logo */
+  .logo svg{height:42px;width:auto;display:block}
+
+  /* ---------- Pricing cards (4-up) ---------- */
+  .pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;display:flex;flex-direction:column;box-shadow:var(--shadow);position:relative;transition:.2s}
+  .pcard:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .pcard.feat{border:2px solid var(--orange);box-shadow:0 0 0 4px rgba(221,123,47,.15),0 16px 42px rgba(221,123,47,.24)}
+  .pcard.feat:hover{box-shadow:0 0 0 4px rgba(221,123,47,.22),0 24px 56px rgba(221,123,47,.32)}
+  .pcard.prem{border:2px solid var(--brown);background:linear-gradient(180deg,#fff,#fbf1de)}
+  .pc-flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-family:'Archivo';font-weight:800;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;white-space:nowrap}
+  .pc-flag.prem{background:var(--brown)}
+  .pc-top h3{font-size:1.32rem}
+  .pc-sub{font-family:'Archivo';font-weight:700;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .pc-desc{font-size:.9rem;color:var(--muted);margin:16px 0 18px}
+  .pc-feats{list-style:none;margin:0 0 18px;font-size:.87rem;color:var(--brown)}
+  .pc-feats li{padding:5px 0 5px 24px;position:relative}
+  .pc-feats li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
+  .pc-prices{border-top:1px solid var(--line);margin-top:auto;padding-top:18px}
+  .pc-row{display:flex;align-items:baseline;gap:8px;padding:9px 0}
+  .pc-row .veh{flex:1;min-width:0;font-weight:500;font-size:.94rem;color:var(--brown);white-space:nowrap}
+  .pc-row .tm{font-size:.76rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .pc-row .pr{font-family:'Archivo';font-weight:900;font-size:1.35rem;color:var(--brown-2);min-width:46px;text-align:right;letter-spacing:-.01em}
+  .pc-link{display:inline-block;margin:16px 0 12px;font-family:'Archivo';font-weight:700;font-size:.9rem;color:var(--orange-dk);cursor:pointer}
+  .pc-link:hover{text-decoration:underline}
+  .pc-book{width:100%;justify-content:center}
+  @media(max-width:980px){.pcards{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.pcards{grid-template-columns:1fr}}
+
+  /* ---------- Full service page overlay ---------- */
+  .svcpage{position:fixed;inset:0;z-index:200;background:var(--cream);overflow-y:auto;display:none}
+  .svcpage.on{display:block}
+  .svcbar{position:sticky;top:0;z-index:5;background:rgba(247,235,214,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .svcbar .in{max-width:1000px;margin:0 auto;padding:0 22px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .svcback{font-family:'Archivo';font-weight:700;color:var(--brown-2);cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.95rem}
+  .svcback:hover{color:var(--orange-dk)}
+  .svcwrap{max-width:1000px;margin:0 auto;padding:0 22px 70px}
+  .svchero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:44px 0}
+  .svchero h1{font-size:2.9rem;font-weight:900}
+  .svchero .price{font-family:'Archivo';font-weight:900;font-size:2rem;color:var(--brown-2);margin:16px 0}
+  .svchero .price small{font-size:.85rem;color:var(--muted);font-weight:600}
+  .svchero .img{height:330px;border-radius:20px;background:linear-gradient(135deg,#4b3924,#221910);position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .svchero .img .g{position:absolute;inset:0;background:radial-gradient(320px 130px at 30% 12%,rgba(255,255,255,.18),transparent 60%)}
+  .svcsec{padding:34px 0;border-top:1px solid var(--line)}
+  .svcsec h2{font-size:1.6rem;margin-bottom:18px}
+  .inclist{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .inclist div{padding:11px 14px 11px 36px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:10px;font-size:.92rem}
+  .inclist div::before{content:"✓";position:absolute;left:15px;color:var(--orange);font-weight:800}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step2{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .step2 .n{width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;font-family:'Archivo';font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .step2 h4{font-size:1rem;margin-bottom:5px}
+  .step2 p{font-size:.83rem;color:var(--muted)}
+  .ptable{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;max-width:560px}
+  .ptable .r{display:flex;align-items:baseline;gap:16px;padding:17px 22px;border-bottom:1px solid var(--line)}
+  .ptable .r:last-child{border-bottom:none}
+  .ptable .r .v{flex:1;font-family:'Archivo';font-weight:600;font-size:1.02rem}
+  .ptable .r .t{color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums}
+  .ptable .r .p{font-family:'Archivo';font-weight:900;font-size:1.55rem;color:var(--brown-2);min-width:72px;text-align:right;letter-spacing:-.01em}
+  .svccta{background:linear-gradient(160deg,var(--brown),var(--brown-2));color:var(--cream);border-radius:22px;padding:40px;text-align:center;margin-top:30px}
+  .svccta h2{color:#fff;margin-bottom:0}
+  @media(max-width:760px){.svchero{grid-template-columns:1fr;padding:28px 0}.svchero h1{font-size:2.1rem}.svchero .img{height:230px}.steps{grid-template-columns:1fr 1fr}.inclist{grid-template-columns:1fr}}
+
+  /* ---------- Before/After slider ---------- */
+  .ba{position:relative;max-width:600px;margin:38px auto 0;height:680px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);user-select:none;cursor:ew-resize;border:1px solid var(--line)}
+  .ba .layer{position:absolute;inset:0;display:flex;align-items:flex-end;padding:18px}
+  .ba .after{background:linear-gradient(135deg,#6b533a,#2a1f12);}
+  .ba .after .shine{position:absolute;inset:0;background:radial-gradient(500px 200px at 60% 15%,rgba(255,255,255,.28),transparent 55%),radial-gradient(300px 300px at 90% 90%,rgba(221,123,47,.3),transparent 60%)}
+  .ba .before{background:linear-gradient(135deg,#4a463f,#22201c);clip-path:inset(0 50% 0 0)}
+  .ba .before .dust{position:absolute;inset:0;background:radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.15),transparent),radial-gradient(2px 2px at 70% 60%,rgba(255,255,255,.1),transparent),radial-gradient(1px 1px at 40% 80%,rgba(255,255,255,.12),transparent);filter:grayscale(.5);opacity:.6}
+  .ba .tag{position:absolute;top:14px;font-family:'Archivo';font-weight:800;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);padding:.3rem .6rem;border-radius:6px;z-index:4}
+  .ba .tag.b{left:14px}.ba .tag.a{right:14px}
+  .ba{touch-action:none}
+  .ba .handle{position:absolute;cursor:ew-resize;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:5;box-shadow:0 0 12px rgba(0,0,0,.4)}
+  .ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:#fff;border-radius:50%;z-index:6;display:flex;align-items:center;justify-content:center;color:var(--orange-dk);font-weight:900;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .ba .cap{position:absolute;left:18px;bottom:18px;color:#fff;font-weight:600;font-size:.86rem;z-index:4;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+  /* gallery */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:980px;margin:22px auto 0}
+  .gal .t{aspect-ratio:4/3;border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(135deg,#4b3924,#221910)}
+  .gal .t .g{position:absolute;inset:0;background:radial-gradient(200px 80px at 30% 15%,rgba(255,255,255,.16),transparent 60%)}
+  .gal .t span{position:absolute;left:10px;bottom:9px;color:#fff;font-size:.74rem;font-weight:600;z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+  @media(max-width:760px){.gal{grid-template-columns:1fr 1fr}}
+    /* Photos are real <img> now, not CSS backgrounds (2026-08-24). The whole
+     value proposition of this site is visual proof, and background-image is
+     invisible to Google Images and to every AI crawler. object-fit reproduces
+     background-size:cover exactly; object-position reproduces the old
+     background-position values. */
+  .gal .t img,.pic img,.hero-photo img,.ba .layer img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .gal .t{transition:.18s}
+  .gal .t:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+
+  /* ---------- Album lightbox ---------- */
+  .albw{position:fixed;inset:0;z-index:130;background:rgba(24,17,10,.94);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+  .albw.on{display:flex}
+  .albw .albcap{color:#fff;font-family:'Archivo';font-weight:800;font-size:1.05rem;margin-bottom:12px;text-align:center}
+  .albw .albcap span{color:var(--orange);font-weight:700;font-size:.85rem;margin-left:10px}
+  .albw .stage{position:relative;width:min(920px,94vw);display:flex;align-items:center;justify-content:center;min-height:0}
+  .albw .stage img{max-width:100%;max-height:62vh;border-radius:14px;box-shadow:0 12px 44px rgba(0,0,0,.55)}
+  .albw .anav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:1.6rem;cursor:pointer;transition:.15s;display:flex;align-items:center;justify-content:center;z-index:2}
+  .albw .anav:hover{background:var(--orange)}
+  .albw .aprev{left:-6px}.albw .anext{right:-6px}
+  .albw .aclose{position:absolute;top:20px;right:22px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:1.1rem;cursor:pointer;transition:.15s}
+  .albw .aclose:hover{background:var(--orange)}
+  .albw .athumbs{display:flex;gap:8px;margin-top:14px;max-width:min(920px,94vw);overflow-x:auto;padding:4px}
+  .albw .athumbs img{width:70px;height:52px;object-fit:cover;border-radius:8px;opacity:.5;cursor:pointer;border:2px solid transparent;flex:0 0 auto;transition:.15s}
+  .albw .athumbs img.on{opacity:1;border-color:var(--orange)}
+  @media(max-width:760px){.albw{padding:12px}.albw .aprev{left:2px}.albw .anext{right:2px}.albw .stage img{max-height:56vh}}
+
+  /* ---------- Reviews ---------- */
+  .reviews-head{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:10px}
+  .gbadge{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:.5rem 1rem;box-shadow:var(--shadow);font-weight:700;font-size:.92rem}
+  .gbadge .stars{color:#F5A623}
+  .rev{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .rev .who{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+  .rev .av{width:42px;height:42px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:800}
+  .rev .who b{font-family:'Archivo';font-size:.98rem}
+  .rev .who .m{font-size:.76rem;color:var(--muted)}
+  .rev .st{color:#F5A623;font-size:.9rem;margin-bottom:8px}
+  .rev p{font-size:.92rem;color:var(--brown);display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+  .carousel{position:relative;margin-top:30px;display:flex;align-items:center;gap:10px}
+  .carview{overflow:hidden;flex:1}
+  .cartrack{display:flex;flex-wrap:nowrap;transition:transform .5s ease;align-items:stretch}
+  .cartrack .rev{flex:0 0 calc(33.333% - 12px);margin:6px;text-align:left;box-shadow:var(--shadow)}
+  .carbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--brown-2);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:var(--shadow);flex:0 0 auto;transition:.15s;font-family:'Archivo'}
+  .carbtn:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+  @media(max-width:820px){.cartrack .rev{flex:0 0 calc(100% - 12px)}}
+
+  /* ---------- Why / founder ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  .why{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .why .ic{font-size:1.7rem;margin-bottom:8px}
+  .why h4{font-size:1.06rem;margin-bottom:6px}
+  .why p{font-size:.88rem;color:var(--muted)}
+  @media(max-width:760px){.why-grid{grid-template-columns:1fr}}
+
+  .founder{background:linear-gradient(160deg,var(--brown),var(--brown-2));color:var(--cream);border-radius:26px;padding:44px;display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:center;margin-top:10px;box-shadow:var(--shadow-lg)}
+  .founder .pic{height:320px;border-radius:18px;background:linear-gradient(135deg,#8a6a45,#3a2b1a);position:relative;overflow:hidden}
+  .founder .pic .g{position:absolute;inset:0;background:radial-gradient(200px 200px at 40% 20%,rgba(255,255,255,.18),transparent 60%)}
+  .founder h2{color:#fff}
+  .founder .script{color:var(--orange)}
+  .founder p{opacity:.9;margin-top:14px;font-size:1rem}
+  .founder .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .founder .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:.4rem .8rem;border-radius:100px;font-size:.8rem;font-weight:600}
+  @media(max-width:760px){.founder{grid-template-columns:1fr;padding:28px}.founder .pic{height:220px}}
+
+  /* ---------- Add-ons ---------- */
+  .addons{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+  @media(max-width:1000px){.addons{grid-template-columns:repeat(3,1fr)}}
+  .addon{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .addon h4{font-size:1rem}
+  .addon .p{font-family:'Archivo';font-weight:900;color:var(--orange-dk);font-size:1.25rem;margin:4px 0}
+  .addon .pf{font-size:.78rem;color:var(--muted)}
+  @media(max-width:820px){.addons{grid-template-columns:1fr 1fr}}
+
+  /* ---------- Maintenance hook ---------- */
+  .maint-hook{display:block;text-align:center;margin-top:44px;color:var(--brown-2)}
+  .mh-head{font-family:'Archivo';font-weight:900;font-size:1.5rem;letter-spacing:-.01em}
+  .mh-head span{color:var(--orange-dk)}
+  .mh-sub{color:var(--muted);margin-top:8px;font-size:1rem}
+  .mh-arrow{color:var(--orange);font-size:1.7rem;margin-top:10px;animation:bob 1.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+  /* ---------- Maintenance section (dark) ---------- */
+  .maintsec{background:var(--brown-2);color:var(--cream)}
+  .maintsec .eyebrow{color:var(--orange)}
+  .maintsec h2.big{font-size:2.9rem;font-weight:900;color:#fff;letter-spacing:-.02em}
+  .maintsec .sub{color:rgba(247,235,214,.72);max-width:640px;margin:16px auto 0;font-size:1.05rem}
+  .mchips{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:32px 0 0}
+  .mchip{font-family:'Archivo';font-weight:700;font-size:.9rem;padding:.65rem 1.4rem;border-radius:100px;cursor:pointer;border:1px solid rgba(247,235,214,.25);background:rgba(247,235,214,.06);color:var(--cream);transition:.15s}
+  .mchip:hover{border-color:var(--orange)}
+  .mchip.active{background:var(--orange);border-color:var(--orange);color:#fff}
+  .mtoggle{display:flex;width:max-content;margin:30px auto 0;background:rgba(247,235,214,.08);border:1px solid rgba(247,235,214,.22);border-radius:100px;padding:5px;gap:4px}
+  .mtog{font-family:'Archivo';font-weight:700;font-size:.92rem;padding:.62rem 1.5rem;border-radius:100px;cursor:pointer;border:none;background:transparent;color:var(--cream);transition:.15s}
+  .mtog:hover{color:#fff}
+  .mtog.active{background:var(--orange);color:#fff}
+  .mnocontract{display:block;width:max-content;margin:16px auto 0;background:var(--cream);color:var(--brown-2);font-family:'Archivo';font-weight:700;font-size:.85rem;padding:.5rem 1.1rem;border-radius:100px}
+  .mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .mcard{background:#fff;color:var(--brown-2);border-radius:20px;padding:32px 26px;position:relative;display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+  .mcard.pop{outline:3px solid var(--orange)}
+  .mcard .tag{position:absolute;top:-14px;left:26px;background:var(--orange);color:#fff;font-family:'Archivo';font-weight:800;font-size:.72rem;letter-spacing:.08em;padding:.35rem .9rem;border-radius:100px;text-transform:uppercase}
+  .mcard h3{font-size:1.55rem}
+  .mcard .desc{color:var(--muted);font-size:.9rem;margin:6px 0 16px}
+  .mcard .price{font-family:'Archivo';font-weight:900;font-size:2.9rem;line-height:1;letter-spacing:-.02em}
+  .mcard .price .per{font-size:1rem;color:var(--muted);font-weight:600;letter-spacing:0}
+  .mcard .msave{display:inline-block;margin-top:14px;background:rgba(221,123,47,.14);color:var(--orange-dk);font-family:'Archivo';font-weight:800;font-size:.88rem;padding:.42rem .85rem;border-radius:100px}
+  .mcard ul{list-style:none;margin:20px 0;font-size:.92rem}
+  .mcard ul li{padding:8px 0 8px 28px;position:relative;color:var(--brown)}
+  .mcard ul li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
+  .mcard .acts{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+  .mcard .acts .btn{width:100%;justify-content:center}
+  .b-sched{background:var(--orange);color:#fff}
+  .b-sched:hover{background:var(--orange-dk)}
+  .b-call{background:#fff;color:var(--brown-2);border:1.5px solid var(--line)}
+  .b-call:hover{background:var(--cream-2)}
+  .mincl-d{background:rgba(247,235,214,.06);border:1px solid rgba(247,235,214,.16);border-radius:18px;padding:28px;margin-top:42px}
+  .mincl-d h3{color:#fff;font-size:1.3rem;margin-bottom:6px}
+  .mincl-d>p{color:rgba(247,235,214,.7);font-size:.95rem;margin-bottom:16px}
+  .mincl-d .g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .mincl-d .g div{padding:11px 14px 11px 36px;position:relative;background:rgba(247,235,214,.05);border:1px solid rgba(247,235,214,.14);border-radius:10px;font-size:.9rem;color:var(--cream)}
+  .mincl-d .g div::before{content:"✓";position:absolute;left:15px;color:var(--orange);font-weight:800}
+  @media(max-width:820px){.mcards{grid-template-columns:1fr}.maintsec h2.big{font-size:2.1rem}}
+  @media(max-width:760px){.mincl-d .g{grid-template-columns:1fr}}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:820px;margin:34px auto 0}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .qa button{width:100%;text-align:left;background:none;border:none;padding:18px 22px;font-family:'Archivo';font-weight:700;font-size:1.02rem;color:var(--brown-2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:.94rem}
+  .qa .ans p{padding:0 22px 18px}
+  .qa.open .ans{max-height:220px}
+  .qa .plus{color:var(--orange);font-size:1.4rem;transition:.2s;font-weight:400}
+  .qa.open .plus{transform:rotate(45deg)}
+
+  /* ---------- Service area ---------- */
+  .area{background:var(--cream-2);border:1px solid var(--line);border-radius:22px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;box-shadow:var(--shadow)}
+  .area .map{height:320px;border-radius:16px;background:var(--cream-2);position:relative;overflow:hidden;border:1px solid var(--line)}
+  .area .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .area .map .pin{position:absolute;width:16px;height:16px;background:var(--orange);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+  .area .cities{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .area .city{background:#fff;border:1px solid var(--line);padding:.5rem 1rem;border-radius:100px;font-weight:600;font-size:.9rem}
+  a.city{text-decoration:none;transition:.15s}
+  a.city:hover{border-color:var(--orange);color:var(--orange-dk)}
+  @media(max-width:760px){.area{grid-template-columns:1fr}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--brown-2);color:var(--cream);padding:56px 0 30px;margin-top:0}
+  footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1.1fr 1.2fr 1fr 1fr;gap:26px}
+  footer h5{font-family:'Archivo';font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+  footer a{display:block;opacity:.82;font-size:.92rem;padding:4px 0}
+  footer a:hover{opacity:1;color:var(--orange)}
+  footer .blurb{opacity:.72;font-size:.9rem;margin-top:14px;max-width:280px}
+  footer .logo .banner .shine,footer .logo .banner .sub{color:var(--cream)}
+  footer .base{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:18px;display:flex;justify-content:space-between;font-size:.8rem;opacity:.6;flex-wrap:wrap;gap:8px}
+  @media(max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
+
+  /* ---------- Sticky mobile bar ---------- */
+  .mobar{position:fixed;bottom:0;left:0;right:0;z-index:70;background:var(--brown-2);display:none;grid-template-columns:1fr 1fr 1.3fr;gap:8px;
+    /* safe-area inset keeps the bar clear of the iPhone home indicator */
+    padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px))}
+  .mobar a{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--cream);font-family:'Archivo';font-weight:700;font-size:.78rem;padding:.5rem;border-radius:10px;gap:2px;
+    min-height:44px}   /* >=44px tap target (BUILD-SPEC §10) */
+  .mobar a.book{background:var(--orange);color:#fff}
+  .mobar a.call{background:rgba(255,255,255,.08)}
+  .mobar .ic{font-size:1.1rem}
+  @media(max-width:900px){.mobar{display:grid}body{padding-bottom:74px}}
+
+  /* preview ribbon */
+  .ribbon{background:var(--orange);color:#fff;text-align:center;font-family:'Archivo';font-weight:700;font-size:.82rem;padding:7px;letter-spacing:.02em}
+
+  /* ---------- 10%-off email capture (2026-08-24) ----------
+     Gage's ask: someone scrolls for a few seconds, they get offered 10% off
+     their first detail in exchange for an email. z-index sits above the sticky
+     mobile bar (70) and the album (130); the trigger suppresses itself while
+     the service page (200) or album is open, so it never lands on top of
+     something the visitor deliberately opened.
+
+     Two shapes on purpose: a centred card on desktop, a bottom sheet on a
+     phone. A centred modal on a 375px screen covers the whole page and reads
+     as a takeover; a sheet reads as an offer and is thumb-reachable. */
+  .offw{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
+        padding:20px;background:rgba(24,17,10,.62);backdrop-filter:blur(4px);
+        opacity:0;transition:opacity .22s ease}
+  .offw.on{display:flex}
+  .offw.vis{opacity:1}
+  .offc{position:relative;width:100%;max-width:430px;background:var(--card);border-radius:var(--radius);
+        border:1px solid var(--line);box-shadow:var(--shadow-lg);padding:34px 30px 26px;text-align:center;
+        transform:translateY(14px) scale(.98);transition:transform .26s cubic-bezier(.2,.8,.3,1)}
+  .offw.vis .offc{transform:none}
+  /* The orange rule reads as "this is the TRZ offer" before a word is read. */
+  .offc::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;border-radius:var(--radius) var(--radius) 0 0;
+        background:linear-gradient(90deg,var(--orange),var(--orange-dk))}
+  .offx{position:absolute;top:10px;right:12px;width:34px;height:34px;border:none;background:transparent;
+        color:var(--muted);font-size:1.3rem;line-height:1;cursor:pointer;border-radius:50%;transition:.15s}
+  .offx:hover{background:var(--cream);color:var(--brown-2)}
+  .offc .eyebrow{display:block;margin-bottom:8px}
+  .offc h2{font-size:1.85rem;font-weight:900;letter-spacing:-.02em}
+  .offc h2 .script{font-size:1.95rem}
+  .offc .osub{color:var(--muted);font-size:.95rem;margin:12px auto 20px;max-width:330px}
+  .offform{display:flex;flex-direction:column;gap:10px}
+  .offform input[type=email]{width:100%;font-family:'Inter',system-ui,sans-serif;font-size:1rem;
+        padding:.85rem 1rem;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--brown-2)}
+  .offform input[type=email]:focus{outline:none;border-color:var(--orange)}
+  .offform button{justify-content:center;width:100%}
+  .offform button[disabled]{opacity:.6;cursor:progress}
+  /* Honeypot. Bots fill every field they can see in the DOM; a real visitor
+     never focuses this because it is off-screen, not display:none (which some
+     bots specifically skip). */
+  .offhp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .offerr{color:#B4392B;font-size:.85rem;min-height:1.1em;font-weight:600}
+  .offfine{font-size:.74rem;color:var(--muted);margin-top:14px;line-height:1.45}
+  .offfine a{text-decoration:underline}
+  .offno{display:block;margin:12px auto 0;background:none;border:none;color:var(--muted);
+        font-size:.82rem;cursor:pointer;text-decoration:underline;font-family:inherit}
+  /* Success state — the code, then straight into booking. Capturing the email
+     and then leaving them on a dead-end "thanks!" wastes the one moment they
+     are most likely to book. */
+  .offdone{display:none}
+  .offc.done .offstart{display:none}
+  .offc.done .offdone{display:block}
+  .offcode{font-family:'Archivo',sans-serif;font-weight:900;font-size:2rem;letter-spacing:.12em;
+        color:var(--orange-dk);background:var(--cream-2);border:2px dashed var(--orange);
+        border-radius:12px;padding:.7rem 1rem;margin:16px 0 6px}
+  @media(max-width:560px){
+    .offw{padding:0;align-items:flex-end}
+    .offc{max-width:none;border-radius:22px 22px 0 0;padding:30px 22px 24px;
+          transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.8,.3,1)}
+    .offc::before{border-radius:22px 22px 0 0}
+    .offc h2{font-size:1.6rem}.offc h2 .script{font-size:1.7rem}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .offw,.offc{transition:none}
+  }
+
+</style>
+<meta content="noindex,nofollow,noarchive" name="robots"/><meta content="width=device-width, initial-scale=1" name="viewport"/><style>
+ html {scroll-behavior:auto!important;scrollbar-width:none!important;}
+ html::-webkit-scrollbar,body::-webkit-scrollbar {display:none!important;}
+ body {pointer-events:none!important;}
+ .reveal,[data-reveal],.aos-animate,[data-aos] {opacity:1!important;transform:none!important;}
+ *,*::before,*::after {animation:none!important;}
+ .hero-slide {transition:opacity 1.2s ease!important;}
+ html[data-motion="reduced"] .hero-slide {transition:none!important;}
+ @media(prefers-reduced-motion:reduce){.hero-slide{transition:none!important;}}
+ </style></head>
+<body>
+
+<header class="nav">
+<div class="wrap bar">
+<a class="logo" href="#top" tabindex="-1">
+<div class="tiles"><span class="tile">T</span><span class="tile">R</span><span class="tile">Z</span></div>
+<div class="banner"><span class="star">✦</span><span class="shine">Shine</span><span class="sub">&amp; Detail</span></div>
+</a>
+<nav class="links">
+<a href="https://trzdetail.com/services/" tabindex="-1">Services</a>
+<a href="https://trzdetail.com/pricing/" tabindex="-1">Pricing</a>
+<a href="https://trzdetail.com/results/" tabindex="-1">Results</a>
+<a href="https://trzdetail.com/reviews/" tabindex="-1">Reviews</a>
+<a href="https://trzdetail.com/about/" tabindex="-1">About</a>
+</nav>
+<div class="nav-cta">
+<a class="nav-phone" href="tel:7377342828" tabindex="-1">(737) 734-2828</a>
+<button class="btn btn-primary" disabled="" tabindex="-1">Book a Detail</button>
+</div>
+</div>
+</header>
+
+<section class="hero" id="top">
+<div class="wrap grid">
+<div>
+<a aria-label="Read all 47 five-star Google reviews for TRZ Shine &amp; Detail" class="rating-badge" href="https://www.google.com/search?kgmid=/g/11xg3jy83n&amp;q=TRZ+Shine+%26+Detail" rel="noopener" tabindex="-1" target="_blank"><span class="stars">★★★★★</span> <b>5.0</b> · 47 Google Reviews</a>
+<h1 class="eyebrow hero-kw">Mobile Car Detailing in Austin, TX</h1>
+<p class="hero-title">Your car <span class="script">deserves</span><br/>the best.</p>
+<p class="sub">Austin's premium mobile detailing — a concierge-level finish with obsessive attention to every surface. Fully insured, meticulous, and done by the owner himself.</p>
+<div class="cta-row">
+<button class="btn btn-primary" disabled="" tabindex="-1">Book a Detail →</button>
+<a class="btn btn-ghost" href="#services" tabindex="-1">View Services &amp; Pricing</a>
+</div>
+<div class="hero-stats">
+<div class="s"><b>200+</b><span>Cars Detailed</span></div>
+<div class="s"><b>5.0★</b><span>Average Rating</span></div>
+<div class="s"><b>100%</b><span>Satisfaction</span></div>
+</div>
+</div>
+<div class="hero-photo">
+<picture><source srcset="https://trzdetail.com/photos/hero-rolls.webp" type="image/webp"/><img alt="Rolls-Royce Ghost after a full detail by TRZ Shine &amp; Detail in Austin, TX" decoding="async" fetchpriority="high" height="1100" src="https://trzdetail.com/photos/hero-rolls.jpg" style="object-position:center 62%" width="825"/></picture>
+<svg class="starburst" fill="none" viewbox="0 0 100 100"><path d="M50 0 L58 42 L100 50 L58 58 L50 100 L42 58 L0 50 L42 42 Z" fill="#DD7B2F"></path></svg>
+<div class="photo-tag">Rolls-Royce Ghost — full detail</div>
+</div>
+</div>
+</section>
+
+<div class="trust-strip">
+<div class="wrap row">
+<span><span class="dot">●</span> 5.0★ on Google</span>
+<span><span class="dot">●</span> Fully insured ($1M / $2M)</span>
+<span><span class="dot">●</span> De-ionized water</span>
+<span><span class="dot">●</span> Satisfaction guaranteed</span>
+<span><span class="dot">●</span> Owner-operated</span>
+</div>
+</div>
+
+<section id="services" style="background:var(--cream-2)">
+<div class="wrap">
+<div class="center">
+<div class="eyebrow">Services &amp; Pricing</div>
+<h2 style="font-size:2.1rem;margin-top:8px">Straightforward pricing. No surprises.</h2>
+<p class="lead">Real prices, shown upfront — the exact rates you'll pay at checkout.</p>
+</div>
+<div class="pcards"><div class="pcard">
+<div class="pc-top"><h3>Exterior Detail</h3><div class="pc-sub">Paint &amp; Glass</div></div>
+<p class="pc-desc">A hand wash and foam bath that brings your paint back to life — wheels, tires, and streak-free glass included.</p>
+<ul class="pc-feats"><li>100% hand wash &amp; foam bath</li><li>Bug &amp; tar removal</li><li>Deep wheel &amp; tire clean</li><li>Spray wax &amp; tire shine</li><li>Streak-free glass</li></ul>
+<div class="pc-prices"><div class="pc-row"><span class="veh">Any vehicle</span><span class="tm">45m</span><span class="pr">$90</span></div></div>
+<a class="pc-link" href="https://trzdetail.com/services/exterior-detail/" tabindex="-1">View Full Service →</a>
+<button class="btn btn-primary pc-book" disabled="" tabindex="-1">Book Now</button>
+</div>
+<div class="pcard">
+<div class="pc-top"><h3>Interior Detail</h3><div class="pc-sub">Cabin &amp; Surfaces</div></div>
+<p class="pc-desc">A deep clean of every interior surface — leather, plastics, glass, and carpet, done right.</p>
+<ul class="pc-feats"><li>Full vacuum &amp; blow-out</li><li>Carpet &amp; upholstery shampoo</li><li>Steam clean &amp; sanitize</li><li>Leather &amp; plastic conditioning</li><li>Interior glass &amp; vents</li></ul>
+<div class="pc-prices"><div class="pc-row"><span class="veh">Coupe / Sedan</span><span class="tm">1h 30m</span><span class="pr">$150</span></div><div class="pc-row"><span class="veh">2-Row SUV / Truck</span><span class="tm">2h</span><span class="pr">$160</span></div><div class="pc-row"><span class="veh">3-Row / Big Truck</span><span class="tm">2h 30m</span><span class="pr">$170</span></div></div>
+<a class="pc-link" href="https://trzdetail.com/services/interior-detail/" tabindex="-1">View Full Service →</a>
+<button class="btn btn-primary pc-book" disabled="" tabindex="-1">Book Now</button>
+</div>
+<div class="pcard feat">
+<div class="pc-flag">Most Popular</div>
+<div class="pc-top"><h3>Full Detail</h3><div class="pc-sub">Interior + Exterior</div></div>
+<p class="pc-desc">A complete interior and exterior service — the right choice for keeping any vehicle looking its best.</p>
+<ul class="pc-feats"><li>Everything in Exterior</li><li>Everything in Interior</li><li>Full decontamination wash</li><li>Leather &amp; surface protection</li><li>Spray wax &amp; glass detail</li></ul>
+<div class="pc-prices"><div class="pc-row"><span class="veh">Sedan / Coupe</span><span class="tm">2h 30m</span><span class="pr">$180</span></div><div class="pc-row"><span class="veh">2-Row SUV</span><span class="tm">2h 45m</span><span class="pr">$220</span></div><div class="pc-row"><span class="veh">3-Row / Truck</span><span class="tm">3h</span><span class="pr">$260</span></div></div>
+<a class="pc-link" href="https://trzdetail.com/services/full-detail/" tabindex="-1">View Full Service →</a>
+<button class="btn btn-primary pc-book" disabled="" tabindex="-1">Book Now</button>
+</div>
+<div class="pcard prem">
+<div class="pc-flag prem">Premium</div>
+<div class="pc-top"><h3>Ceramic Coating</h3><div class="pc-sub">The Signature Protection</div></div>
+<p class="pc-desc">The ultimate protection — multi-stage paint prep and a ceramic coating that locks in gloss and shine for years.</p>
+<ul class="pc-feats"><li>Full clay bar decontamination</li><li>Multi-stage paint prep</li><li>1-step paint correction</li><li>Ceramic coating application</li><li>Years of gloss &amp; durability</li></ul>
+<div class="pc-prices"><div class="pc-row"><span class="veh">By vehicle</span><span class="tm">custom</span><span class="pr">Quote</span></div></div>
+<a class="pc-link" href="https://trzdetail.com/services/ceramic-coating/" tabindex="-1">View Full Service →</a>
+<button class="btn btn-primary pc-book" disabled="" tabindex="-1">Get a Quote</button>
+</div></div>
+<p class="quote-more" style="text-align:center;margin-top:26px;color:var(--muted);font-size:.98rem">Also by quote — no set price, booked by call or text: <a href="https://trzdetail.com/services/boat-detailing/" style="color:var(--orange-dk);font-weight:700" tabindex="-1">Boat Detailing</a> and <a href="https://trzdetail.com/services/golf-cart-detailing/" style="color:var(--orange-dk);font-weight:700" tabindex="-1">Golf Cart Detailing</a>. Call for a quote: <a href="tel:7377342828" style="color:var(--orange-dk);font-weight:700" tabindex="-1">(737) 734-2828</a>.</p>
+<div class="center" style="margin-top:56px">
+<div class="eyebrow">Add-Ons</div>
+<h3 style="font-size:1.5rem;margin-top:8px">Make it exactly what your car needs.</h3>
+</div>
+<p class="addon-note" style="text-align:center;margin-top:10px;color:var(--muted);font-size:.95rem">Add-ons go on top of a main service — they can't be booked on their own.</p><div class="addons"><div class="addon"><h4>Ozone Treatment</h4><div class="p">$50</div><div class="pf">Perfect for: smoke &amp; odor removal</div></div><div class="addon"><h4>Headlight Restoration</h4><div class="p">$100</div><div class="pf">Perfect for: foggy, yellowed lenses</div></div><div class="addon"><h4>Koch Chemie 3-Month Sealant</h4><div class="p">$30</div><div class="pf">Perfect for: upgrading the 1-month wax</div></div><div class="addon"><h4>Carpet Extraction</h4><div class="p">$50</div><div class="pf">Perfect for: deep stains &amp; spills</div></div><div class="addon"><h4>Seat Extraction</h4><div class="p">$50</div><div class="pf">Perfect for: cloth seats &amp; upholstery</div></div><div class="addon"><h4>Pet Hair Removal</h4><div class="p">$30</div><div class="pf">Perfect for: dog &amp; cat owners</div></div><div class="addon"><h4>Clay Bar Treatment</h4><div class="p">$30</div><div class="pf">Perfect for: rough, contaminated paint</div></div><div class="addon"><h4>Engine Bay Detail</h4><div class="p">$50</div><div class="pf">Perfect for: clean + degreased engine</div></div></div>
+<a class="maint-hook" href="#plans" tabindex="-1">
+<div class="mh-head">Book more often, <span>pay less</span> every time.</div>
+<div class="mh-sub">Plan members save up to $60 on every visit — see the plans below.</div>
+<div class="mh-arrow">↓</div>
+</a>
+</div>
+</section>
+
+<section class="maintsec" id="plans">
+<div class="wrap">
+<div class="center">
+<div class="eyebrow">Maintenance Plans</div>
+<h2 class="big">Save on every visit.</h2>
+<p class="sub">Stay on a plan and every detail comes at a locked-in member rate — pick the cadence that fits, and the more often we visit, the more you save.</p>
+</div>
+<div class="mtoggle">
+<button class="mtog active" disabled="" tabindex="-1">Interior + Exterior</button>
+<button class="mtog" disabled="" tabindex="-1">Interior Only</button>
+</div>
+<div class="mchips">
+<button class="mchip active" disabled="" tabindex="-1">Coupe / Sedan</button>
+<button class="mchip" disabled="" tabindex="-1">Mid-Size SUV</button>
+<button class="mchip" disabled="" tabindex="-1">Full-Size / Truck</button>
+</div>
+<span class="mnocontract">No contracts. Cancel anytime.</span>
+<div class="mcards">
+<div class="mcard pop" data-disc="0.20" data-freq="every month">
+<div class="tag">Most Picked</div>
+<h3>Monthly</h3>
+<div class="desc">1 full detail every month</div>
+<div class="price"><span class="mprice">$140</span><span class="per">/visit</span></div>
+<span class="msave">Save $40/visit</span>
+<ul><li>20% off every detail</li><li>No contracts — cancel anytime</li><li>Guaranteed booking</li></ul>
+<div class="acts">
+<button class="btn b-sched" disabled="" tabindex="-1">Schedule Online</button>
+<a class="btn b-call" href="tel:7377342828" tabindex="-1">Call Us</a>
+</div>
+</div>
+<div class="mcard" data-disc="0.15" data-freq="every 2 months">
+<h3>Bi-Monthly</h3>
+<div class="desc">1 full detail every 2 months</div>
+<div class="price"><span class="mprice">$150</span><span class="per">/visit</span></div>
+<span class="msave">Save $30/visit</span>
+<ul><li>15% off every detail</li><li>No contracts — cancel anytime</li><li>Guaranteed booking</li></ul>
+<div class="acts">
+<button class="btn b-sched" disabled="" tabindex="-1">Schedule Online</button>
+<a class="btn b-call" href="tel:7377342828" tabindex="-1">Call Us</a>
+</div>
+</div>
+<div class="mcard" data-disc="0.10" data-freq="every 3 months">
+<h3>Quarterly</h3>
+<div class="desc">1 full detail every 3 months</div>
+<div class="price"><span class="mprice">$160</span><span class="per">/visit</span></div>
+<span class="msave">Save $20/visit</span>
+<ul><li>10% off every detail</li><li>No contracts — cancel anytime</li><li>Guaranteed booking</li></ul>
+<div class="acts">
+<button class="btn b-sched" disabled="" tabindex="-1">Schedule Online</button>
+<a class="btn b-call" href="tel:7377342828" tabindex="-1">Call Us</a>
+</div>
+</div>
+</div>
+<div class="mincl-d">
+<h3>What every plan visit includes</h3>
+<p id="minclP">Interior + Exterior members get our complete Full Detail every visit — the same premium service, at a locked-in member rate:</p>
+<div class="g" id="minclG">
+<div>Full exterior hand wash &amp; decon</div>
+<div>Wheels, tires &amp; dressing</div>
+<div>Interior deep clean &amp; shampoo</div>
+<div>Leather &amp; surface protection</div>
+<div>Spray wax &amp; streak-free glass</div>
+<div>Full walk-through inspection</div>
+</div>
+</div>
+<p class="center" style="margin-top:22px;color:rgba(247,235,214,.6);font-size:.85rem">Savings vs. the standard price for your selection — Full Detail: Sedan $180 · Mid $220 · Truck $260 · Interior Only: Sedan $150 · Mid $160 · Truck $170.</p>
+</div>
+</section>
+
+<section id="owner" style="padding:64px 0 0">
+<div class="wrap">
+<div class="founder">
+<div class="pic"><picture><source srcset="https://trzdetail.com/photos/g-gage.webp" type="image/webp"/><img alt="Gage Terrazas, founder of TRZ Shine &amp; Detail, detailing a car in Austin, TX" decoding="async" height="800" loading="lazy" src="https://trzdetail.com/photos/g-gage.jpg" style="object-position:center 28%" width="768"/></picture><div class="photo-tag">Gage Terrazas — Founder</div></div>
+<div>
+<div class="eyebrow" style="color:var(--orange)">Meet the Owner</div>
+<h2 style="font-size:2rem;margin-top:8px">Hi, I'm <span class="script">Gage</span>.</h2>
+<p>UT Austin grad in Communications &amp; Entrepreneurship, I started TRZ detailing boats at the lake and grew it into a white-glove mobile service. Today I'm the official detailer for Barton Creek Country Club — and I treat every car, from a daily driver to a Rolls-Royce, like it's my own.</p>
+<div class="chips">
+<span class="chip">UT Austin Grad</span>
+<span class="chip">5+ Years Experience</span>
+<span class="chip">Barton Creek CC Detailer</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="wrap center">
+<div class="eyebrow">The Results</div>
+<h2 style="font-size:2.1rem;margin-top:8px">Drag to see the <span class="script">difference</span>.</h2>
+<p class="lead">Real transformations on real cars. Slide the handle.</p>
+<div class="ba" id="ba">
+<div class="layer after"><picture><source srcset="https://trzdetail.com/photos/ba-after.webp" type="image/webp"/><img alt="Porsche 911 after an exterior detail by TRZ Shine &amp; Detail, Austin TX" decoding="async" height="1100" loading="lazy" src="https://trzdetail.com/photos/ba-after.jpg" style="object-position:center 23%" width="825"/></picture></div>
+<div class="layer before" id="baBefore"><picture><source srcset="https://trzdetail.com/photos/ba-before.webp" type="image/webp"/><img alt="Porsche 911 before detailing, showing road grime and water spotting" decoding="async" height="1100" loading="lazy" src="https://trzdetail.com/photos/ba-before.jpg" style="object-position:center 3%" width="825"/></picture></div>
+<span class="tag b">Before</span>
+<span class="tag a">After</span>
+<div class="cap">Porsche 911 — exterior detail</div>
+<div aria-label="Reveal more of the before or after photo" aria-valuemax="98" aria-valuemin="2" aria-valuenow="50" class="handle" id="baHandle" role="slider" tabindex="0"><div class="knob">⇆</div></div>
+</div>
+<div class="gal">
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-bentley-2.webp" type="image/webp"/><img alt="Bentley Bentayga detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-bentley-2.jpg" width="480"/></picture><span>Bentley Bentayga · 8 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-porsche-taycan-1.webp" type="image/webp"/><img alt="Porsche Taycan GTS detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-porsche-taycan-1.jpg" width="480"/></picture><span>Porsche Taycan GTS · 7 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-bmw-m5-cs-2.webp" type="image/webp"/><img alt="BMW M5 CS detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-bmw-m5-cs-2.jpg" width="480"/></picture><span>BMW M5 CS · 7 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-911-carrera-s-2.webp" type="image/webp"/><img alt="Porsche 911 Carrera S detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-911-carrera-s-2.jpg" width="480"/></picture><span>Porsche 911 Carrera S · 4 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-bmw-x6m-3.webp" type="image/webp"/><img alt="BMW X6M Competition detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-bmw-x6m-3.jpg" width="480"/></picture><span>BMW X6M Competition · 5 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-eqs580-1.webp" type="image/webp"/><img alt="Mercedes EQS 580 detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-eqs580-1.jpg" width="480"/></picture><span>Mercedes EQS 580 · 6 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-escalade-1.webp" type="image/webp"/><img alt="Cadillac Escalade detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-escalade-1.jpg" width="480"/></picture><span>Cadillac Escalade · 8 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-rivian-4.webp" type="image/webp"/><img alt="Rivian R1S detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-rivian-4.jpg" width="480"/></picture><span>Rivian R1S · 5 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-bmw-840i.webp" type="image/webp"/><img alt="BMW 840i detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-bmw-840i.jpg" width="480"/></picture><span>BMW 840i · 5 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-ford-f250-tremor-5.webp" type="image/webp"/><img alt="Ford F-250 Tremor detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-ford-f250-tremor-5.jpg" width="480"/></picture><span>Ford F-250 Tremor · 5 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-audi-rs5-1.webp" type="image/webp"/><img alt="Audi RS5 detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-audi-rs5-1.jpg" width="480"/></picture><span>Audi RS5 · 4 photos</span></div>
+<div class="t" style="cursor:pointer"><picture><source srcset="https://trzdetail.com/photos/t-trz-car-tesla-y.webp" type="image/webp"/><img alt="Tesla Model Y detailed by TRZ Shine &amp; Detail, mobile car detailing in Austin, TX" decoding="async" height="640" loading="lazy" src="https://trzdetail.com/photos/t-trz-car-tesla-y.jpg" width="480"/></picture><span>Tesla Model Y · 7 photos</span></div>
+</div>
+<a class="btn btn-ghost" href="https://instagram.com/trzshine" style="margin-top:22px" tabindex="-1">See more on Instagram @trzshine</a>
+</div>
+</section>
+
+<section id="reviews" style="background:var(--cream-2)">
+<div class="wrap center">
+<div class="eyebrow">What Customers Say</div>
+<div class="reviews-head" style="margin-top:14px">
+<a aria-label="Read all 47 five-star Google reviews for TRZ Shine &amp; Detail" class="gbadge" href="https://www.google.com/search?kgmid=/g/11xg3jy83n&amp;q=TRZ+Shine+%26+Detail" rel="noopener" tabindex="-1" target="_blank"><svg height="16" viewbox="0 0 48 48" width="16"><path d="M45 24c0-1.6-.1-3.1-.4-4.6H24v9h11.8c-.5 2.7-2 5-4.3 6.5v5.4h7C42.7 36.3 45 30.6 45 24z" fill="#4285F4"></path><path d="M24 46c5.9 0 10.8-2 14.4-5.3l-7-5.4c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.4v5.6C8 41.6 15.4 46 24 46z" fill="#34A853"></path><path d="M11.8 28.4c-.4-1.3-.7-2.7-.7-4.4s.3-3 .7-4.4v-5.6H4.4C2.9 17 2 20.4 2 24s.9 7 2.4 10z" fill="#FBBC05"></path><path d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.2-6.2C34.8 4.3 29.9 2 24 2 15.4 2 8 6.4 4.4 14l7.4 5.6C13.5 14.5 18.3 10.7 24 10.7z" fill="#EA4335"></path></svg> <span class="stars">★★★★★</span> <b>5.0</b></a>
+<span style="color:var(--muted);font-weight:600;font-size:.9rem"><b style="color:var(--brown-2)">47</b> five-star Google reviews</span>
+</div>
+<div class="carousel">
+<button aria-label="Previous reviews" class="carbtn" disabled="" tabindex="-1">‹</button>
+<div class="carview"><div class="cartrack" id="revTrack"><article class="rev"><div class="who"><div class="av">MB</div><div><b>Mike Blahowski</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage simply does outstanding work, his price structure is clear and fair. He’s incredibly professional, polite, and enjoyable to do business with. Do yourself a favor and give him a try.</p></article><article class="rev"><div class="who"><div class="av">DB</div><div><b>Darla Bilderback</b><div class="m">SUV</div></div></div><div class="st">★★★★★</div><p>Gage did an amazing job detailing my SUV! I have four dogs that shed like crazy, and recently one of them was injured and unfortunately got blood everywhere—even in spots I didn’t know existed. Gage was incredibly thorough and somehow managed to get every bit of it out. My SUV seriously looks brand new again. I couldn’t believe the difference! Highly recommend Gage if you’re looking for someone who is thorough, professional, and pays attention to every detail.</p></article><article class="rev"><div class="who"><div class="av">LK</div><div><b>Laura-Hill Keller</b><div class="m">Golf cart</div></div></div><div class="st">★★★★★</div><p>Gage came to clean my car and my golfcart and they both look AMAZING! He also cleaned 3 carseats. So happy and will call him again soon!</p></article><article class="rev"><div class="who"><div class="av">JB</div><div><b>Jimby Bussin</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage’s work was meticulous despite this brutal Texas heat. He was professional, friendly, and made efficient use of his time. Pricing’s fair too so TRZ is an easy recommendation to make.</p></article><article class="rev"><div class="who"><div class="av">WH</div><div><b>William Hawkins</b><div class="m">Tarrytown</div></div></div><div class="st">★★★★★</div><p>Trz shine did a fantastic job on my car!! He came out to terry town within a day and crushed the results. I will be on his monthly maintenance plan</p></article><article class="rev"><div class="who"><div class="av">DH</div><div><b>Daimon Hooker</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage did an AMAZING job on my car!!! 10/10 recommend!</p></article><article class="rev"><div class="who"><div class="av">JT</div><div><b>Jayson Truttmann</b><div class="m">Lakeway</div></div></div><div class="st">★★★★★</div><p>Gage is a quintessential professional. My standards are exceptionally high, and I dare say he exceeds them. As a car enthusiast, I strongly recommend him.</p></article><article class="rev"><div class="who"><div class="av">NH</div><div><b>Nathan Hernandez</b><div class="m">Truck</div></div></div><div class="st">★★★★★</div><p>Incredible service! Gage went above and beyond and my truck looks great. Definitely coming back.</p></article><article class="rev"><div class="who"><div class="av">KC</div><div><b>Klein Coburn</b><div class="m">Hudson Bend</div></div></div><div class="st">★★★★★</div><p>Gage came out right away and cleaned my car from top to bottom and didn't miss a single spot. The interior was spotless and my car looked like it just rolled off of the factory line. Incredible pricing and great service!</p></article><article class="rev"><div class="who"><div class="av">L</div><div><b>LTD</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Best detail my car has ever gotten. Gage has exceptional service and knows every soap/chemical to make your car look brand new. Definitely recommend!</p></article><article class="rev"><div class="who"><div class="av">KD</div><div><b>Kate Durham</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>I got my car detailed by Gage, and he did an amazing job. I highly recommend getting your car done by him. He had great communication, and was very responsive with great prices!</p></article><article class="rev"><div class="who"><div class="av">JG</div><div><b>John A Genovesi</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Very responsive, courteous and professional. Fantastic work — brought my vehicle back to looking brand new with a handful of insider tricks. Comes to your home and works hard in the driveway. Love the way my vehicles look. Even my golf cart!</p></article><article class="rev"><div class="who"><div class="av">LG</div><div><b>Luke Grimes</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage does an excellent job. My car feels brand new every time he details it, and the customer service is great too. Highly recommend!</p></article><article class="rev"><div class="who"><div class="av">JL</div><div><b>Jennifer Linder</b><div class="m">Local Guide</div></div></div><div class="st">★★★★★</div><p>5-star for car detailing. Car looks new inside and out. Love the attention to detail and great communication. See you soon TRZ Shine!</p></article><article class="rev"><div class="who"><div class="av">SK</div><div><b>Sean Kiehne</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Excellent job… very thorough… excellent price.</p></article><article class="rev"><div class="who"><div class="av">MS</div><div><b>Michela Schuster</b><div class="m">Local Guide</div></div></div><div class="st">★★★★★</div><p>Gage really took the time to clean every single detail. I have two small children who love applesauce pouches, so the car was really dirty — he cleaned both car seats and got all the marker stains out. On time and very professional. Thank you!</p></article><article class="rev"><div class="who"><div class="av">CW</div><div><b>Chase Williams</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Excellent wash, on time and efficient, hardworking kid — highly recommend.</p></article><article class="rev"><div class="who"><div class="av">RC</div><div><b>Randee Craig</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage did an amazing job — my car looks brand new! He was incredibly thorough and paid attention to every detail, inside and out. I'll definitely be using his services again.</p></article><article class="rev"><div class="who"><div class="av">LW</div><div><b>Laura Wallace</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>I am so happy to have been introduced to Gage! He is smart and professional, and very well priced for what he produces in a perfectly clean and detailed car! I will definitely continue to book his business!</p></article><article class="rev"><div class="who"><div class="av">LP</div><div><b>Laura Preece</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Professional, convenient, and the attention to detail was outstanding. My car looked absolutely amazing inside and out — like brand new again. Great communication, on time, and you can tell he takes pride in his work. Highly recommend!</p></article><article class="rev"><div class="who"><div class="av">RC</div><div><b>Rachelle Cree</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>If you take pride in how your car looks, Gage is the only one to call. He always arrives on time, is never rushed, takes every inch (inside &amp; out) into account and details to perfection! He'll leave your car looking better than the day you bought it.</p></article><article class="rev"><div class="who"><div class="av">TC</div><div><b>Trevor Cook</b><div class="m">Truck</div></div></div><div class="st">★★★★★</div><p>Gage did an amazing job with my truck — I have a golden retriever and it was almost impossible to get the dog hair out. He paid attention to every area on the interior until it was spotless. No shortcuts taken and I was very pleased.</p></article><article class="rev"><div class="who"><div class="av">MY</div><div><b>Macey Yust</b><div class="m">Austin</div></div></div><div class="st">★★★★★</div><p>BEST DETAILER IN ATX!! Always on time, always goes the extra mile to make sure it's done right!! Can't recommend TRZ enough! Gage is THE BEST!!!!</p></article><article class="rev"><div class="who"><div class="av">JB</div><div><b>Jen Blake</b><div class="m">Sedan</div></div></div><div class="st">★★★★★</div><p>Gage detailed my 16 year old sedan and now she doesn't look a day over 5! :) Really though, Gage provided exceptional detail service. My car looks fantastic. Will for sure be calling him again soon. Thank you, Gage.</p></article><article class="rev"><div class="who"><div class="av">WB</div><div><b>Will Buchman</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Quick and quality service. Great communication, highly recommend!</p></article><article class="rev"><div class="who"><div class="av">KK</div><div><b>Kimberly Keighley</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>If I could give 10 stars I would! We were recommended Gage and he's nothing short of amazing. He detailed both our cars and they look brand new. His attention to detail is perfection and he has the warmest personality. We'll be using him from here on out!</p></article><article class="rev"><div class="who"><div class="av">RR</div><div><b>Ron Rhodes</b><div class="m">Chevy Tahoe · Austin</div></div></div><div class="st">★★★★★</div><p>TRZ did a fantastic job detailing my Tahoe. It's 5 years old but now looks brand new. After many cookies, sandwiches, and spilled drinks from hauling my grandkids around, TRZ has it looking so great I may not let them ride in it again! Ha!</p></article><article class="rev"><div class="who"><div class="av">CE</div><div><b>Cristina Everett</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>TRZ did an amazing job inside and out. There was a bit of a struggle with dog hair, but Gage persisted! Excellent attention to detail — my six-year-old car looked brand new. My husband was so impressed he's lining up his car now. 5/5!</p></article><article class="rev"><div class="who"><div class="av">DD</div><div><b>Danny Diebel</b><div class="m">Mercedes CLK</div></div></div><div class="st">★★★★★</div><p>Found Gage working on a neighbor's SUV while walking our dogs. He saved me hundreds restoring the headlights on my 2002 Mercedes CLK. I highly recommend his service and have no reservations having him back for any detailing.</p></article><article class="rev"><div class="who"><div class="av">AD</div><div><b>Adam Domecq</b><div class="m">Local Guide</div></div></div><div class="st">★★★★★</div><p>Our cars are clean to "showroom" quality thanks to Gage! Timeliness, courtesy, professionalism, and the attention to detail supported by his state-of-the-art equipment have earned TRZ a long-term customer with our family. Thank you!</p></article><article class="rev"><div class="who"><div class="av">NM</div><div><b>Nicole M</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage was super communicative, friendly, accommodating and detailed. He did an awesome job in a pretty short amount of time. I would highly recommend him! I totally forgot to take pictures, but it's shining now!!</p></article><article class="rev"><div class="who"><div class="av">HA</div><div><b>Hayden Allard</b><div class="m">Bee Cave</div></div></div><div class="st">★★★★★</div><p>Gage showed up right on time at 9AM and finished in about an hour and 45 minutes. Super efficient and professional — my car looks brand new inside and out and even smells fresh again. Easily the best detailing experience I've had, right in my driveway!</p></article><article class="rev"><div class="who"><div class="av">AM</div><div><b>Amber Murphy</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage did an amazing job! Very meticulous and thorough &amp; great pricing! Highly recommend him! My car has never looked better!</p></article><article class="rev"><div class="who"><div class="av">CR</div><div><b>Chance Ray</b><div class="m">Lakeway</div></div></div><div class="st">★★★★★</div><p>I had an amazing experience with TRZ! They came right to my home and did an outstanding job on my car. Super convenient, professional, and my car looks brand new — highly recommend!</p></article><article class="rev"><div class="who"><div class="av">WS</div><div><b>Will Schulze</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage was awesome, very professional and thorough job!</p></article><article class="rev"><div class="who"><div class="av">DE</div><div><b>Daniel Elliott</b><div class="m">Truck</div></div></div><div class="st">★★★★★</div><p>Gage worked 4 hours on my dirty truck, deep cleaning inside and out at a very reasonable price. It's 8 years old and literally looks brand new. My coworkers notice how clean it looks from far away — especially the tire shine!</p></article><article class="rev"><div class="who"><div class="av">JS</div><div><b>Joe Scaparra</b><div class="m">Truck</div></div></div><div class="st">★★★★★</div><p>Gage did an excellent job detailing my truck. Showed up on time, explained the details to me and went above and beyond. I'll definitely have him come back again.</p></article><article class="rev"><div class="who"><div class="av">SM</div><div><b>Stephen Moreland</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Had Gage do two cars for me at my house. What a great job and the price was very reasonable. Will use him again — that's for sure! What a pleasant experience.</p></article><article class="rev"><div class="who"><div class="av">MB</div><div><b>Melody Brue</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Excellent work and great communication. Highly recommend!</p></article><article class="rev"><div class="who"><div class="av">JM</div><div><b>Julia M</b><div class="m">SUV</div></div></div><div class="st">★★★★★</div><p>We got Gage's info from a neighbor and he did an amazing job on my disgusting SUV — 3 kids, all their friends, and our dog had destroyed it! He got it looking and smelling so clean. Highly recommend and we'll definitely use Gage again.</p></article><article class="rev"><div class="who"><div class="av">ZT</div><div><b>Zara Terrazas-Graham</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Incredible detail! Affordable, super convenient and Gage did an amazing job! Highly recommend.</p></article><article class="rev"><div class="who"><div class="av">SP</div><div><b>Seth Parham</b><div class="m">Truck</div></div></div><div class="st">★★★★★</div><p>TRZ detailed my truck and I could not be happier. I've used countless others who lacked professionalism and charged an arm and a leg. I will continue to use TRZ moving forward.</p></article><article class="rev"><div class="who"><div class="av">SR</div><div><b>Sarthak Reddy</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage is super friendly, professional, and efficient with his car detailing services. I would highly recommend him if you're looking for a high quality detail!</p></article><article class="rev"><div class="who"><div class="av">MT</div><div><b>Mia Terrazas</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Had an amazing experience with Gage at TRZ Detail. He was extremely thorough, polite, and timely. Also super fair prices. My car looked brand new! So much more convenient than going to a car wash.</p></article><article class="rev"><div class="who"><div class="av">KC</div><div><b>Kellie Carson</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage did an amazing job on my car and my daughter's car!</p></article><article class="rev"><div class="who"><div class="av">TT</div><div><b>Teri Terrazas-Graham</b><div class="m">Google review</div></div></div><div class="st">★★★★★</div><p>Gage is very professional: sent a text the day before to confirm his arrival and then arrived promptly (actually a little early). His work was thorough and beautiful. Great experience and a perfectly clean car!</p></article><article class="rev"><div class="who"><div class="av">LB</div><div><b>Lawson Bickerstaff</b><div class="m">Truck</div></div></div><div class="st">★★★★★</div><p>Gage was quick and efficient with his cleaning. Left my truck spotless — I forgot how nice it is to have a clean vehicle.</p></article></div></div>
+<button aria-label="Next reviews" class="carbtn" disabled="" tabindex="-1">›</button>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap center">
+<div class="eyebrow">Why TRZ</div>
+<h2 style="font-size:2.1rem;margin-top:8px">Details the fleets can't match.</h2>
+<div class="why-grid" style="text-align:left">
+<div class="why"><div class="ic"><svg fill="none" height="30" stroke="#DD7B2F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30"><path d="M12 2l8 3v6c0 5-3.4 8.6-8 11-4.6-2.4-8-6-8-11V5z"></path><path d="M9 12l2 2 4-4"></path></svg></div><h4>Fully Insured</h4><p>$1M per occurrence, $2M aggregate, $25K garage keepers. Your car is protected.</p></div>
+<div class="why"><div class="ic"><svg fill="none" height="30" stroke="#DD7B2F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30"><path d="M12 3c4 5 6.5 8.2 6.5 11.3A6.5 6.5 0 0 1 5.5 14.3C5.5 11.2 8 8 12 3z"></path></svg></div><h4>De-Ionized Water</h4><p>Spot-free rinse that most mobile detailers don't offer.</p></div>
+<div class="why"><div class="ic"><svg fill="none" height="30" stroke="#DD7B2F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div><h4>Owner-Operated</h4><p>Gage details your car himself — not a rotating crew.</p></div>
+<div class="why"><div class="ic"><svg fill="none" height="30" stroke="#DD7B2F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg></div><h4>On Time, Every Time</h4><p>We show up when we say we will and keep you updated by text.</p></div>
+<div class="why"><div class="ic"><svg fill="none" height="30" stroke="#DD7B2F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30"><path d="M9 9h5v11a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1z"></path><path d="M9 9V6h4V4"></path><path d="M14 6h4M18 4v4"></path></svg></div><h4>Pro-Grade Products</h4><p>Premium chemicals and tools built for concours-level results.</p></div>
+<div class="why"><div class="ic"><svg fill="none" height="30" stroke="#DD7B2F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="30"><circle cx="12" cy="12" r="9"></circle><path d="M8 12l2.5 2.5L16 9"></path></svg></div><h4>Satisfaction Guaranteed</h4><p>Not happy? We make it right. Simple as that.</p></div>
+</div>
+</div>
+</section>
+
+<section id="area">
+<div class="wrap">
+<div class="area">
+<div>
+<div class="eyebrow">Service Area</div>
+<h2 style="font-size:1.9rem;margin-top:8px">Bringing the shine across Greater Austin.</h2>
+<p style="color:var(--muted);margin-top:10px">All of Austin — north, south, east, central and downtown — plus Westlake, Tarrytown, Barton Creek, Bee Cave, Lakeway, Rough Hollow and Spicewood. Further out, we come to Dripping Springs, Cedar Park &amp; Leander, Round Rock and Georgetown by appointment. Most of greater Austin has no travel fee; if you're more than a 30-minute drive from us, it's $1 per minute beyond the first 30.</p>
+<p style="color:var(--muted);margin-top:10px">Austin is hard on a finish all year: relentless UV, and tap water hard enough to spot a panel while you are still drying it. We bring our own de-ionized water and our own power, so all we need is room to work around the car — in your driveway, at the office, or wherever you have parked downtown.</p>
+<div class="cities">
+<a class="city" href="https://trzdetail.com/mobile-detailing-westlake-tx/" tabindex="-1">Westlake</a><a class="city" href="https://trzdetail.com/mobile-detailing-lakeway-tx/" tabindex="-1">Lakeway</a><a class="city" href="https://trzdetail.com/mobile-detailing-bee-cave-tx/" tabindex="-1">Bee Cave</a><a class="city" href="https://trzdetail.com/mobile-detailing-spicewood-tx/" tabindex="-1">Spicewood</a><a class="city" href="https://trzdetail.com/mobile-detailing-tarrytown-tx/" tabindex="-1">Tarrytown</a><a class="city" href="https://trzdetail.com/mobile-detailing-rough-hollow-tx/" tabindex="-1">Rough Hollow</a><a class="city" href="https://trzdetail.com/mobile-detailing-barton-creek-tx/" tabindex="-1">Barton Creek</a><a class="city" href="https://trzdetail.com/" tabindex="-1">Austin</a><a class="city" href="https://trzdetail.com/mobile-detailing-downtown-austin-tx/" tabindex="-1">Downtown Austin</a><a class="city" href="https://trzdetail.com/mobile-detailing-south-austin-tx/" tabindex="-1">South Austin</a><a class="city" href="https://trzdetail.com/mobile-detailing-north-austin-tx/" tabindex="-1">North Austin</a><a class="city" href="https://trzdetail.com/mobile-detailing-east-austin-tx/" tabindex="-1">East Austin</a><a class="city" href="https://trzdetail.com/mobile-detailing-southwest-austin-tx/" tabindex="-1">Southwest Austin</a><a class="city" href="https://trzdetail.com/mobile-detailing-steiner-ranch-tx/" tabindex="-1">Steiner Ranch</a><a class="city" href="https://trzdetail.com/mobile-detailing-hudson-bend-tx/" tabindex="-1">Hudson Bend</a><a class="city" href="https://trzdetail.com/mobile-detailing-dripping-springs-tx/" tabindex="-1">Dripping Springs</a><a class="city" href="https://trzdetail.com/mobile-detailing-cedar-park-tx/" tabindex="-1">Cedar Park &amp; Leander</a><a class="city" href="https://trzdetail.com/mobile-detailing-round-rock-tx/" tabindex="-1">Round Rock</a><a class="city" href="https://trzdetail.com/mobile-detailing-georgetown-tx/" tabindex="-1">Georgetown</a>
+</div>
+<button class="btn btn-primary" disabled="" style="margin-top:20px" tabindex="-1">Book Your Detail →</button>
+</div>
+<div class="map">
+
+</div>
+</div>
+</div>
+</section>
+
+<section id="faq" style="background:var(--cream-2)">
+<div class="wrap center">
+<div class="eyebrow">Questions</div>
+<h2 style="font-size:2.1rem;margin-top:8px">Everything you need to know.</h2>
+<div class="faq" style="text-align:left">
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">How do I book? <span class="plus">+</span></button><div class="ans"><p>Book online in a couple of taps — pick your service and time and you'll get a fast confirmation by text. Prefer to talk it through? Call or text us anytime.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">What areas do you serve? <span class="plus">+</span></button><div class="ans"><p>All of Austin — north, south and east — plus Westlake, Tarrytown, Barton Creek, Bee Cave, Lakeway, Rough Hollow and Spicewood. We also come out to Dripping Springs, Cedar Park &amp; Leander, Round Rock and Georgetown by appointment. Just outside the area? Text us and we'll let you know.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">Do you charge a travel fee? <span class="plus">+</span></button><div class="ans"><p>Most of greater Austin is included. If you're more than a 30-minute drive from us, it's $1 per minute beyond the first 30 — we'll tell you the exact amount when we confirm your booking.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">Can I book an add-on on its own? <span class="plus">+</span></button><div class="ans"><p>No — add-ons can't be booked by themselves. Each one is added to a main service, like an Exterior, Interior or Full Detail, and quoted before any work starts.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">Do you detail boats and golf carts? <span class="plus">+</span></button><div class="ans"><p>Yes, both — by quote, because there is no set price for either. Call or text (737) 734-2828 with a photo and we'll send you a price. Boats and golf carts can't be booked online.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">How long does a detail take? <span class="plus">+</span></button><div class="ans"><p>Exterior about 45 minutes, Interior 1.5–2.5 hours, and a Full Detail 2.5–3 hours depending on vehicle size and condition.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">Are you insured? <span class="plus">+</span></button><div class="ans"><p>Fully — $1M per occurrence, $2M aggregate, and $25K garage keepers coverage. Your vehicle is protected while we work.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">How do I pay, and is a deposit required? <span class="plus">+</span></button><div class="ans"><p>Secure payment through Square. Standard details require no deposit; larger jobs like ceramic coating may require a small deposit to hold your slot.</p></div></div>
+<div class="qa"><button aria-expanded="false" disabled="" tabindex="-1">What if I need to reschedule? <span class="plus">+</span></button><div class="ans"><p>No problem — just reply to your confirmation text or call us and we'll find a new time. Changes made more than 24 hours before your appointment are always free. Inside 24 hours, or a no-show, is a $50 fee, since that slot and the drive time are held for you. Weather and emergencies are never charged. <a href="https://trzdetail.com/terms/" tabindex="-1">Full policy</a>.</p></div></div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="cols">
+<div>
+<a class="logo" href="#top" tabindex="-1">
+<div class="tiles"><span class="tile">T</span><span class="tile">R</span><span class="tile">Z</span></div>
+<div class="banner"><span class="star">✦</span><span class="shine">Shine</span><span class="sub">&amp; Detail</span></div>
+</a>
+<p class="blurb">Austin's premium mobile detailing service. Owner-operated, fully insured, brought to your door.</p>
+</div>
+<div><h5>Services</h5><a href="https://trzdetail.com/services/full-detail/" tabindex="-1">Full Detail</a><a href="https://trzdetail.com/services/interior-detail/" tabindex="-1">Interior Detail</a><a href="https://trzdetail.com/services/exterior-detail/" tabindex="-1">Exterior Detail</a><a href="https://trzdetail.com/services/ceramic-coating/" tabindex="-1">Ceramic Coating</a><a href="https://trzdetail.com/services/ceramic-coating/" tabindex="-1">Paint Correction</a><a href="https://trzdetail.com/services/boat-detailing/" tabindex="-1">Boat Detailing</a><a href="https://trzdetail.com/services/golf-cart-detailing/" tabindex="-1">Golf Cart Detailing</a></div><div><h5>Service Areas</h5><a href="https://trzdetail.com/mobile-detailing-westlake-tx/" tabindex="-1">Westlake &amp; Rollingwood</a><a href="https://trzdetail.com/mobile-detailing-lakeway-tx/" tabindex="-1">Lakeway</a><a href="https://trzdetail.com/mobile-detailing-bee-cave-tx/" tabindex="-1">Bee Cave</a><a href="https://trzdetail.com/mobile-detailing-spicewood-tx/" tabindex="-1">Spicewood</a><a href="https://trzdetail.com/mobile-detailing-tarrytown-tx/" tabindex="-1">Tarrytown</a><a href="https://trzdetail.com/mobile-detailing-rough-hollow-tx/" tabindex="-1">Rough Hollow &amp; Lakeway</a><a href="https://trzdetail.com/mobile-detailing-barton-creek-tx/" tabindex="-1">Barton Creek</a><a href="https://trzdetail.com/" tabindex="-1">All of Austin</a><a href="https://trzdetail.com/mobile-detailing-downtown-austin-tx/" tabindex="-1">Downtown Austin</a><a href="https://trzdetail.com/mobile-detailing-south-austin-tx/" tabindex="-1">South Austin</a><a href="https://trzdetail.com/mobile-detailing-north-austin-tx/" tabindex="-1">North Austin</a><a href="https://trzdetail.com/mobile-detailing-east-austin-tx/" tabindex="-1">East Austin</a><a href="https://trzdetail.com/mobile-detailing-southwest-austin-tx/" tabindex="-1">Southwest Austin</a><a href="https://trzdetail.com/mobile-detailing-steiner-ranch-tx/" tabindex="-1">Steiner Ranch</a><a href="https://trzdetail.com/mobile-detailing-hudson-bend-tx/" tabindex="-1">Hudson Bend &amp; Lake Travis</a><a href="https://trzdetail.com/mobile-detailing-dripping-springs-tx/" tabindex="-1">Dripping Springs</a><a href="https://trzdetail.com/mobile-detailing-cedar-park-tx/" tabindex="-1">Cedar Park &amp; Leander</a><a href="https://trzdetail.com/mobile-detailing-round-rock-tx/" tabindex="-1">Round Rock &amp; Brushy Creek</a><a href="https://trzdetail.com/mobile-detailing-georgetown-tx/" tabindex="-1">Georgetown &amp; Sun City</a></div><div><h5>Guides</h5><a href="https://trzdetail.com/guides/car-detailing-cost-austin/" tabindex="-1">What detailing costs in Austin</a><a href="https://trzdetail.com/guides/mobile-vs-shop-detailing/" tabindex="-1">Mobile vs shop detailing</a><a href="https://trzdetail.com/guides/how-often-to-detail-your-car-texas/" tabindex="-1">How often to detail your car</a><a href="https://trzdetail.com/guides/how-to-get-dog-hair-out-of-a-car/" tabindex="-1">Getting dog hair out of a car</a><a href="https://trzdetail.com/guides/detailing-a-tesla-model-y/" tabindex="-1">Detailing a Tesla Model Y</a><a href="https://trzdetail.com/guides/fleet-detailing-austin/" tabindex="-1">Fleet &amp; business detailing</a></div>
+<div><h5>Company</h5><a href="https://trzdetail.com/about/" tabindex="-1">About Gage</a><a href="https://trzdetail.com/reviews/" tabindex="-1">Reviews</a><a href="https://trzdetail.com/results/" tabindex="-1">Results</a><a href="https://trzdetail.com/pricing/" tabindex="-1">Pricing</a><a href="https://trzdetail.com/maintenance-plans/" tabindex="-1">Maintenance Plans</a><a href="https://trzdetail.com/faq/" tabindex="-1">FAQ</a><a href="https://trzdetail.com/service-area/" tabindex="-1">Service Area</a><a href="https://trzdetail.com/guides/" tabindex="-1">Guides</a><a href="https://trzdetail.com/privacy/" tabindex="-1">Privacy &amp; SMS Policy</a><a href="https://trzdetail.com/terms/" tabindex="-1">Cancellation &amp; Terms</a></div>
+<div><h5>Contact</h5><a href="tel:7377342828" tabindex="-1">(737) 734-2828</a><a href="https://instagram.com/trzshine" tabindex="-1">Instagram @trzshine</a><a tabindex="-1">Open 7 days</a><a tabindex="-1">By appointment</a></div>
+</div>
+<div class="base"><span>© 2026 TRZ Shine &amp; Detail. All rights reserved.</span><span></span></div>
+</div>
+</footer>
+
+<div class="mobar">
+<a class="call" href="tel:7377342828" tabindex="-1"><span class="ic"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"></path></svg></span>Call</a>
+<a class="call" href="sms:7377342828" tabindex="-1"><span class="ic"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 11.5a8.4 8.4 0 0 1-12 7.6L3 21l1.9-6A8.4 8.4 0 1 1 21 11.5z"></path></svg></span>Text</a>
+<a class="book" href="#" tabindex="-1"><span class="ic"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2.5l2.8 6.1 6.7.6-5 4.4 1.5 6.5L12 17.3 5.9 20.6l1.5-6.5-5-4.4 6.7-.6z"></path></svg></span>Book a Detail</a>
+</div>
+
+
+<div class="albw" id="albw">
+<button aria-label="Close album" class="aclose" disabled="" tabindex="-1">✕</button>
+<div class="albcap" id="albCap"></div>
+<div class="stage">
+<button aria-label="Previous photo" class="anav aprev" disabled="" tabindex="-1">‹</button>
+<img alt="TRZ Shine &amp; Detail — car photo" decoding="async" id="albImg"/>
+<button aria-label="Next photo" class="anav anext" disabled="" tabindex="-1">›</button>
+</div>
+<div class="athumbs" id="albThumbs"></div>
+</div>
+
+
+<div aria-labelledby="offTitle" aria-modal="true" class="offw" hidden="" id="offw" role="dialog">
+<div class="offc" id="offc">
+<button aria-label="Close" class="offx" disabled="" id="offX" tabindex="-1">✕</button>
+<div class="offstart">
+<span class="eyebrow">First-time offer</span>
+<h2 id="offTitle">Take <span class="script">10% off</span><br/>your first detail.</h2>
+<p class="osub">Enter your email and your code appears right here, plus you'll get first word on open slots and seasonal specials. No spam, unsubscribe anytime.</p>
+<form action="#" class="offform" id="offForm" method="get" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="offhp" disabled="" id="offHp" name="company" tabindex="-1" type="text"/>
+<label class="offhp" for="offEmail">Email address</label>
+<input autocomplete="email" disabled="" id="offEmail" inputmode="email" name="email" placeholder="you@email.com" required="" tabindex="-1" type="email"/>
+<div class="offerr" id="offErr" role="alert"></div>
+<button class="btn btn-primary" disabled="" id="offGo" tabindex="-1" type="submit">Get my 10% off →</button>
+</form>
+<p class="offfine">One use per customer, on your first detail with TRZ. We'll only email you about TRZ. See our <a href="https://trzdetail.com/privacy/" tabindex="-1">privacy policy</a>.</p>
+<button class="offno" disabled="" id="offNo" tabindex="-1" type="button">No thanks, I'll pay full price</button>
+</div>
+<div class="offdone">
+<span class="eyebrow">You're in</span>
+<h2>Here's your <span class="script">code</span>.</h2>
+<div class="offcode" id="offCode">SHINE10</div>
+<p class="osub" style="margin-top:10px">Mention it when you book and 10% comes off your first detail. Screenshot it so it's handy. It doesn't expire.</p>
+<button class="btn btn-primary" disabled="" id="offBook" style="width:100%" tabindex="-1">Book my detail →</button>
+<button class="offno" disabled="" id="offLater" tabindex="-1" type="button">I'll book later</button>
+</div>
+</div>
+</div>
+
+</body>
+</html>

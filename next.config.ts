@@ -14,7 +14,9 @@ const VERCEL_ALIAS = "forerunner-sites.vercel.app";
  * working whether the primary domain is the apex or www.
  */
 const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-const customDomainAttached = Boolean(productionUrl && !productionUrl.endsWith(".vercel.app"));
+const customDomainAttached = Boolean(
+  productionUrl && !productionUrl.endsWith(".vercel.app"),
+);
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
@@ -43,12 +45,26 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/work/tours/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          {
+            key: "Content-Security-Policy",
+            value:
+              "script-src 'none'; object-src 'none'; form-action 'none'; frame-ancestors 'self'",
+          },
+        ],
+      },
+      {
         // Portfolio media is fetched straight from /public (the video and
         // its poster bypass the image optimizer). Files are replaced in
         // place when refreshed, so cache for a week rather than forever.
         source: "/work/:file([^/]+\\.(?:jpg|jpeg|png|webp|avif|mp4))",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=604800, stale-while-revalidate=86400",
+          },
         ],
       },
     ];

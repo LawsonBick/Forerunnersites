@@ -23,7 +23,8 @@
 
   --font-sans:
     var(--font-archivo), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-ibm-plex-sans), var(--font-archivo), system-ui, sans-serif;
+  --font-display:
+    var(--font-ibm-plex-sans), var(--font-archivo), system-ui, sans-serif;
 
   --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 
@@ -357,15 +358,36 @@ h2,
   font-family: var(--font-sans);
 }
 
+/* The work sits directly on the page, with only a quiet browser frame. */
 .hero-reel {
   position: relative;
-  background: var(--color-accent);
-  padding: 26px 28px 12px;
-  border-radius: 6px;
-  box-shadow: 0 30px 65px -42px #1639b990;
 }
-.hero-reel figure {
-  box-shadow: 0 16px 40px -16px #0b1b6870;
+.hero-reel #featured-preview > figure {
+  border-color: #e1e4e8;
+  border-radius: 5px;
+  box-shadow: 0 12px 32px -22px rgb(16 33 59 / 0.24);
+}
+.hero-reel #featured-preview > figure > div:first-child {
+  background: #f5f5f4;
+}
+.reel-project-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  color: var(--color-ink);
+  font-size: 19px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.reel-project-link:hover .reel-project-arrow {
+  background: var(--color-ink);
+  color: white;
+  transform: translate(2px, -2px);
 }
 .hero-visual {
   padding-top: 40px;
@@ -380,16 +402,21 @@ h2,
 }
 .reel-selector {
   position: relative;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink-soft);
   cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
-.reel-selector[aria-pressed="true"]::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: white;
+.reel-selector:hover,
+.reel-selector[aria-pressed="true"] {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.reel-selector[aria-pressed="true"] {
+  border-top-width: 2px;
+  padding-top: 11px;
 }
 .project-stage {
   padding: 28px;
@@ -499,7 +526,8 @@ main {
   font-weight: 500;
   font-style: normal;
 }
-.font-display em, .hero-title em {
+.font-display em,
+.hero-title em {
   font-weight: inherit;
   font-style: normal;
 }
@@ -529,9 +557,6 @@ main {
 @media (max-width: 639px) {
   .hero-title {
     font-size: clamp(2.6rem, 12.8vw, 4.8rem);
-  }
-  .hero-reel {
-    padding: 18px 16px 5px;
   }
   .project-stage {
     padding: 17px;
@@ -609,3 +634,8 @@ html[data-motion="reduced"] {
     }
   }
 }
+
+.walkthrough-control {min-height:28px;min-width:42px;padding:3px 7px;border-radius:20px;cursor:pointer;}
+.walkthrough-control:hover {background:var(--color-wash);}
+.walkthrough-control:focus-visible {outline:2px solid var(--color-accent);outline-offset:1px;}
+.walkthrough-viewport iframe {transition:opacity .35s ease;}
