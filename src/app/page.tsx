@@ -31,7 +31,7 @@ export default function HomePage() {
             </Eyebrow>
             <h1 className="hero-title mt-5 uppercase">
               <span className="mask-line">
-                <span className="mask-line-inner">Modern businesses</span>
+                <span className="mask-line-inner">Your business,</span>
               </span>
               <br />
               <span className="mask-line">
@@ -39,7 +39,7 @@ export default function HomePage() {
                   className="mask-line-inner text-black"
                   style={{ animationDelay: "70ms" }}
                 >
-                  Modern websites
+                  Upgraded
                 </em>
               </span>
             </h1>
