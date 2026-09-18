@@ -2,6 +2,7 @@ import { ConversionTracking } from "@/components/conversion-tracking";
 import type { Metadata, Viewport } from "next";
 import { Archivo, IBM_Plex_Sans } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/config/site";
 import { defaultShareImage, isPreviewDeployment } from "@/lib/seo";
 import { founderSchema, organizationSchema, webSiteSchema } from "@/lib/schema";
@@ -121,6 +122,7 @@ gtag('config', '${site.googleAnalyticsId}');`}
             </Script>
           </>
         ) : null}
+        <Analytics />
       </body>
     </html>
   );
