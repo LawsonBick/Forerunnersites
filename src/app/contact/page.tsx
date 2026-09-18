@@ -64,7 +64,7 @@ export default function ContactPage() {
                 <ol className="stagger mt-4" data-reveal>
                   {nextSteps.map((step, i) => (
                     <li key={step.title} className="flex gap-4 border-t border-line py-4">
-                      <span className="text-[13px] font-semibold text-accent tabular-nums">
+                      <span className="text-[13px] font-semibold text-ink tabular-nums">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={`mailto:${site.email}`}
-                  className="mt-2 inline-block font-display text-xl text-accent underline underline-offset-4 transition-colors hover:text-accent-deep"
+                  className="mt-2 inline-block font-display text-xl text-ink transition-colors hover:text-ink no-underline"
                 >
                   {site.email}
                 </a>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     href={site.schedulingUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 inline-block text-sm font-medium text-accent underline underline-offset-4"
+                    className="mt-2 inline-block text-sm font-medium text-ink no-underline"
                   >
                     Pick a time ↗
                   </a>

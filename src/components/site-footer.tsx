@@ -14,22 +14,22 @@ export function SiteFooter() {
   ].filter((s): s is { label: string; href: string } => Boolean(s.href));
 
   return (
-    <footer className="bg-ink text-paper">
+    <footer className="bg-wash text-ink">
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Wordmark inverse />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper-soft">
+            <Wordmark />
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-soft">
               Strategic websites for Austin businesses, designed and built by
               Lawson Bickerstaff.
             </p>
-            <p className="mt-6 text-sm text-paper-soft">
+            <p className="mt-6 text-sm text-ink-soft">
               {site.location.city}, {site.location.regionFull}
             </p>
           </div>
 
           <nav aria-label="Footer" className="lg:col-span-3">
-            <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-paper-soft">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
               Site
             </h2>
             <ul className="mt-4 space-y-3">
@@ -37,7 +37,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-paper transition-colors hover:text-white hover:underline hover:underline-offset-4"
+                    className="text-sm text-ink transition-colors hover:text-ink hover:underline hover:underline-offset-4"
                   >
                     {item.label}
                   </Link>
@@ -47,14 +47,14 @@ export function SiteFooter() {
           </nav>
 
           <div className="lg:col-span-4">
-            <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-paper-soft">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft">
               Contact
             </h2>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="text-sm text-paper transition-colors hover:text-white hover:underline hover:underline-offset-4"
+                  className="text-sm text-ink transition-colors hover:text-ink hover:underline hover:underline-offset-4"
                 >
                   {site.email}
                 </a>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                 <li>
                   <a
                     href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-                    className="text-sm text-paper transition-colors hover:text-white hover:underline hover:underline-offset-4"
+                    className="text-sm text-ink transition-colors hover:text-ink hover:underline hover:underline-offset-4"
                   >
                     {site.phone}
                   </a>
@@ -75,7 +75,7 @@ export function SiteFooter() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-paper transition-colors hover:text-white hover:underline hover:underline-offset-4"
+                    className="text-sm text-ink transition-colors hover:text-ink hover:underline hover:underline-offset-4"
                   >
                     {s.label}
                   </a>
@@ -85,14 +85,14 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <nav aria-label="Website services" className="mt-10 border-t border-line-dark pt-6"><ul className="flex flex-wrap gap-x-6 gap-y-3">{landingPages.map((page) => <li key={page.slug}><Link href={`/${page.slug}`} className="text-sm text-paper-soft underline-offset-4 hover:text-paper hover:underline">{page.title}</Link></li>)}</ul></nav>
+        <nav aria-label="Website services" className="mt-10 border-t border-line pt-6"><ul className="flex flex-wrap gap-x-6 gap-y-3">{landingPages.map((page) => <li key={page.slug}><Link href={`/${page.slug}`} className="text-sm text-ink-soft underline-offset-4 hover:text-ink hover:underline">{page.title}</Link></li>)}</ul></nav>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-line-dark pt-6 text-[13px] text-paper-soft sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 text-[13px] text-ink-soft sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>
           <p className="flex items-center gap-5">
-            <Link href="/privacy" className="transition-colors hover:text-paper">
+            <Link href="/privacy" className="transition-colors hover:text-ink">
               Privacy
             </Link>
             <MotionPreference />

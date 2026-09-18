@@ -91,7 +91,7 @@ export default function HomePage() {
               <Link
                 key={p.slug}
                 href={`/work/${p.slug}`}
-                className="font-display text-xl tracking-tight transition-colors hover:text-accent"
+                className="font-display text-xl tracking-tight transition-colors hover:text-ink"
               >
                 {p.name}
               </Link>
@@ -133,7 +133,7 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-      <section className="border-y border-line bg-wash py-20 lg:py-28">
+      <section className="border-y border-line bg-accent-soft py-20 lg:py-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
             <SectionHeading
@@ -174,7 +174,7 @@ export default function HomePage() {
                   key={n}
                   className="service-row grid grid-cols-[2rem_1fr] gap-4 border-t border-line py-7"
                 >
-                  <span className="kicker pt-1 text-accent">{n}</span>
+                  <span className="kicker grid size-8 place-items-center rounded-full bg-accent text-ink">{n}</span>
                   <div>
                     <h3 className="font-display text-3xl">{title}</h3>
                     <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
@@ -213,7 +213,7 @@ export default function HomePage() {
             extra.{" "}
             <Link
               href="/hosting"
-              className="text-accent underline underline-offset-4"
+              className="text-ink no-underline"
             >
               See hosting inclusions and limits.
             </Link>
@@ -224,7 +224,7 @@ export default function HomePage() {
         <Container>
           <div className="grid items-center gap-10 md:grid-cols-[.7fr_1.3fr] lg:gap-24">
             <div className="studio-portrait max-w-[340px]" data-reveal="left">
-              <div className="aspect-[4/5] overflow-hidden rounded-[3px]">
+              <div className="studio-photo aspect-[4/5] overflow-hidden rounded-[3px]">
                 <Image
                   src="/about/portrait.jpg"
                   alt="Lawson Bickerstaff, founder of Forerunner Sites"
@@ -244,7 +244,7 @@ export default function HomePage() {
               <h2 className="mt-6 font-display text-[clamp(2.7rem,4.8vw,4.6rem)] leading-[1.04] tracking-[-.035em]">
                 The person you talk to
                 <br />
-                <em className="text-accent">builds your website.</em>
+                <em className="text-ink no-underline">builds your website.</em>
               </h2>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-soft">
                 I&apos;m Lawson. I design and build websites for the kinds of

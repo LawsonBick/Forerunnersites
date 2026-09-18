@@ -72,7 +72,7 @@ export default async function PackagePage({ params }: Props) {
             lede={content.body}
           />
           <aside className="border-t-2 border-accent bg-wash p-8">
-            <p className="kicker text-accent">Your investment</p>
+            <p className="kicker text-ink">Your investment</p>
             <p className="mt-6 font-display text-6xl">{p.price}</p>
             <p className="mt-2 text-sm text-ink-soft">
               One-time build + {formatPrice(p.hosting.monthlyPrice)}/month
@@ -93,7 +93,7 @@ export default async function PackagePage({ params }: Props) {
         </div>
         <div className="mt-16 grid gap-10 border-t border-line pt-10 lg:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className="kicker text-accent">Built for this stage</p>
+            <p className="kicker text-ink">Built for this stage</p>
             <h2 className="mt-4 font-display text-4xl">The right fit.</h2>
             <p className="mt-5 max-w-lg leading-relaxed text-ink-soft">
               {content.fit}
@@ -107,7 +107,7 @@ export default async function PackagePage({ params }: Props) {
                   key={item}
                   className="flex gap-3 border-t border-line py-3 text-sm leading-relaxed"
                 >
-                  <span aria-hidden="true" className="text-accent">
+                  <span aria-hidden="true" className="text-ink">
                     ↗
                   </span>
                   {item}

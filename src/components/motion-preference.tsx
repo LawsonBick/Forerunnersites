@@ -33,7 +33,7 @@ export function MotionPreference() {
     <button
       type="button"
       aria-pressed={reduced}
-      className="text-left text-xs text-paper-soft underline underline-offset-4 hover:text-white"
+      className="text-left text-xs text-ink-soft underline underline-offset-4 hover:text-ink"
       onClick={() => {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
           return;

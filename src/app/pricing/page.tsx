@@ -57,7 +57,7 @@ export default function PricingPage() {
       <section id="hosting" className="border-y border-line bg-wash">
         <Container className="grid items-center gap-8 py-12 md:grid-cols-[1fr_auto]">
           <div data-reveal="left">
-            <p className="kicker text-accent">After launch</p>
+            <p className="kicker text-ink">After launch</p>
             <h2 className="mt-4 font-display text-4xl">
               A home for your site.
               <br />
@@ -81,7 +81,7 @@ export default function PricingPage() {
                 <h2 className="font-display text-3xl">Compare every detail</h2>
                 <span
                   aria-hidden="true"
-                  className="text-2xl text-accent group-open:rotate-45"
+                  className="text-2xl text-ink group-open:rotate-45"
                 >
                   +
                 </span>
@@ -134,7 +134,7 @@ export default function PricingPage() {
           </div>
           <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.4fr]">
             <div>
-              <p className="kicker text-accent">Before we start</p>
+              <p className="kicker text-ink">Before we start</p>
               <h2 className="mt-4 font-display text-4xl">
                 A few useful answers.
               </h2>

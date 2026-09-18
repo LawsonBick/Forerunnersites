@@ -36,7 +36,7 @@ export function LogoMark({
         height="8.2"
         fill="none"
         strokeWidth="1.8"
-        className={cx("lm-outline", inverse ? "stroke-paper" : "stroke-ink")}
+        className={cx("lm-outline", inverse ? "stroke-paper" : "stroke-accent")}
       />
     </svg>
   );

@@ -136,7 +136,7 @@ export function SiteHeader() {
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={cx(
                   "flex items-baseline justify-between py-5 font-display text-3xl",
-                  isActive(item.href) ? "text-accent" : "text-ink"
+                  isActive(item.href) ? "text-ink" : "text-ink"
                 )}
               >
                 {item.label}

@@ -78,7 +78,7 @@ export default function PrivacyPage() {
               Anything unclear, or a request about your information? Email{" "}
               <a
                 href={`mailto:${site.email}`}
-                className="text-accent underline underline-offset-4"
+                className="text-ink no-underline"
               >
                 {site.email}
               </a>

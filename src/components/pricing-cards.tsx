@@ -27,7 +27,7 @@ export function PricingCards() {
       {packages.map((pkg, i) => (
         <article
           key={pkg.id}
-          className={`price-column relative flex flex-col px-6 py-9 sm:px-9 ${pkg.recommended ? "bg-wash" : ""}`}
+          className={`price-column relative flex flex-col px-6 py-9 sm:px-9 ${pkg.recommended ? "is-recommended bg-accent-soft" : ""}`}
         >
           <div className="flex items-center justify-between">
             <p className="kicker text-ink-soft">
@@ -39,7 +39,7 @@ export function PricingCards() {
                   : "Built around you"}
             </p>
             {pkg.recommended ? (
-              <span className="rounded-full bg-accent px-2.5 py-1 text-[9px] font-medium uppercase tracking-wider text-white">
+              <span className="rounded-full bg-accent px-2.5 py-1 text-[9px] font-medium uppercase tracking-wider text-ink">
                 Recommended
               </span>
             ) : null}
@@ -51,13 +51,13 @@ export function PricingCards() {
             </span>
             <span className="text-xs text-ink-soft">one-time build</span>
           </p>
-          <p className="mt-2 text-sm text-accent">
+          <p className="mt-2 text-sm text-ink">
             + {formatPrice(pkg.hosting.monthlyPrice)}/month hosting
           </p>
           <ul className="my-7 space-y-3 text-sm text-ink-soft">
             {highlights[pkg.id].map((item) => (
               <li key={item} className="flex gap-2">
-                <span className="text-accent" aria-hidden="true">
+                <span className="text-ink" aria-hidden="true">
                   ↗
                 </span>
                 {item}

@@ -13,7 +13,7 @@ declare global {
 }
 
 const inputClasses =
-  "block w-full rounded-[var(--radius-xs)] border bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-faint transition-colors focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20";
+  "block w-full rounded-[var(--radius-xs)] border bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-faint transition-colors focus:outline-none focus:border-ink focus:ring-2 focus:ring-accent/20";
 
 const labelClasses = "block text-[13px] font-medium text-ink";
 
@@ -35,7 +35,7 @@ function Field({
       <label htmlFor={htmlFor} className={labelClasses}>
         {label}
         {required ? (
-          <span aria-hidden="true" className="text-accent">
+          <span aria-hidden="true" className="text-ink">
             {" "}
             *
           </span>
@@ -196,7 +196,7 @@ export function ContactForm() {
         <p className="mt-4 max-w-xl leading-relaxed text-ink-soft">
           I read every inquiry personally and reply within one business day, usually
           sooner. The reply will come from{" "}
-          <a href={`mailto:${site.email}`} className="text-accent underline underline-offset-4">
+          <a href={`mailto:${site.email}`} className="text-ink no-underline">
             {site.email}
           </a>
           , so keep an eye on your inbox.
@@ -208,7 +208,7 @@ export function ContactForm() {
               href={site.schedulingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent underline underline-offset-4"
+              className="text-ink no-underline"
             >
               Book a discovery call
             </a>{" "}
@@ -302,7 +302,7 @@ export function ContactForm() {
       </Field>
 
       <details className="border-y border-line py-5">
-        <summary className="cursor-pointer text-sm font-medium text-accent">Add a little more detail <span className="font-normal text-ink-soft">(optional)</span><span aria-hidden="true" className="float-right">+</span></summary>
+        <summary className="cursor-pointer text-sm font-medium text-ink">Add a little more detail <span className="font-normal text-ink-soft">(optional)</span><span aria-hidden="true" className="float-right">+</span></summary>
         <div className="mt-6 space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label="Company or business name" htmlFor="company">
@@ -399,7 +399,7 @@ export function ContactForm() {
                 type="checkbox"
                 name="features"
                 value={o}
-                className="h-4 w-4 rounded-[2px] border-ink/30 accent-[#2434c8]"
+                className="h-4 w-4 rounded-[2px] border-ink/30 accent-ink"
               />
               {o}
             </label>

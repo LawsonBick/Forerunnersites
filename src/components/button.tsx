@@ -8,7 +8,7 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[0.01em] transition-[color,background-color,border-color,transform,box-shadow] duration-200 select-none hover:-translate-y-[2px] active:translate-y-0 motion-reduce:transform-none";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-white hover:bg-accent-deep hover:shadow-[0_8px_18px_-8px_rgb(36_52_200/0.55)]",
+  primary: "bg-accent text-ink hover:bg-accent-deep hover:shadow-[0_8px_18px_-8px_rgb(96_169_232/0.55)]",
   secondary:
     "border border-ink/25 text-ink hover:border-ink/60 hover:bg-ink/[0.04]",
   inverse: "bg-paper text-ink hover:bg-white",
@@ -82,7 +82,7 @@ export function ArrowLink({
   children: React.ReactNode;
 }) {
   const classes = cx(
-    "group inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-deep",
+    "group inline-flex items-center gap-1.5 text-sm font-medium text-ink no-underline transition-colors hover:text-ink-soft",
     className
   );
   const arrow = (

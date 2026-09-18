@@ -33,11 +33,11 @@ export default async function ResourcePage({params}: Props) {
       <div className="mt-8"><SectionHeading as="h1" entrance="rise" eyebrow={r.category} title={r.title} lede={r.intro} /></div>
       <p className="mt-6 text-sm leading-relaxed text-ink-soft">By <Link href="/about" className="underline underline-offset-4">{site.founder.name}</Link> · Published <time dateTime={r.published}>{displayDate(r.published)}</time>{r.modified !== r.published ? <> · Updated <time dateTime={r.modified}>{displayDate(r.modified)}</time></> : null}</p>
       <div className="mt-12 grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)]">
-        <nav aria-label="Table of contents" className="border-t border-line pt-5 lg:sticky lg:top-28"><Eyebrow>In this guide</Eyebrow><ol className="mt-4 space-y-3">{r.sections.map((s) => <li key={s.id}><a className="text-sm leading-relaxed text-ink-soft underline-offset-4 hover:text-accent hover:underline" href={`#${s.id}`}>{s.title}</a></li>)}</ol></nav>
+        <nav aria-label="Table of contents" className="border-t border-line pt-5 lg:sticky lg:top-28"><Eyebrow>In this guide</Eyebrow><ol className="mt-4 space-y-3">{r.sections.map((s) => <li key={s.id}><a className="text-sm leading-relaxed text-ink-soft underline-offset-4 hover:text-ink hover:underline" href={`#${s.id}`}>{s.title}</a></li>)}</ol></nav>
         <div className="min-w-0 max-w-3xl">{r.sections.map((s) => <section key={s.id} id={s.id} className="scroll-mt-28 border-t border-line pb-10 pt-6">
           <h2 className="font-display text-2xl leading-snug sm:text-3xl">{s.title}</h2>
           {s.paragraphs.map((p) => <p key={p.slice(0,55)} className="mt-5 leading-[1.8] text-ink-soft">{p}</p>)}
-          {s.checklist ? <ul className="mt-6 space-y-3 rounded-[6px] border border-line bg-wash p-5 sm:p-7">{s.checklist.map((item) => <li key={item} className="flex gap-3 text-sm leading-relaxed"><span aria-hidden="true" className="text-accent">□</span>{item}</li>)}</ul> : null}
+          {s.checklist ? <ul className="mt-6 space-y-3 rounded-[6px] border border-line bg-wash p-5 sm:p-7">{s.checklist.map((item) => <li key={item} className="flex gap-3 text-sm leading-relaxed"><span aria-hidden="true" className="text-ink">□</span>{item}</li>)}</ul> : null}
           {s.links ? <div className="mt-5 flex flex-col items-start gap-3">{s.links.map((link) => <ArrowLink key={link.href} href={link.href} external={link.href.startsWith("https:")}>{link.label}</ArrowLink>)}</div> : null}
         </section>)}</div>
       </div>

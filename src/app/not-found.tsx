@@ -30,7 +30,7 @@ export default function NotFound() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="text-sm font-medium text-accent underline underline-offset-4 transition-colors hover:text-accent-deep"
+                className="text-sm font-medium text-ink transition-colors hover:text-ink no-underline"
               >
                 {s.label}
               </Link>

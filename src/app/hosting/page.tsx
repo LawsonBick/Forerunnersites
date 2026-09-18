@@ -40,7 +40,7 @@ export default function HostingPage() {
               className="border-t-2 border-accent pt-6"
               data-reveal="up"
             >
-              <p className="kicker text-accent">{p.name}</p>
+              <p className="kicker text-ink">{p.name}</p>
               <h2 className="mt-4 font-display text-3xl">{p.hosting.name}</h2>
               <p className="mt-5">
                 <span className="font-display text-5xl">
@@ -51,7 +51,7 @@ export default function HostingPage() {
               <ul className="mt-7 space-y-3 text-sm">
                 {p.hosting.includes.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span aria-hidden="true" className="text-accent">
+                    <span aria-hidden="true" className="text-ink">
                       ↗
                     </span>
                     {item}
@@ -72,7 +72,7 @@ export default function HostingPage() {
         </div>
         <div className="mt-16 grid gap-8 border-y border-line bg-wash p-7 sm:p-10 lg:grid-cols-[1fr_1.3fr]">
           <div>
-            <p className="kicker text-accent">Simple by design</p>
+            <p className="kicker text-ink">Simple by design</p>
             <h2 className="mt-4 font-display text-4xl">
               Send it.
               <br />
@@ -95,7 +95,7 @@ export default function HostingPage() {
               ],
             ].map(([title, body], i) => (
               <li key={title} className="flex gap-4">
-                <span className="kicker pt-1 text-accent">0{i + 1}</span>
+                <span className="kicker pt-1 text-ink">0{i + 1}</span>
                 <div>
                   <h3 className="font-medium">{title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-soft">

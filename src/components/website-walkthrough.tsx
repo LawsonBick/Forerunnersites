@@ -158,7 +158,7 @@ export function WebsiteWalkthrough({
         !reduced ? (
           <button
             type="button"
-            className="preview-playback grid size-8 place-items-center rounded-full text-ink-soft hover:bg-ink/5 focus-visible:outline-2 focus-visible:outline-accent"
+            className="preview-playback grid size-8 place-items-center rounded-full text-ink-soft hover:bg-ink/5 focus-visible:outline-2 focus-visible:outline-ink"
             aria-label={`${paused ? "Play" : "Pause"} ${name} preview`}
             aria-pressed={paused}
             title={paused ? "Play preview" : "Pause preview"}

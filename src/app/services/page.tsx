@@ -68,7 +68,7 @@ export default function ServicesPage() {
           <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5" data-reveal>
             {processSteps.map((step, i) => (
               <li key={step.name} className="border-t-2 border-ink pt-4">
-                <p className="text-[13px] font-semibold tracking-[0.08em] text-accent tabular-nums">
+                <p className="text-[13px] font-semibold tracking-[0.08em] text-ink tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-2 font-display text-xl">{step.name}</h3>

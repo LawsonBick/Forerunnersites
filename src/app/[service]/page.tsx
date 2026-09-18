@@ -51,7 +51,7 @@ export default async function ServicePage({ params }: Props) {
       <SectionHeading eyebrow={page.variant === "redesign" ? "Before the rebuild" : "The decisions that matter"} title={page.decisionTitle} lede={page.decisionCopy} />
       {page.variant === "redesign" ? <ol className="mt-10 divide-y divide-line">
         {page.priorities.map((item, i) => <li key={item.title} className="grid gap-4 py-7 sm:grid-cols-[3rem_1fr] lg:grid-cols-[3rem_1fr_1.4fr]">
-          <span className="text-sm font-medium text-accent">0{i + 1}</span><h3 className="font-display text-2xl">{item.title}</h3><p className="leading-relaxed text-ink-soft">{item.body}</p>
+          <span className="text-sm font-medium text-ink">0{i + 1}</span><h3 className="font-display text-2xl">{item.title}</h3><p className="leading-relaxed text-ink-soft">{item.body}</p>
         </li>)}
       </ol> : <div className={`mt-10 grid gap-x-12 gap-y-8 ${page.variant === "business" ? "lg:grid-cols-2" : "sm:grid-cols-2"}`}>
         {page.priorities.map((item) => <div key={item.title} className={page.variant === "business" ? "rounded-[6px] border border-line bg-paper p-6" : "border-t border-line pt-6"}><h3 className="font-display text-2xl">{item.title}</h3><p className="mt-3 leading-relaxed text-ink-soft">{item.body}</p></div>)}
@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: Props) {
     </Container></section>
     <section className="border-y border-line bg-wash"><Container className="py-16 lg:py-24">
       <SectionHeading eyebrow="How we work" title="A clear scope before the first page is built." />
-      <ol className="mt-10 grid gap-8 md:grid-cols-3">{page.process.map((step, i) => <li key={step.title} className="border-t-2 border-ink pt-5"><p className="text-sm text-accent">0{i + 1}</p><h3 className="mt-3 font-display text-2xl">{step.title}</h3><p className="mt-3 leading-relaxed text-ink-soft">{step.body}</p></li>)}</ol>
+      <ol className="mt-10 grid gap-8 md:grid-cols-3">{page.process.map((step, i) => <li key={step.title} className="border-t-2 border-ink pt-5"><p className="text-sm text-ink">0{i + 1}</p><h3 className="mt-3 font-display text-2xl">{step.title}</h3><p className="mt-3 leading-relaxed text-ink-soft">{step.body}</p></li>)}</ol>
       <ArrowLink className="mt-8" href="/about">Meet the person building your website</ArrowLink>
     </Container></section>
     <section><Container className="py-16 lg:py-24"><SectionHeading eyebrow="Questions before you start" title="The practical details." /><div className="mt-8"><FaqList faqs={page.faqs} /></div></Container></section>

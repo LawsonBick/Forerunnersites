@@ -58,7 +58,7 @@ export function SectionHeading({
       <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
       <Tag
         className={cx(
-          "mt-4 font-display text-[clamp(2.7rem,1.4rem+3.5vw,4.8rem)] leading-[1.03] tracking-[-0.035em] text-balance",
+          "section-title mt-4 font-display text-[clamp(2.7rem,1.4rem+3.5vw,4.8rem)] leading-[1.03] tracking-[-0.035em] text-balance",
           dark ? "text-paper" : "text-ink"
         )}
       >

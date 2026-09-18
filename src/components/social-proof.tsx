@@ -7,7 +7,7 @@ export function TestimonialCard({ testimonial: t }: { testimonial: Testimonial }
     <blockquote className="font-display text-2xl leading-relaxed">“{t.quote}”</blockquote>
     <figcaption className="mt-6 flex items-center gap-4">
       {t.photo ? <Image {...t.photo} alt={t.photo.alt} sizes="48px" className="h-12 w-12 rounded-full object-cover" /> : null}
-      <div><p className="text-sm font-medium">{t.clientName}</p><p className="mt-1 text-sm text-ink-soft">{t.position ? `${t.position}, ` : ""}{t.company}</p><Link className="mt-2 inline-block text-sm text-accent underline underline-offset-4" href={`/work/${t.projectSlug}`}>View the project</Link></div>
+      <div><p className="text-sm font-medium">{t.clientName}</p><p className="mt-1 text-sm text-ink-soft">{t.position ? `${t.position}, ` : ""}{t.company}</p><Link className="mt-2 inline-block text-sm text-ink no-underline" href={`/work/${t.projectSlug}`}>View the project</Link></div>
     </figcaption>
   </figure>;
 }
