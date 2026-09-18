@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { RevealManager } from "@/components/reveal-manager";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -121,6 +122,7 @@ gtag('config', '${site.googleAnalyticsId}');`}
             </Script>
           </>
         ) : null}
+        <Analytics />
       </body>
     </html>
   );
