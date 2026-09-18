@@ -47,7 +47,7 @@ export const site = {
    * sitemap <lastmod> for the static pages, so bump it when copy changes.
    * (Project pages carry their own `updated` date in content/projects.ts.)
    */
-  contentUpdated: "2026-09-16",
+  contentUpdated: "2026-09-17",
 
   /**
    * TODO: paste the Google Search Console HTML-tag verification token

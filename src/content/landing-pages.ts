@@ -41,9 +41,9 @@ export const landingPages: LandingPage[] = [
     resourceSlugs: ["how-much-does-a-website-cost-in-austin", "website-redesign-checklist"],
     faqs: [
       { question: "What kinds of Austin businesses do you work with?", answer: "The portfolio includes a restaurant, a mobile detailer, and an exterior cleaning company. The same approach fits owner-led businesses that need a clear explanation of their services and a reliable path to an inquiry. Complex applications are scoped separately." },
-      { question: "What does an Austin web design project cost?", answer: "Forerunner’s published packages are Launch at $500 for one page, Growth at $1,500 for up to five core pages, and Custom starting at $3,000. The pricing page explains scope and timelines. Integrations, additional content, and ongoing support should be agreed before work starts." },
+      { question: "What does an Austin web design project cost?", answer: "Forerunner’s published packages are Launch at $500 for one page, Growth at $1,500 for up to five core pages, and Custom starting at $3,000. Monthly hosting is $50 for Launch, $100 for Growth with two small changes, and $200 for Custom with two hours of updates and support. The pricing page explains the scope and limits." },
       { question: "Is SEO included?", answer: "The build includes local SEO foundations: page structure, metadata, mobile usability, and crawlable content. Ongoing content, reputation building, and competitive search work need a separate plan. No package guarantees a position in Google." },
-    ], variant: "local", updated: "2026-09-16",
+    ], variant: "local", updated: "2026-09-17",
   },
   {
     slug: "small-business-web-design-austin", title: "Small Business Web Design Austin",
@@ -68,8 +68,8 @@ export const landingPages: LandingPage[] = [
     faqs: [
       { question: "Can I start with a one-page website?", answer: "Yes, if one page can clearly explain the offer and support the main action. The $500 Launch package covers a one-page site with up to five primary sections. A business with several distinct services may be better served by Growth or a custom scope." },
       { question: "Will the website automatically bring in leads?", answer: "No. The site needs relevant visitors, a useful offer, and a reliable way to respond. It supports referrals, local search, and other acquisition efforts. We can make inquiries easier to complete and measure without promising a volume of leads." },
-      { question: "Who owns the website?", answer: "You own the domain, code, and accounts. Ongoing support is separate from the one-time project price; the scope should explain updates, hosting, and third-party costs before work begins." },
-    ], variant: "business", updated: "2026-09-16",
+      { question: "Who owns the website?", answer: "You own the domain, code, and accounts. Hosting is billed separately each month: $50 for Launch, $100 for Growth, and $200 for Custom. Growth includes two small changes, and Custom includes two hours of updates and support. The pricing page explains what is covered." },
+    ], variant: "business", updated: "2026-09-17",
   },
   {
     slug: "restaurant-web-design", title: "Restaurant Web Design in Austin",

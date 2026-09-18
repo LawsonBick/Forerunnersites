@@ -74,16 +74,16 @@ export function organizationSchema() {
     },
     areaServed: austin,
     founder: { "@id": ids.founder },
-    priceRange: "$500 - $3,000+",
+    priceRange: "$500–$3,000+ per build; $50–$200/month hosting",
     knowsAbout: services.map((s) => s.title),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Website packages",
       url: absoluteUrl("/pricing"),
-      itemListElement: packages.map((pkg) => ({
+      itemListElement: packages.flatMap((pkg) => [{
         "@type": "Offer",
         name: `${pkg.name} website package`,
-        description: pkg.bestFor,
+        description: `${pkg.bestFor} Build fee only; hosting is $${pkg.hosting.monthlyPrice}/month.`,
         url: absoluteUrl("/pricing"),
         ...offerPrice(pkg.price),
         itemOffered: {
@@ -92,7 +92,24 @@ export function organizationSchema() {
           serviceType: "Website design and development",
           provider: { "@id": ids.organization },
         },
-      })),
+      }, {
+        "@type": "Offer",
+        name: `${pkg.name} monthly hosting`,
+        description: `${pkg.hosting.summary} ${pkg.hosting.detail}`,
+        url: absoluteUrl("/pricing#hosting"),
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: pkg.hosting.monthlyPrice,
+          priceCurrency: "USD",
+          unitText: "month",
+          billingDuration: "P1M",
+        },
+        itemOffered: {
+          "@type": "Service",
+          name: pkg.hosting.name,
+          provider: { "@id": ids.organization },
+        },
+      }]),
     },
     ...(sameAs.length ? { sameAs } : {}),
   };

@@ -54,9 +54,9 @@ function Field({
 }
 
 const packageOptions = [
-  { value: "launch", label: "Launch ($500)" },
-  { value: "growth", label: "Growth ($1,500)" },
-  { value: "custom", label: "Custom ($3,000+)" },
+  { value: "launch", label: "Launch ($500 + $50/mo hosting)" },
+  { value: "growth", label: "Growth ($1,500 + $100/mo hosting)" },
+  { value: "custom", label: "Custom (from $3,000 + $200/mo hosting)" },
   { value: "not-sure", label: "Not sure yet" },
 ];
 

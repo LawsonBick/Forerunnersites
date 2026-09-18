@@ -59,6 +59,6 @@ export const services: Service[] = [
     title: "Ongoing support",
     summary: "Updates, fixes, and improvements after launch, from the person who built it.",
     detail:
-      "Content updates, seasonal changes, new pages, and small improvements, handled directly by the person who wrote the code. Support plans are simple and separate from project pricing, with no forced retainers.",
+      "Monthly hosting starts at $50. Growth hosting at $100/month includes two small content changes; Custom hosting at $200/month includes two hours of updates and support. New pages and larger improvements are quoted separately, with the same person handling the work.",
   },
 ];

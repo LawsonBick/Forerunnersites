@@ -22,7 +22,7 @@ import { webPageSchema } from "@/lib/schema";
 const page = {
   title: `Web Design & Development in Austin, TX | ${site.name}`,
   description:
-    "Forerunner Sites designs and builds fast, hand-coded websites for Austin restaurants, service businesses, and growing brands. One-time pricing from $500.",
+    "Forerunner Sites designs and builds fast, hand-coded websites for Austin restaurants, service businesses, and growing brands. Builds from $500, with hosting from $50/month.",
   path: "/",
 };
 
@@ -246,7 +246,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Pricing"
               title={<span id="pricing-heading">Clear packages, honest scope.</span>}
-              lede="Three ways to work together, each priced as a one-time project. Most established businesses land on Growth."
+              lede="One clear price to build your website, plus monthly hosting with the level of support you need. Most established businesses land on Growth."
             />
             <ArrowLink href="/pricing" className="mb-1">
               Compare in detail
