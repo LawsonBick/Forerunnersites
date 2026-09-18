@@ -75,20 +75,6 @@ export default function HomePage() {
             </div>
           </div>
         </Container>
-        <Container>
-          <div className="client-line flex flex-wrap items-center justify-between gap-x-8 gap-y-5 border-t border-line py-7">
-            <p className="kicker text-ink-soft">A few familiar faces</p>
-            {projects.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/work/${p.slug}`}
-                className="font-display text-xl tracking-tight transition-colors hover:text-ink"
-              >
-                {p.name}
-              </Link>
-            ))}
-          </div>
-        </Container>
       </section>
       <section
         id="selected-work"

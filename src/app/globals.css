@@ -540,15 +540,6 @@ main {
   .project-stage {
     padding: 17px;
   }
-  .client-line {
-    justify-content: flex-start;
-  }
-  .client-line > p {
-    flex-basis: 100%;
-  }
-  .client-line > a {
-    font-size: 19px;
-  }
   .js [data-reveal="left"] {
     transform: translateX(-24px);
   }
