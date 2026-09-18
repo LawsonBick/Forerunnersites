@@ -31,24 +31,15 @@ export default function HomePage() {
             </Eyebrow>
             <h1 className="hero-title mt-5 uppercase">
               <span className="mask-line">
-                <span className="mask-line-inner">Websites</span>
-              </span>
-              <br />
-              <span className="mask-line">
-                <span
-                  className="mask-line-inner"
-                  style={{ animationDelay: "70ms" }}
-                >
-                  that mean
-                </span>
+                <span className="mask-line-inner">Modern businesses</span>
               </span>
               <br />
               <span className="mask-line">
                 <em
                   className="mask-line-inner text-black"
-                  style={{ animationDelay: "140ms" }}
+                  style={{ animationDelay: "70ms" }}
                 >
-                  business.
+                  Modern websites
                 </em>
               </span>
             </h1>
