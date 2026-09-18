@@ -17,22 +17,22 @@ export function CtaBand({
   copy?: string;
 }) {
   return (
-    <section className="border-b border-line-dark bg-ink text-paper">
+    <section className="border-b border-white/20 bg-accent text-white">
       <Container className="py-20 lg:py-28">
-        <div className="max-w-3xl" data-reveal>
+        <div className="max-w-4xl" data-reveal>
           <Eyebrow dark>{eyebrow}</Eyebrow>
-          <h2 className="mt-4 font-display text-[clamp(2rem,1.3rem+2.6vw,3.2rem)] leading-[1.1] tracking-[-0.01em] text-balance">
+          <h2 className="mt-4 font-display text-[clamp(3.4rem,1.3rem+6vw,7rem)] leading-[1.1] tracking-[-0.01em] text-balance">
             {title}
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-paper-soft">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/80">
             {copy ??
-              "Tell me about your business and what the website needs to do. You'll get a straight answer on scope, timeline, and price, usually within one business day."}
+              "Tell me what your business needs. I’ll reply personally with a clear next step."}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <ButtonLink href={site.cta.primary.href}>{site.cta.primary.label}</ButtonLink>
+            <ButtonLink href={site.cta.primary.href} variant="inverse">{site.cta.primary.label}</ButtonLink>
             <a
               href={`mailto:${site.email}`}
-              className="text-sm text-paper-soft underline underline-offset-4 transition-colors hover:text-paper"
+              className="text-sm text-white/80 underline underline-offset-4 transition-colors hover:text-paper"
             >
               or email {site.email}
             </a>

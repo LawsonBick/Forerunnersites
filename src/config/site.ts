@@ -113,6 +113,7 @@ export const site = {
   },
 
   footerNav: [
+    { label: "Hosting & support", href: "/hosting" },
     { label: "Work", href: "/work" },
     { label: "Services", href: "/services" },
     { label: "Pricing", href: "/pricing" },

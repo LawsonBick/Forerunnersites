@@ -30,8 +30,8 @@ export default function ServicesPage() {
             as="h1"
             entrance="rise"
             eyebrow="Services"
-            title="Web design services for Austin businesses, from one accountable studio."
-            lede="Most agencies split your project across a strategist, a designer, a developer, and an account manager. I do all four jobs myself, so nothing gets lost in a hand-off and every decision traces back to what your business actually needs."
+            title={<>From first idea<br /><em>to your next chapter.</em></>}
+            lede="Strategy, design, development, and support. Thoughtfully connected, with one person guiding the work."
           />
 
           <div className="mt-16">
@@ -42,7 +42,7 @@ export default function ServicesPage() {
                 className="grid scroll-mt-28 gap-3 border-t border-line py-8 lg:grid-cols-12 lg:gap-6 lg:py-10"
                 data-reveal
               >
-                <h2 className="font-display text-2xl lg:col-span-4">{service.title}</h2>
+                <h2 className="font-display text-3xl lg:col-span-4">{service.title}</h2>
                 <div className="lg:col-span-8">
                   <p className="max-w-2xl leading-relaxed text-ink-soft">{service.detail}</p>
                 </div>
@@ -63,7 +63,7 @@ export default function ServicesPage() {
         <Container className="py-20 lg:py-28">
           <SectionHeading
             eyebrow="How it comes together"
-            title={<span id="how-heading">A process you can see the whole way through.</span>}
+            title={<span id="how-heading">Clear steps.<br /><em>No guessing.</em></span>}
           />
           <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5" data-reveal>
             {processSteps.map((step, i) => (

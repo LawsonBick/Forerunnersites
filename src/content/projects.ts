@@ -60,6 +60,8 @@ export interface Project {
     caption: string;
     beforeAlt: string;
     afterAlt: string;
+    beforePosition?: string;
+    afterPosition?: string;
   };
   /** Full-page capture that scrolls itself inside the browser frame. */
   autoScroll?: { src: string; alt: string; width: number; height: number };
@@ -340,6 +342,7 @@ export const projects: Project[] = [
   },
   {
     "slug": "apex-window-cleaning",
+    beforeAfter: { before: "/work/apex-before.webp", after: "/work/apex-after.webp", caption: "Apex / Stone chimney cleaning", beforeAlt: "Stone chimney with dark surface buildup before Apex cleaned it", afterAlt: "The stone chimney after exterior cleaning by Apex", beforePosition: "center 48%", afterPosition: "center 48%" },
     "name": "Apex Window Cleaning",
     "url": "https://www.apexwindowcleaningatx.com/",
     "displayUrl": "apexwindowcleaningatx.com",

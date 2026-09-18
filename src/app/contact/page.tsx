@@ -46,16 +46,16 @@ export default function ContactPage() {
           as="h1"
           entrance="rise"
           eyebrow="Start a project"
-          title="Tell me where your website is letting you down."
-          lede="A few honest details are all this takes. If we're a fit, you'll have a clear proposal in hand within days, and if we're not, I'll point you somewhere useful."
+          title={<>A good website starts<br /><em>with a conversation.</em></>}
+          lede="Tell me a little about your business. I’ll get back to you personally within one business day."
         />
 
         <div className="mt-14 grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7" data-reveal>
+          <div className="rounded-[6px] border border-line bg-wash p-6 sm:p-9 lg:col-span-7">
             <ContactForm />
           </div>
 
-          <aside className="lg:col-span-5" data-reveal>
+          <aside className="lg:col-span-5" data-reveal="right">
             <div className="space-y-10 lg:sticky lg:top-28">
               <div>
                 <h2 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-soft">

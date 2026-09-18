@@ -84,7 +84,7 @@ export function organizationSchema() {
         "@type": "Offer",
         name: `${pkg.name} website package`,
         description: `${pkg.bestFor} Build fee only; hosting is $${pkg.hosting.monthlyPrice}/month.`,
-        url: absoluteUrl("/pricing"),
+        url: absoluteUrl(`/pricing/${pkg.id}`),
         ...offerPrice(pkg.price),
         itemOffered: {
           "@type": "Service",
@@ -96,7 +96,7 @@ export function organizationSchema() {
         "@type": "Offer",
         name: `${pkg.name} monthly hosting`,
         description: `${pkg.hosting.summary} ${pkg.hosting.detail}`,
-        url: absoluteUrl("/pricing#hosting"),
+        url: absoluteUrl("/hosting"),
         priceSpecification: {
           "@type": "UnitPriceSpecification",
           price: pkg.hosting.monthlyPrice,

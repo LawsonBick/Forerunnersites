@@ -61,7 +61,7 @@ export function SiteHeader() {
   return (
     <header
       className={cx(
-        "fixed inset-x-0 top-0 z-50 bg-paper transition-[border-color] duration-300",
+        "fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md transition-[border-color] duration-300",
         scrolled || open ? "border-b border-line" : "border-b border-transparent"
       )}
     >

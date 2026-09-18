@@ -1,23 +1,6 @@
 "use client";
-
-import { useEffect, useRef, useSyncExternalStore } from "react";
-
-/**
- * Looping, silent clip used in place of a screenshot.
- *
- * Autoplays only when it scrolls into view and only when the visitor has
- * not asked for reduced motion — in that case it stays on the poster
- * frame and exposes normal controls so it can still be watched on
- * purpose. The file is never fetched until it is needed.
- */
-const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
-
-function subscribeToReducedMotion(onChange: () => void) {
-  const query = window.matchMedia(REDUCED_MOTION);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-}
-
+import { useReducedMotion } from "@/components/motion-preference";
+import { useEffect, useRef, useState } from "react";
 export function ProjectVideo({
   src,
   poster,
@@ -28,44 +11,60 @@ export function ProjectVideo({
   label: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
-  const reduced = useSyncExternalStore(
-    subscribeToReducedMotion,
-    () => window.matchMedia(REDUCED_MOTION).matches,
-    () => false
-  );
-
+  const [playing, setPlaying] = useState(false);
+  const manual = useRef(false);
+  const reduced = useReducedMotion();
   useEffect(() => {
-    const el = ref.current;
-    if (!el || reduced || !("IntersectionObserver" in window)) return;
-
-    const io = new IntersectionObserver(
+    const video = ref.current;
+    if (!video) return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduced) video.pause();
+    const changed = () => {
+      if (media.matches) video.pause();
+    };
+    const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          el.play().catch(() => {
-            /* autoplay refused; the poster stays up */
-          });
-        } else {
-          el.pause();
-        }
+        if (!entry.isIntersecting) video.pause();
+        else if (!reduced && !manual.current) void video.play().catch(() => {});
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
-    io.observe(el);
-    return () => io.disconnect();
+    observer.observe(video);
+    media.addEventListener("change", changed);
+    return () => {
+      observer.disconnect();
+      media.removeEventListener("change", changed);
+      video.pause();
+    };
   }, [reduced]);
-
   return (
-    <video
-      ref={ref}
-      src={src}
-      poster={poster}
-      muted
-      loop
-      playsInline
-      preload="none"
-      controls={reduced}
-      aria-label={label}
-      className="block w-full"
-    />
+    <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+      <video
+        ref={ref}
+        src={src}
+        poster={poster}
+        muted
+        loop
+        playsInline
+        preload="none"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        aria-label={label}
+        className="h-full w-full object-cover"
+      />
+      <button
+        type="button"
+        className="media-toggle"
+        aria-label={playing ? "Pause project video" : "Play project video"}
+        onClick={() => {
+          manual.current = true;
+          if (playing) ref.current?.pause();
+          else void ref.current?.play().catch(() => {});
+        }}
+      >
+        {playing ? "Pause" : "Play"}{" "}
+        <span aria-hidden="true">{playing ? "Ⅱ" : "▷"}</span>
+      </button>
+    </div>
   );
 }

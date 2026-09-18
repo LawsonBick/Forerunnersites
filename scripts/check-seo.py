@@ -34,7 +34,7 @@ def get(path):
  except HTTPError as e:return e.code,e.read().decode(),e.headers
 status,xml,_=get('/sitemap.xml');assert status==200
 urls=[node.text for node in ET.fromstring(xml).iter() if node.tag.endswith('loc')]
-assert len(urls)==23,(len(urls),urls)
+assert len(urls)==27,(len(urls),urls)
 pages={};titles=set();descs=set();assets=set();errors=[]
 for url in urls:
  path=urlparse(url).path or '/';status,html,headers=get(path);assert status==200,(path,status)

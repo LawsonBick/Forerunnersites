@@ -1,16 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/components/motion-preference";
 import { cx } from "@/lib/cx";
-
-const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
-
-function subscribeToReducedMotion(onChange: () => void) {
-  const query = window.matchMedia(REDUCED_MOTION);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-}
 
 /**
  * A full-page capture that scrolls itself inside the browser frame, so a
@@ -35,11 +28,8 @@ export function AutoScrollPreview({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [running, setRunning] = useState(false);
-  const reduced = useSyncExternalStore(
-    subscribeToReducedMotion,
-    () => window.matchMedia(REDUCED_MOTION).matches,
-    () => false
-  );
+  const [paused, setPaused] = useState(false);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     const el = ref.current;
@@ -63,7 +53,7 @@ export function AutoScrollPreview({
         style={
           {
             animationDuration: `${seconds}s`,
-            animationPlayState: running ? "running" : "paused",
+            animationPlayState: running && !paused ? "running" : "paused",
             "--scroll-travel": `-${travel.toFixed(2)}%`,
           } as React.CSSProperties
         }
@@ -77,6 +67,7 @@ export function AutoScrollPreview({
           className="w-full"
         />
       </div>
+      {!reduced ? <button type="button" className="media-toggle" aria-label={paused ? "Play website preview" : "Pause website preview"} onClick={() => setPaused(!paused)}>{paused ? "Play" : "Pause"} <span aria-hidden="true">{paused ? "▷" : "Ⅱ"}</span></button> : <span className="media-toggle">Website preview</span>}
     </div>
   );
 }

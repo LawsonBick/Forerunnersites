@@ -1,293 +1,290 @@
-import { ServiceDirectory } from "@/components/service-directory";
-import fs from "node:fs";
-import path from "node:path";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/config/site";
-import { projects } from "@/content/projects";
-import { services } from "@/content/services";
-import { processSteps, processNote, whyUs } from "@/content/process";
 import { Container } from "@/components/container";
 import { ButtonLink, ArrowLink } from "@/components/button";
 import { SectionHeading, Eyebrow } from "@/components/section-heading";
-import { BrowserFrame } from "@/components/frames";
 import { ProjectShowcase } from "@/components/project-showcase";
+import { ProjectReel } from "@/components/project-reel";
 import { PricingCards } from "@/components/pricing-cards";
 import { CtaBand } from "@/components/cta-band";
 import { JsonLd } from "@/components/json-ld";
+import { projects } from "@/content/projects";
+import { site } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
 import { webPageSchema } from "@/lib/schema";
-
 const page = {
-  title: `Web Design & Development in Austin, TX | ${site.name}`,
+  title: "Austin Web Design for Small Businesses",
   description:
-    "Forerunner Sites designs and builds fast, hand-coded websites for Austin restaurants, service businesses, and growing brands. Builds from $500, with hosting from $50/month.",
+    "Distinctive websites for Austin businesses, designed and built by Lawson Bickerstaff. Explore real work. Website builds from $500, with hosting from $50/month.",
   path: "/",
 };
-
-export const metadata: Metadata = buildMetadata({ ...page, absoluteTitle: true });
-
-const hasPortrait = fs.existsSync(
-  path.join(process.cwd(), "public", "about", "portrait.jpg")
-);
-
+export const metadata: Metadata = buildMetadata(page);
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="overflow-hidden">
-        <Container className="pt-16 sm:pt-20 lg:pt-28">
-          <div className="max-w-4xl">
-            <h1 className="font-display text-[clamp(2.6rem,1.4rem+4.6vw,4.75rem)] leading-[1.04] tracking-[-0.015em]">
+      <section className="home-hero relative overflow-hidden">
+        <Container className="grid items-center gap-12 pt-14 pb-14 lg:grid-cols-[1.04fr_1fr] lg:gap-12 lg:pt-24 lg:pb-20">
+          <div>
+            <Eyebrow className="rise">
+              Independent web studio / Austin, TX
+            </Eyebrow>
+            <h1 className="hero-title mt-7">
               <span className="mask-line">
-                <span className="mask-line-inner">Get found.</span>
-              </span>{" "}
+                <span className="mask-line-inner">A better</span>
+              </span>
+              <br />
               <span className="mask-line">
-                <span className="mask-line-inner [animation-delay:140ms]">
-                  <em>Get chosen.</em>
+                <span
+                  className="mask-line-inner"
+                  style={{ animationDelay: "70ms" }}
+                >
+                  first
                 </span>
               </span>
+              <br />
+              <span className="mask-line">
+                <em
+                  className="mask-line-inner text-accent"
+                  style={{ animationDelay: "140ms" }}
+                >
+                  impression.
+                </em>
+              </span>
             </h1>
-            <p className="rise mt-6 max-w-[54ch] text-lg leading-relaxed text-ink-soft [animation-delay:280ms] sm:text-xl">
-              {site.name} designs and builds fast, strategic websites for
-              Austin restaurants, service businesses, and growing brands ready
-              to move beyond average, because your next customer is
-              already deciding online.
+            <p className="rise mt-7 max-w-[350px] text-base leading-relaxed text-ink-soft">
+              Distinctive websites for businesses doing great things. Designed
+              to get noticed. Built to bring people in.
             </p>
-            <div className="rise mt-8 flex flex-wrap items-center gap-4 [animation-delay:400ms]">
-              <ButtonLink href={site.cta.primary.href}>{site.cta.primary.label}</ButtonLink>
-              <ButtonLink href={site.cta.secondary.href} variant="secondary">
-                {site.cta.secondary.label}
+            <div className="rise mt-8 flex flex-wrap items-center gap-6">
+              <ButtonLink href="/contact">
+                Let&apos;s build your site <span aria-hidden="true">↗</span>
               </ButtonLink>
+              <ArrowLink href="#selected-work">Explore the work</ArrowLink>
+            </div>
+            <p className="rise mt-6 text-[11px] text-ink-soft">
+              Design, development & a direct line to your designer.
+            </p>
+          </div>
+          <div className="hero-visual rise">
+            <ProjectReel
+              projects={projects.map(
+                ({
+                  slug,
+                  name,
+                  images,
+                  displayUrl,
+                  video,
+                  beforeAfter,
+                  autoScroll,
+                }) => ({
+                  slug,
+                  name,
+                  images,
+                  displayUrl,
+                  video,
+                  beforeAfter,
+                  autoScroll,
+                }),
+              )}
+            />
+            <div className="hero-visual-note">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              Real websites. Real local businesses.
+              <span aria-hidden="true" className="ml-auto">
+                ↓
+              </span>
             </div>
           </div>
         </Container>
-
-        {/* Portfolio strip: real projects, each in its client's colors */}
-        <Container className="pt-14 pb-6 sm:pt-20">
-          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
-            {projects.map((project, i) => (
+        <Container>
+          <div className="client-line flex flex-wrap items-center justify-between gap-x-8 gap-y-5 border-t border-line py-7">
+            <p className="kicker text-ink-soft">A few familiar faces</p>
+            {projects.map((p) => (
               <Link
-                key={project.slug}
-                href={`/work/${project.slug}`}
-                className="group block flex-[0_0_82%] snap-center sm:flex-[0_0_48%] md:flex-none"
+                key={p.slug}
+                href={`/work/${p.slug}`}
+                className="font-display text-xl tracking-tight transition-colors hover:text-accent"
               >
-                <div
-                  className="rounded-[6px] p-3 transition-transform duration-300 group-hover:-translate-y-1 sm:p-4"
-                  style={{ backgroundColor: project.palette.panel }}
-                >
-                  <BrowserFrame
-                    src={project.images.desktop.src}
-                    alt={project.images.desktop.alt}
-                    width={2600}
-                    height={1625}
-                    sizes="(min-width: 1024px) 23vw, (min-width: 768px) 46vw, 92vw"
-                    url={project.displayUrl}
-                    priority={i === 0}
-                    className="shadow-[var(--shadow-frame-sm)]"
-                  />
-                </div>
-                <p className="mt-3 flex min-w-0 flex-col gap-1 text-[13px]">
-                  <span className="font-medium text-ink group-hover:underline group-hover:underline-offset-4">
-                    {project.name}
-                  </span>
-                  <span className="truncate text-ink-soft">{project.industry}</span>
-                </p>
+                {p.name}
               </Link>
             ))}
           </div>
         </Container>
       </section>
-
-      {/* ── The studio ───────────────────────────────────────────── */}
-      <section className="border-t border-line" aria-labelledby="studio-heading">
-        <Container className="py-20 lg:py-28">
-          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14" data-reveal>
-            <div className="lg:col-span-4">
-              <Eyebrow>The studio</Eyebrow>
-              <figure className="mt-6 max-w-[220px]">
-                {hasPortrait ? (
-                  <div className="overflow-hidden rounded-full border border-line bg-white">
-                    <Image
-                      src="/about/portrait.jpg"
-                      alt={`${site.founder.name}, ${site.founder.role} at ${site.name}`}
-                      width={880}
-                      height={880}
-                      sizes="220px"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex aspect-square items-center justify-center rounded-full border border-line bg-wash">
-                    <span
-                      aria-hidden="true"
-                      className="font-display text-6xl leading-none text-ink/15 italic"
-                    >
-                      {site.founder.name.charAt(0)}
-                    </span>
-                  </div>
-                )}
-                <figcaption className="mt-3 border-t border-line pt-3 text-[13px]">
-                  <span className="block font-medium text-ink">{site.founder.name}</span>
-                  <span className="block text-ink-soft">{site.founder.role}</span>
-                </figcaption>
-              </figure>
-            </div>
-
-            <div className="lg:col-span-8">
-              <h2
-                id="studio-heading"
-                className="max-w-3xl font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.3] tracking-[-0.005em] text-balance"
-              >
-                Hi, I&apos;m Lawson. I run {site.name} out of Austin, and I
-                manage the strategy, design, development, and performance of
-                your website with precision.
-              </h2>
-              <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-ink-soft">
-                <p>
-                  I grew up in Austin and spent most of my working life inside
-                  the kinds of businesses I now build websites for: a
-                  restaurant, car detailing, a country club retail floor, a desk
-                  where the whole job was explaining complicated things in plain
-                  English. I know what a Saturday rush looks like, and what it
-                  costs when a customer can&apos;t find a menu, a price, or a way
-                  to book.
-                </p>
-                <p>
-                  I make it an absolute priority to be responsive and work with
-                  my clients to ensure a strong product and effective results.
-                  Send me an inquiry and let&apos;s get started.
-                </p>
-              </div>
-              <div className="mt-7">
-                <ArrowLink href="/about">More about the studio</ArrowLink>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── Featured work ────────────────────────────────────────── */}
-      <section className="border-t border-line" aria-labelledby="work-heading">
-        <Container className="py-20 lg:py-28">
-          <h2 id="work-heading" className="sr-only">
-            Selected website projects for Austin businesses
-          </h2>
-          <div className="space-y-20 lg:space-y-28">
-            {projects.map((project, i) => (
-              <ProjectShowcase key={project.slug} project={project} flip={i % 2 === 1} />
-            ))}
-          </div>
-          <div className="mt-14 border-t border-line pt-6" data-reveal>
-            <ArrowLink href="/work">See all work</ArrowLink>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── Services ─────────────────────────────────────────────── */}
-      <section className="border-t border-line bg-wash" aria-labelledby="services-heading">
-        <Container className="py-20 lg:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-6">
+      <section
+        id="selected-work"
+        className="scroll-mt-24 border-t border-line py-20 lg:py-28"
+      >
+        <Container>
+          <div className="mb-16 flex flex-wrap items-end justify-between gap-8">
             <SectionHeading
-              eyebrow="Services"
-              title={<span id="services-heading">Everything a working website needs.</span>}
-              lede="Strategy through launch and beyond, handled by one person who's accountable for all of it."
+              eyebrow="Selected work / 01—04"
+              title={
+                <>
+                  Good work deserves
+                  <br />
+                  <em>a great website.</em>
+                </>
+              }
             />
-            <ArrowLink href="/services" className="mb-1">
-              About each service
-            </ArrowLink>
+            <p
+              className="max-w-xs text-sm leading-relaxed text-ink-soft"
+              data-reveal="right"
+            >
+              Restaurants. Local services. Growing businesses. Every experience
+              starts with what makes them different.
+            </p>
           </div>
-          <ul className="stagger mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
-            {services.map((service) => (
-              <li key={service.title} className="border-t border-line py-6">
-                <h3 className="text-[16px] font-medium">{service.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-                  {service.summary}
-                </p>
-              </li>
+          <div className="space-y-20 lg:space-y-28">
+            {projects.map((p, i) => (
+              <ProjectShowcase key={p.slug} project={p} flip={i % 2 === 1} />
             ))}
-          </ul>
+          </div>
+          <div className="mt-12 border-t border-line pt-6">
+            <ArrowLink href="/work">The complete portfolio</ArrowLink>
+          </div>
         </Container>
       </section>
-
-      {/* ── Process ──────────────────────────────────────────────── */}
-      <section className="border-t border-line" aria-labelledby="process-heading">
-        <Container className="py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Process"
-            title={<span id="process-heading">Five steps, no mystery.</span>}
-            lede="You'll always know where the project stands, what's next, and what's needed from you."
-          />
-          <ol className="stagger mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5" data-reveal>
-            {processSteps.map((step, i) => (
-              <li key={step.name} className="border-t-2 border-ink pt-4">
-                <p className="text-[13px] font-semibold tracking-[0.08em] text-accent tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-2 font-display text-xl">{step.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{step.detail}</p>
-              </li>
-            ))}
-          </ol>
-          <p
-            className="mt-12 max-w-2xl border-l-2 border-accent pl-5 font-display text-lg leading-relaxed text-ink"
-            data-reveal
-          >
-            {processNote}
+      <section className="border-y border-line bg-wash py-20 lg:py-28">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+            <SectionHeading
+              eyebrow="Considered from the first click"
+              title={
+                <>
+                  Looks the part.
+                  <br />
+                  <em>Does the work.</em>
+                </>
+              }
+            />
+            <div data-reveal="right">
+              {[
+                [
+                  "01",
+                  "A design that feels like you",
+                  "A distinct visual direction, with a clear path from the first impression to the next step.",
+                  "/services#custom-web-design",
+                  "Explore design & development",
+                ],
+                [
+                  "02",
+                  "Built to be found",
+                  "Useful service pages, considered structure, and local SEO foundations.",
+                  "/austin-web-design",
+                  "Web design for Austin businesses",
+                ],
+                [
+                  "03",
+                  "Help after launch",
+                  "Hosting and a practical level of support, from the person who built your site.",
+                  "/hosting",
+                  "Hosting & support",
+                ],
+              ].map(([n, title, copy, href, label]) => (
+                <div
+                  key={n}
+                  className="service-row grid grid-cols-[2rem_1fr] gap-4 border-t border-line py-7"
+                >
+                  <span className="kicker pt-1 text-accent">{n}</span>
+                  <div>
+                    <h3 className="font-display text-3xl">{title}</h3>
+                    <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
+                      {copy}
+                    </p>
+                    <div className="mt-4">
+                      <ArrowLink href={href} className="text-xs">
+                        {label}
+                      </ArrowLink>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+      <section className="py-20 lg:py-28">
+        <Container>
+          <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="A clear starting point"
+              title={
+                <>
+                  Good design.
+                  <br />
+                  <em>Plain-English pricing.</em>
+                </>
+              }
+            />
+            <ArrowLink href="/pricing">Compare your options</ArrowLink>
+          </div>
+          <PricingCards />
+          <p className="mt-5 text-xs leading-relaxed text-ink-soft">
+            Hosting is billed monthly from launch. Domains and paid tools are
+            extra.{" "}
+            <Link
+              href="/hosting"
+              className="text-accent underline underline-offset-4"
+            >
+              See hosting inclusions and limits.
+            </Link>
           </p>
         </Container>
       </section>
-
-      {/* ── Pricing preview ──────────────────────────────────────── */}
-      <section className="border-t border-line bg-wash" aria-labelledby="pricing-heading">
-        <Container className="py-20 lg:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading
-              eyebrow="Pricing"
-              title={<span id="pricing-heading">Clear packages, honest scope.</span>}
-              lede="One clear price to build your website, plus monthly hosting with the level of support you need. Most established businesses land on Growth."
-            />
-            <ArrowLink href="/pricing" className="mb-1">
-              Compare in detail
-            </ArrowLink>
-          </div>
-          <div className="mt-12">
-            <PricingCards />
+      <section className="border-t border-line py-20 lg:py-28">
+        <Container>
+          <div className="grid items-center gap-10 md:grid-cols-[.7fr_1.3fr] lg:gap-24">
+            <div className="studio-portrait max-w-[340px]" data-reveal="left">
+              <div className="aspect-[4/5] overflow-hidden rounded-[3px]">
+                <Image
+                  src="/about/portrait.jpg"
+                  alt="Lawson Bickerstaff, founder of Forerunner Sites"
+                  width={680}
+                  height={800}
+                  sizes="(min-width: 768px) 340px, 80vw"
+                  className="h-full w-full origin-top scale-125 object-cover object-[46%_top]"
+                />
+              </div>
+              <p className="mt-4 flex justify-between text-[11px] text-ink-soft">
+                <span>Lawson Bickerstaff</span>
+                <span>Designer & developer</span>
+              </p>
+            </div>
+            <div data-reveal="right">
+              <Eyebrow>A small studio. A direct connection.</Eyebrow>
+              <h2 className="mt-6 font-display text-[clamp(2.7rem,4.8vw,4.6rem)] leading-[1.04] tracking-[-.035em]">
+                The person you talk to
+                <br />
+                <em className="text-accent">builds your website.</em>
+              </h2>
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-soft">
+                I&apos;m Lawson. I design and build websites for the kinds of
+                businesses that make Austin feel like Austin. Clear
+                communication, thoughtful work, and one person accountable from
+                the first idea to launch.
+              </p>
+              <div className="mt-7">
+                <ArrowLink href="/about">Meet your designer</ArrowLink>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
-
-      {/* ── Why work with us ─────────────────────────────────────── */}
-      <section className="border-t border-line" aria-labelledby="why-heading">
-        <Container className="py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Why Forerunner"
-            title={<span id="why-heading">What you get that an agency won&apos;t give you.</span>}
-          />
-          <ul className="stagger mt-12 grid gap-x-14 sm:grid-cols-2" data-reveal>
-            {whyUs.map((item) => (
-              <li key={item.title} className="border-t border-line py-5">
-                <h3 className="text-[16px] font-medium">{item.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{item.detail}</p>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
-
-      {/* ── Final CTA ────────────────────────────────────────────── */}
-      <ServiceDirectory />
-
       <CtaBand
         title={
           <>
-            Your next customer is already looking. <em>Make sure they choose you.</em>
+            Your business.
+            <br />
+            <em>Seen differently.</em>
           </>
         }
+        copy="Tell me what you have in mind. Let’s make a website that feels like the next chapter."
       />
-
-      <JsonLd data={webPageSchema({ ...page, dateModified: site.contentUpdated })} />
+      <JsonLd
+        data={webPageSchema({ ...page, dateModified: site.contentUpdated })}
+      />
     </>
   );
 }

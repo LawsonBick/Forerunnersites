@@ -54,9 +54,9 @@ function Field({
 }
 
 const packageOptions = [
-  { value: "launch", label: "Launch ($500 + $50/mo hosting)" },
-  { value: "growth", label: "Growth ($1,500 + $100/mo hosting)" },
-  { value: "custom", label: "Custom (from $3,000 + $200/mo hosting)" },
+  { value: "launch", label: "Launch — $500 + $50/mo" },
+  { value: "growth", label: "Growth — $1,500 + $100/mo" },
+  { value: "custom", label: "Custom — from $3,000 + $200/mo" },
   { value: "not-sure", label: "Not sure yet" },
 ];
 
@@ -272,6 +272,38 @@ export function ContactForm() {
         </Field>
       </div>
 
+        <Field label="Package or budget" htmlFor="package">
+          <select
+            id="package"
+            name="package"
+            value={pkg}
+            onChange={(e) => setChosenPkg(e.target.value)}
+            className={cx(inputClasses, "border-ink/20")}
+          >
+            {packageOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </Field>
+
+      <Field label="Project details" htmlFor="details" required error={errors.details}>
+        <textarea
+          id="details"
+          name="details"
+          rows={5}
+          required
+          placeholder="What does your business do, and what would you like your website to do better?"
+          aria-invalid={errors.details ? true : undefined}
+          aria-describedby={errors.details ? "details-error" : undefined}
+          className={cx(inputClasses, "resize-y", errors.details ? "border-[#b3261e]" : "border-ink/20")}
+        />
+      </Field>
+
+      <details className="border-y border-line py-5">
+        <summary className="cursor-pointer text-sm font-medium text-accent">Add a little more detail <span className="font-normal text-ink-soft">(optional)</span><span aria-hidden="true" className="float-right">+</span></summary>
+        <div className="mt-6 space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label="Company or business name" htmlFor="company">
           <input
@@ -312,21 +344,7 @@ export function ContactForm() {
             ))}
           </select>
         </Field>
-        <Field label="Package or budget" htmlFor="package">
-          <select
-            id="package"
-            name="package"
-            value={pkg}
-            onChange={(e) => setChosenPkg(e.target.value)}
-            className={cx(inputClasses, "border-ink/20")}
-          >
-            {packageOptions.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
-        </Field>
+
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -389,18 +407,7 @@ export function ContactForm() {
         </div>
       </fieldset>
 
-      <Field label="Project details" htmlFor="details" required error={errors.details}>
-        <textarea
-          id="details"
-          name="details"
-          rows={6}
-          required
-          placeholder="What does your business do, and what should the new website change? Anything you already know about scope, pages, or examples you like is helpful."
-          aria-invalid={errors.details ? true : undefined}
-          aria-describedby={errors.details ? "details-error" : undefined}
-          className={cx(inputClasses, "resize-y", errors.details ? "border-[#b3261e]" : "border-ink/20")}
-        />
-      </Field>
+
 
       <Field label="How did you hear about the studio?" htmlFor="heard_about">
         <select
@@ -419,6 +426,9 @@ export function ContactForm() {
           ))}
         </select>
       </Field>
+
+        </div>
+      </details>
 
       {/* Honeypot — humans never see or fill this. */}
       <div className="hidden" aria-hidden="true">

@@ -32,11 +32,11 @@ export function BrowserFrame({
         className
       )}
     >
-      <div className="relative flex h-8 items-center border-b border-ink/10 bg-[#f3f1ea] px-3.5">
+      <div className="relative flex h-9 items-center border-b border-ink/10 bg-[#f8faff] px-3.5">
         <span aria-hidden="true" className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-ink/15" />
-          <span className="h-2 w-2 rounded-full bg-ink/15" />
-          <span className="h-2 w-2 rounded-full bg-ink/15" />
+          <span className="h-2 w-2 rounded-full bg-ink/20" />
+          <span className="h-2 w-2 rounded-full bg-ink/20" />
+          <span className="h-2 w-2 rounded-full bg-ink/20" />
         </span>
         {url ? (
           <span className="absolute inset-x-12 truncate text-center text-[11px] font-medium tracking-wide text-ink-soft">

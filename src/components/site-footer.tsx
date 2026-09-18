@@ -1,3 +1,4 @@
+import { MotionPreference } from "@/components/motion-preference";
 import { landingPages } from "@/content/landing-pages";
 import Link from "next/link";
 import { site } from "@/config/site";
@@ -94,7 +95,7 @@ export function SiteFooter() {
             <Link href="/privacy" className="transition-colors hover:text-paper">
               Privacy
             </Link>
-            <span>Designed and built in Austin, Texas.</span>
+            <MotionPreference />
           </p>
         </div>
       </Container>

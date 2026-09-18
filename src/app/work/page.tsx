@@ -27,8 +27,8 @@ export default function WorkPage() {
             as="h1"
             entrance="rise"
             eyebrow="Work"
-            title="Websites for Austin businesses, judged by one standard: does the site win the customer?"
-            lede="Every project here belongs to an Austin-area business owner with a reputation on the line. I judge the work the way they do, by whether visitors turn into diners, bookings, and quote requests."
+            title={<>Different businesses.<br /><em>Distinct experiences.</em></>}
+            lede="A closer look at the websites, the thinking, and the details that make them work."
           />
           <div className="mt-16 space-y-20 lg:mt-24 lg:space-y-28">
             {projects.map((project, i) => (

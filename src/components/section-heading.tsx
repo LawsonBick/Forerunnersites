@@ -21,7 +21,7 @@ export function Eyebrow({
         className
       )}
     >
-      <span aria-hidden="true" className="inline-block h-[7px] w-[7px] bg-accent" />
+      <span aria-hidden="true" className={cx("inline-block h-[7px] w-[7px]", dark ? "bg-white/80" : "bg-accent")} />
       {children}
     </Tag>
   );
@@ -58,7 +58,7 @@ export function SectionHeading({
       <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
       <Tag
         className={cx(
-          "mt-4 font-display text-[clamp(1.85rem,1.2rem+2.1vw,2.7rem)] leading-[1.12] tracking-[-0.01em] text-balance",
+          "mt-4 font-display text-[clamp(2.7rem,1.4rem+3.5vw,4.8rem)] leading-[1.03] tracking-[-0.035em] text-balance",
           dark ? "text-paper" : "text-ink"
         )}
       >

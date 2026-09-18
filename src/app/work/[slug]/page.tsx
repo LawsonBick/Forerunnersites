@@ -1,3 +1,4 @@
+import { ProjectMedia } from "@/components/project-media";
 import { projectContext } from "@/content/project-context";
 import { projectResults } from "@/content/social-proof";
 import { ProjectResults } from "@/components/social-proof";
@@ -89,7 +90,7 @@ export default async function CaseStudyPage({ params }: Params) {
           <div className="rise">
             <Breadcrumbs items={crumbs} />
             <div className="mt-8 flex flex-wrap items-baseline justify-between gap-4">
-              <h1 className="font-display text-[clamp(2.4rem,1.4rem+3.8vw,4.25rem)] leading-[1.05] tracking-[-0.015em]">
+              <h1 className="font-display text-[clamp(3rem,1.4rem+5.8vw,6.5rem)] leading-[1.05] tracking-[-0.015em]">
                 {project.name}
               </h1>
               <Tag>{project.industry}</Tag>
@@ -139,15 +140,7 @@ export default async function CaseStudyPage({ params }: Params) {
             className="rise rounded-[6px] p-4 [animation-delay:150ms] sm:p-10 lg:p-14"
             style={{ backgroundColor: project.palette.panel }}
           >
-            <BrowserFrame
-              src={project.images.desktop.src}
-              alt={project.images.desktop.alt}
-              width={2600}
-              height={1625}
-              sizes="(min-width: 1280px) 1140px, 92vw"
-              url={project.displayUrl}
-              priority
-            />
+            <ProjectMedia project={project} priority />
           </div>
         </Container>
 

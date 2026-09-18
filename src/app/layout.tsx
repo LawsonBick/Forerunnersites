@@ -1,6 +1,6 @@
 import { ConversionTracking } from "@/components/conversion-tracking";
 import type { Metadata, Viewport } from "next";
-import { Archivo, Newsreader } from "next/font/google";
+import { Archivo, IBM_Plex_Sans } from "next/font/google";
 import Script from "next/script";
 import { site } from "@/config/site";
 import { defaultShareImage, isPreviewDeployment } from "@/lib/seo";
@@ -17,10 +17,9 @@ const archivo = Archivo({
   display: "swap",
 });
 
-const newsreader = Newsreader({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  variable: "--font-ibm-plex-sans",
   display: "swap",
 });
 
@@ -68,7 +67,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf9f6",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -80,15 +79,16 @@ export default function RootLayout({
     // suppressHydrationWarning: the inline script below adds a `js` class
     // to <html> before hydration (it gates reveal animations).
     <html
+      data-scroll-behavior="smooth"
       lang="en"
-      className={`${archivo.variable} ${newsreader.variable}`}
+      className={`${archivo.variable} ${ibmPlexSans.variable}`}
       suppressHydrationWarning
     >
       <body>
         {/* Gates reveal animations so content is never hidden without JS. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
+            __html: "document.documentElement.classList.add('js');try{if(localStorage.getItem('forerunner-reduce-motion')==='true')document.documentElement.dataset.motion='reduced'}catch{}",
           }}
         />
         <a
