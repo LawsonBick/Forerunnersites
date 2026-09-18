@@ -29,7 +29,7 @@ export default function HomePage() {
             <Eyebrow className="rise">
               Independent web studio / Austin, TX
             </Eyebrow>
-            <h1 className="hero-title mt-7">
+            <h1 className="hero-title mt-7 uppercase">
               <span className="mask-line">
                 <span className="mask-line-inner">A better</span>
               </span>
