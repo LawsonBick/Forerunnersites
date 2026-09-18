@@ -125,8 +125,8 @@ export default async function CaseStudyPage({ params }: Params) {
                 Live site
               </dt>
               <dd className="mt-1.5">
-                <ArrowLink href={project.url} external className="text-sm">
-                  {project.displayUrl}
+                <ArrowLink href={project.url} external className="max-w-full text-sm">
+                  <span className="min-w-0 break-all">{project.displayUrl}</span>
                 </ArrowLink>
               </dd>
             </div>

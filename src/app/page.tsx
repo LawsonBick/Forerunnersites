@@ -64,9 +64,9 @@ export default function HomePage() {
           </div>
         </Container>
 
-        {/* Portfolio strip: three real projects, each in its client's colors */}
+        {/* Portfolio strip: real projects, each in its client's colors */}
         <Container className="pt-14 pb-6 sm:pt-20">
-          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+          <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
             {projects.map((project, i) => (
               <Link
                 key={project.slug}
@@ -82,13 +82,13 @@ export default function HomePage() {
                     alt={project.images.desktop.alt}
                     width={2600}
                     height={1625}
-                    sizes="(min-width: 768px) 31vw, 92vw"
+                    sizes="(min-width: 1024px) 23vw, (min-width: 768px) 46vw, 92vw"
                     url={project.displayUrl}
                     priority={i === 0}
                     className="shadow-[var(--shadow-frame-sm)]"
                   />
                 </div>
-                <p className="mt-3 flex items-baseline justify-between gap-3 text-[13px]">
+                <p className="mt-3 flex min-w-0 flex-col gap-1 text-[13px]">
                   <span className="font-medium text-ink group-hover:underline group-hover:underline-offset-4">
                     {project.name}
                   </span>

@@ -12,7 +12,7 @@ import { webPageSchema } from "@/lib/schema";
 const page = {
   title: "Web Design Portfolio: Austin Businesses",
   description:
-    "Website case studies for Austin businesses: Manuel's, TRZ Shine & Detail, and CleanZ ATX. How strategy, design, and development turn visitors into customers.",
+    "Website case studies for Austin businesses: Apex Window Cleaning, Manuel's, TRZ Shine & Detail, and CleanZ ATX. Explore the design and development work.",
   path: "/work",
 };
 

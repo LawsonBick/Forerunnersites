@@ -18,4 +18,11 @@ export const projectContext: Record<string, {development: string; search: string
     conversion: "Pricing helps set expectations before the quote request. Property and service questions give the owner a starting point for follow-up. A completed request is an inquiry, not a confirmed job, and the two should remain separate when reviewing business results.",
     service: "service-business-web-design", resource: "local-seo-service-businesses-austin",
   },
+  "apex-window-cleaning": {
+    "development": "Reusable layouts organize the service pages, area pages, gallery, and quote form. The responsive site includes keyboard-operable before-and-after sliders and a persistent mobile contact bar.",
+    "search": "Dedicated pages describe Apex’s services and actual service area, supported by clear headings and internal links. Each route gives homeowners service details and a relevant next step.",
+    "conversion": "Service and access details help homeowners prepare an inquiry. Visitors can choose a phone call or email when requesting a quote, and direct call links provide another route. The form gathers the service and location details Apex needs to discuss an estimate.",
+    "service": "service-business-web-design",
+    "resource": "local-seo-service-businesses-austin"
+  },
 };

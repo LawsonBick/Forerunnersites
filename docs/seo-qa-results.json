@@ -1,8 +1,8 @@
 {
-  "pages": 22,
-  "unique_titles": 22,
-  "unique_descriptions": 22,
-  "local_media_sources": 14,
+  "pages": 23,
+  "unique_titles": 23,
+  "unique_descriptions": 23,
+  "local_media_sources": 17,
   "internal_links_and_anchors": "pass",
   "metadata_and_schema": "pass",
   "robots_and_404": "pass",
@@ -28,6 +28,7 @@
     "/resources/restaurant-website-design-guide",
     "/work/manuels",
     "/work/trz-detail",
-    "/work/cleanz-atx"
+    "/work/cleanz-atx",
+    "/work/apex-window-cleaning"
   ]
 }

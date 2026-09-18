@@ -1,5 +1,5 @@
 /**
- * Case-study content for the three portfolio projects.
+ * Case-study content for the portfolio projects.
  *
  * Screenshots live in /public/work/ and were captured from the live
  * sites. To refresh them, re-capture at these sizes and overwrite:
@@ -337,6 +337,76 @@ export const projects: Project[] = [
       width: 1100,
       height: 8285,
     },
+  },
+  {
+    "slug": "apex-window-cleaning",
+    "name": "Apex Window Cleaning",
+    "url": "https://www.apexwindowcleaningatx.com/",
+    "displayUrl": "apexwindowcleaningatx.com",
+    "industry": "Window & exterior cleaning",
+    "location": "Spicewood & Austin, TX",
+    "tagline": "A clearer path from exploring exterior care to requesting a quote.",
+    "updated": "2026-09-18",
+    "seo": {
+      "title": "Apex Window Cleaning: Website Design",
+      "description": "A window and exterior cleaning website by Forerunner Sites for Apex: service pages, real project photography, and a mobile-friendly quote form."
+    },
+    "shortChallenge": "Help homeowners understand the services, see the work, and request the right cleaning scope across Austin and Lake Travis.",
+    "shortSolution": "An airy, photography-led website with dedicated service pages, before-and-after comparisons, and a straightforward quote request.",
+    "overview": "Apex Window Cleaning is based in Spicewood and serves Austin and the Lake Travis area. The business offers window cleaning, pressure washing, and solar panel cleaning. Its website brings these services together with project photography, local coverage information, and direct ways to contact the business.",
+    "challenge": "Window cleaning and pressure washing involve different surfaces, access needs, and questions. The website needed to explain those differences while giving homeowners a simple route to an estimate. Project photos and service details needed room to be useful without burying the next step.",
+    "approach": "Organize the site around three visitor tasks: understand the service, inspect the work, and ask for a quote. Dedicated service and area pages provide the detail, while the homepage introduces the work through photography and before-and-after comparisons. Quote and phone links remain easy to find throughout the experience.",
+    "designDirection": "Light blue backgrounds, deep blue typography, and generous spacing echo the glass and open views in the project photography. Large architectural images lead the design, with a restrained blue accent guiding visitors toward service details and quote requests.",
+    "functionality": [
+      {
+        "title": "Dedicated service pages",
+        "detail": "Window cleaning, pressure washing, and solar panel cleaning each have a clear explanation of scope and the details to discuss before work is agreed."
+      },
+      {
+        "title": "Interactive before-and-after comparisons",
+        "detail": "Slider comparisons show exterior cleaning work using original project photos, with keyboard controls and captions explaining what is pictured."
+      },
+      {
+        "title": "A focused quote form",
+        "detail": "Visitors choose a service, enter their city or ZIP code, and select phone or email contact to begin a conversation about the job."
+      },
+      {
+        "title": "Local coverage information",
+        "detail": "Service-area pages explain coverage around Spicewood, Lakeway, Bee Cave, and Austin, with links back to relevant services and the inquiry path."
+      },
+      {
+        "title": "Direct contact on mobile",
+        "detail": "A persistent mobile bar keeps calling Apex and opening the quote form within reach while visitors browse."
+      }
+    ],
+    "mobile": "The mobile layout stacks the service information and photographs into a clear reading order. A persistent call-and-quote bar keeps the next step visible, while the quote form uses labeled fields and a choice of contact method.",
+    "outcome": "Apex has a cohesive website where homeowners can explore services, review real project photos, check local coverage, and request an estimate. The service details and contact paths give homeowners a practical starting point for discussing the work with Apex.",
+    "services": [
+      "Custom design",
+      "Site architecture",
+      "Responsive development",
+      "Quote form development",
+      "Local SEO foundations"
+    ],
+    "palette": {
+      "panel": "#eaf7fc",
+      "panelFg": "#123f60",
+      "accent": "#0878b7"
+    },
+    "images": {
+      "desktop": {
+        "src": "/work/apex-desktop.jpg",
+        "alt": "Apex Window Cleaning homepage with blue service headings beside a photograph of architectural glass"
+      },
+      "tall": {
+        "src": "/work/apex-tall.jpg",
+        "alt": "Apex project gallery showing a before-and-after stone chimney cleaning comparison"
+      },
+      "mobile": {
+        "src": "/work/apex-mobile.jpg",
+        "alt": "Apex website on a phone with a quote button, architectural photography, and persistent call and quote links"
+      }
+    }
   },
 ];
 
