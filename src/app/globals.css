@@ -482,7 +482,7 @@ h2,
   animation: route-enter 0.4s var(--ease-soft) both;
 }
 .reel-entry {
-  animation: reel-enter 0.45s var(--ease-soft) both;
+  animation: reel-enter 0.65s var(--ease-soft) both;
 }
 @keyframes route-enter {
   from {
@@ -496,8 +496,8 @@ h2,
 }
 @keyframes reel-enter {
   from {
-    opacity: 0.4;
-    transform: translateX(18px);
+    opacity: 0.5;
+    transform: translateX(100%);
   }
   to {
     opacity: 1;
@@ -635,7 +635,4 @@ html[data-motion="reduced"] {
   }
 }
 
-.walkthrough-control {min-height:28px;min-width:42px;padding:3px 7px;border-radius:20px;cursor:pointer;}
-.walkthrough-control:hover {background:var(--color-wash);}
-.walkthrough-control:focus-visible {outline:2px solid var(--color-accent);outline-offset:1px;}
 .walkthrough-viewport iframe {transition:opacity .35s ease;}

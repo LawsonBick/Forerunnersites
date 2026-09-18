@@ -18,18 +18,20 @@ export function BrowserFrame({
   url,
   className,
   children,
+  chromeActions,
   ...img
 }: FrameImageProps & {
   url?: string;
   className?: string;
   /** Replaces the screenshot — used for video showcases. */
   children?: React.ReactNode;
+  chromeActions?: React.ReactNode;
 }) {
   return (
     <figure
       className={cx(
         "overflow-hidden rounded-[var(--radius-frame)] border border-ink/10 bg-white shadow-[var(--shadow-frame)]",
-        className
+        className,
       )}
     >
       <div className="relative flex h-9 items-center border-b border-ink/10 bg-[#f8faff] px-3.5">
@@ -42,6 +44,9 @@ export function BrowserFrame({
           <span className="absolute inset-x-12 truncate text-center text-[11px] font-medium tracking-wide text-ink-soft">
             {url}
           </span>
+        ) : null}
+        {chromeActions ? (
+          <div className="relative z-10 ml-auto">{chromeActions}</div>
         ) : null}
       </div>
       {children ?? (
@@ -69,7 +74,7 @@ export function PhoneFrame({
     <figure
       className={cx(
         "overflow-hidden rounded-[30px] border border-ink/10 bg-white p-2 shadow-[var(--shadow-frame-sm)]",
-        className
+        className,
       )}
     >
       <div className="overflow-hidden rounded-[22px]">

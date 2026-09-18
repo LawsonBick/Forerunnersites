@@ -10,9 +10,13 @@ export type ProjectPreview = Pick<
 export function ProjectMedia({
   project,
   priority = false,
+  paused,
+  onPausedChange,
 }: {
   project: ProjectPreview;
   priority?: boolean;
+  paused?: boolean;
+  onPausedChange?: (paused: boolean) => void;
 }) {
   return (
     <WebsiteWalkthrough
@@ -21,6 +25,8 @@ export function ProjectMedia({
       poster={project.images.desktop.src}
       posterAlt={project.images.desktop.alt}
       priority={priority}
+      paused={paused}
+      onPausedChange={onPausedChange}
     />
   );
 }

@@ -42,12 +42,16 @@ export function WebsiteWalkthrough({
   poster,
   posterAlt,
   priority = false,
+  paused: controlledPaused,
+  onPausedChange,
 }: {
   tour: Walkthrough;
   name: string;
   poster: string;
   posterAlt: string;
   priority?: boolean;
+  paused?: boolean;
+  onPausedChange?: (paused: boolean) => void;
 }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
@@ -60,7 +64,9 @@ export function WebsiteWalkthrough({
   const [visible, setVisible] = useState(false);
   const [started, setStarted] = useState(false);
   const [ready, setReady] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const [localPaused, setLocalPaused] = useState(false);
+  const paused = controlledPaused ?? localPaused;
+  const setPaused = onPausedChange ?? setLocalPaused;
   const [scale, setScale] = useState(1);
   const reduced = useReducedMotion();
   const page = tour.pages[pageIndex];
@@ -90,12 +96,6 @@ export function WebsiteWalkthrough({
     const doc = frame.current?.contentDocument;
     if (doc) doc.documentElement.dataset.motion = reduced ? "reduced" : "full";
   }, [reduced, ready]);
-
-  const changePage = (index: number) => {
-    elapsed.current = 0;
-    setReady(false);
-    setPageIndex(index);
-  };
 
   useEffect(() => {
     if (!ready || !visible || paused || reduced) return;
@@ -154,6 +154,32 @@ export function WebsiteWalkthrough({
       width={2600}
       height={1625}
       url={page.url}
+      chromeActions={
+        !reduced ? (
+          <button
+            type="button"
+            className="preview-playback grid size-8 place-items-center rounded-full text-ink-soft hover:bg-ink/5 focus-visible:outline-2 focus-visible:outline-accent"
+            aria-label={`${paused ? "Play" : "Pause"} ${name} preview`}
+            aria-pressed={paused}
+            title={paused ? "Play preview" : "Pause preview"}
+            onClick={() => setPaused(!paused)}
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              {paused ? (
+                <path d="M3 1.5 10 6l-7 4.5Z" />
+              ) : (
+                <path d="M2 1h3v10H2zm5 0h3v10H7z" />
+              )}
+            </svg>
+          </button>
+        ) : undefined
+      }
     >
       <div
         ref={viewport}
@@ -196,57 +222,6 @@ export function WebsiteWalkthrough({
             }}
           />
         )}
-        <div className="walkthrough-controls absolute right-3 bottom-3 left-3 z-20 flex items-center justify-between gap-2 rounded-full bg-white/95 px-3 py-2 text-[10px] text-ink shadow-sm">
-          <span className="truncate">
-            {page.label}{" "}
-            <span className="ml-1 text-ink-soft">
-              {tour.mode === "scroll"
-                ? `${pageIndex + 1} / ${tour.pages.length}`
-                : "Slideshow"}
-            </span>
-          </span>
-          <div className="flex shrink-0 items-center gap-1">
-            {!reduced && (
-              <button
-                type="button"
-                className="walkthrough-control"
-                aria-label={`${paused ? "Play" : "Pause"} ${name} preview`}
-                onClick={() => setPaused((value) => !value)}
-              >
-                {paused ? "Play" : "Pause"}
-              </button>
-            )}
-            <button
-              type="button"
-              className="walkthrough-control"
-              aria-label={
-                tour.mode === "photos"
-                  ? `Next ${name} photo`
-                  : `Next ${name} page`
-              }
-              onClick={() => {
-                if (tour.mode === "photos") {
-                  elapsed.current =
-                    (Math.floor(elapsed.current / 4600) + 1) * 4600;
-                  const slides = [
-                    ...(frame.current?.contentDocument?.querySelectorAll<HTMLElement>(
-                      ".hero-slide",
-                    ) ?? []),
-                  ];
-                  const index =
-                    Math.floor(elapsed.current / 4600) % slides.length;
-                  slides.forEach((slide, i) => {
-                    if (i === index && slide.dataset.bg)
-                      slide.style.backgroundImage = `url("${slide.dataset.bg}")`;
-                    slide.classList.toggle("is-active", i === index);
-                  });
-                } else changePage((pageIndex + 1) % tour.pages.length);
-              }}
-            >
-              Next <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
       </div>
     </BrowserFrame>
   );
