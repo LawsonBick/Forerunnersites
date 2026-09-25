@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import type { ProjectPreview } from "@/components/project-media";
 import { HomepagePreview } from "@/components/homepage-preview";
@@ -11,18 +11,17 @@ const previewLabels: Record<string, { short: string; detail: string }> = {
   "apex-window-cleaning": { short: "Apex", detail: "Window & exterior care" },
 };
 
-/** Six seconds on each homepage, with its own native animation. */
+/** Visitors choose a site and explore it without automatic interruptions. */
 export function ProjectReel({
   projects,
 }: {
   projects: (ProjectPreview & { slug: string; name: string; url: string })[];
 }) {
   const [selected, setSelected] = useState(0);
-  const [paused, setPaused] = useState(false);
   const project = projects[selected];
-  const nextProject = useCallback(() => {
-    setSelected((index) => (index + 1) % projects.length);
-  }, [projects.length]);
+  const stepProject = (direction: number) => {
+    setSelected((index) => (index + direction + projects.length) % projects.length);
+  };
 
   return (
     <div className="hero-reel">
@@ -33,22 +32,32 @@ export function ProjectReel({
           {projects.length}
         </span>
       </div>
-      <div className="reel-window overflow-hidden">
-        <div
-          key={project.slug}
-          className="reel-entry"
-          id="featured-preview"
-          aria-label={`${project.name} website preview`}
-        >
-          <HomepagePreview
-            project={project}
-            priority={selected === 0}
-            onComplete={nextProject}
-            paused={paused}
-            onPausedChange={setPaused}
-          />
+      <div className="reel-browser-layout">
+        <button type="button" className="reel-navigation" aria-label="Previous website" aria-controls="featured-preview" onClick={() => stepProject(-1)}>
+          <span aria-hidden="true">←</span>
+        </button>
+        <div className="reel-window min-w-0 overflow-hidden">
+          <div
+            key={project.slug}
+            className="reel-entry"
+            id="featured-preview"
+            aria-label={`${project.name} website preview`}
+          >
+            <HomepagePreview
+              project={project}
+              priority={selected === 0}
+            />
+          </div>
         </div>
+        <button type="button" className="reel-navigation" aria-label="Next website" aria-controls="featured-preview" onClick={() => stepProject(1)}>
+          <span aria-hidden="true">→</span>
+        </button>
       </div>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-[11px] text-ink-soft">
+        <span>Click, scroll &amp; explore</span>
+        <a href={project.url} target="_blank" rel="noopener noreferrer" className="font-medium text-ink">Open live site ↗</a>
+      </div>
+      <p className="sr-only" aria-live="polite">{project.name}, website {selected + 1} of {projects.length}</p>
       <Link
         href={`/work/${project.slug}`}
         className="reel-project-link group mt-5 flex items-center justify-between gap-5 py-1"

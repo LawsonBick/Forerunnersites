@@ -346,6 +346,38 @@ h2,
 .hero-reel #featured-preview > figure > div:first-child {
   background: #f5f5f4;
 }
+.reel-browser-layout {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 6px;
+}
+.reel-navigation {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  min-height: 48px;
+  border-radius: 24px;
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.reel-navigation:hover {
+  background: var(--color-accent-deep);
+  color: white;
+}
+@media (max-width: 400px) {
+  .reel-browser-layout { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .reel-window { grid-column: 1 / -1; grid-row: 1; }
+  .reel-navigation { grid-row: 2; width: 44px; }
+  .reel-navigation:last-child { justify-self: end; }
+}
+@media (min-width: 640px) {
+  .reel-browser-layout { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: 10px; }
+  .reel-navigation { width: 44px; }
+}
 .reel-project-arrow {
   display: grid;
   place-items: center;

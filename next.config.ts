@@ -45,6 +45,16 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/work/interactive/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+          {
+            key: "Content-Security-Policy",
+            value: "script-src 'self'; object-src 'none'; connect-src 'none'; form-action 'none'; frame-ancestors 'self'; sandbox allow-scripts allow-popups allow-popups-to-escape-sandbox",
+          },
+        ],
+      },
+      {
         source: "/work/tours/:path*",
         headers: [
           { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },

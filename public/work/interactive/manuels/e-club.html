@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join the E-Club | Manuel's Mexican Restaurant, Austin</title>
+<meta content="Join Manuel's E-Club in Austin for special offers, giveaways and exclusive invitations from our Great Hills kitchen at the Arboretum." name="description"/>
+
+<meta content="website" property="og:type"/>
+<meta content="Manuel's" property="og:site_name"/>
+<meta content="Join the E-Club | Manuel's Mexican Restaurant, Austin" property="og:title"/>
+<meta content="Join Manuel's E-Club in Austin for special offers, giveaways and exclusive invitations from our Great Hills kitchen at the Arboretum." property="og:description"/>
+<meta content="https://www.manuels.com/e-club" property="og:url"/>
+<meta content="https://www.manuels.com/assets/images/hero-food.jpg" property="og:image"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@manuelsatx" name="twitter:site"/>
+<meta content="Join the E-Club | Manuel's Mexican Restaurant, Austin" name="twitter:title"/>
+<meta content="Join Manuel's E-Club in Austin for special offers, giveaways and exclusive invitations from our Great Hills kitchen at the Arboretum." name="twitter:description"/>
+<meta content="https://www.manuels.com/assets/images/hero-food.jpg" name="twitter:image"/>
+<link href="https://www.manuels.com/assets/images/logo-mark.png" rel="icon"/>
+<style>/* Shared styling for standalone Manuel's pages (Rewards, etc.) */
+@font-face{font-family:"Bank Gothic Medium";src:url("https://www.manuels.com/assets/fonts/Bank-Gothic-Medium.woff2") format("woff2"),url("https://www.manuels.com/assets/fonts/Bank-Gothic-Medium.woff") format("woff");font-weight:500 700;font-style:normal;font-display:swap;}
+@font-face{font-family:"Bank Gothic Light";src:url("https://www.manuels.com/assets/fonts/Bank-Gothic-Light.woff2") format("woff2"),url("https://www.manuels.com/assets/fonts/Bank-Gothic-Light.woff") format("woff");font-weight:300 400;font-style:normal;font-display:swap;}
+:root{
+  --paper:#FCFAF6;--paper-2:#FCFAF6;--ink:#211915;--muted:#6F635C;
+  --chile:#EF4023;--chile-deep:#CF3517;--chile-deeper:#B22D12;--line:rgba(33,25,21,.12);
+  --font-display:"Bank Gothic Medium","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-sans);
+  font-size:1.05rem;line-height:1.65;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;}
+a{color:inherit;text-decoration:none;}
+.page-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:1.1rem clamp(1.25rem,5vw,4rem);border-bottom:1px solid var(--line);}
+.page-header img{height:44px;width:auto;display:block;}
+.page-header .back{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.page-header .back:hover{color:var(--chile);}
+.page-main{flex:1;width:100%;max-width:760px;margin:0 auto;
+  padding:clamp(2rem,4vw,3rem) clamp(1.25rem,5vw,2rem);text-align:center;
+  /* centre short content in the viewport slack instead of pooling it above the footer */
+  display:flex;flex-direction:column;justify-content:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:.7em;font-size:.74rem;font-weight:600;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--chile);margin:0 0 1.4rem;}
+.eyebrow::before{content:"";width:2.2rem;height:1px;background:var(--chile);display:inline-block;}
+h1{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.015em;
+  line-height:1.05;font-size:clamp(2.2rem,5.5vw,3.6rem);margin:0 0 1.4rem;}
+.lead{font-size:clamp(1.05rem,1rem + .4vw,1.25rem);color:#3a302b;line-height:1.6;max-width:38rem;margin:0 auto 2.4rem;}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--font-sans);font-weight:700;
+  font-size:.84rem;letter-spacing:.12em;text-transform:uppercase;padding:1.05em 1.9em;border-radius:2px;
+  background:var(--chile-deep);color:#fff;border:1px solid transparent;cursor:pointer;
+  transition:background .3s,transform .35s cubic-bezier(.2,.8,.2,1);}
+.btn:hover{background:var(--chile-deeper);transform:translateY(-2px);}
+.eclub-form{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;max-width:30rem;margin:0 auto;}
+.eclub-form input{flex:1;min-width:14rem;padding:.95em 1em;border:1px solid var(--line);border-radius:2px;
+  background:#fff;color:var(--ink);font-family:inherit;font-size:16px;}
+.eclub-form input:focus{outline:none;border-color:var(--chile);}
+.confirm{margin-top:1.4rem;color:var(--chile);font-weight:600;display:none;}
+.confirm.show{display:block;}
+.howto{list-style:none;padding:0;margin:0 auto 2.4rem;max-width:34rem;text-align:left;display:grid;gap:1rem;counter-reset:step;}
+.howto li{counter-increment:step;position:relative;padding:1.1rem 1.2rem 1.1rem 3.2rem;background:var(--paper-2);border-radius:4px;
+  font-size:1rem;line-height:1.5;color:#3a302b;}
+.howto li::before{content:counter(step);position:absolute;left:1rem;top:1rem;width:1.6rem;height:1.6rem;
+  background:var(--chile);color:#fff;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-display);font-size:.85rem;}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+.btn-ghost:hover{background:var(--paper-2);border-color:var(--ink);transform:translateY(-2px);}
+.field{margin-bottom:1rem;text-align:left;}
+.field label{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.5rem;}
+.field input,.field select{width:100%;padding:.85em 1em;border:1px solid var(--line);border-radius:2px;
+  background:#fff;color:var(--ink);font-family:inherit;font-size:16px;-webkit-appearance:none;appearance:none;}
+.field input:focus,.field select:focus{outline:none;border-color:var(--chile);}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.eclub-fields{max-width:30rem;margin:0 auto 1.4rem;text-align:left;}
+.note{margin-top:2.6rem;font-size:.84rem;color:var(--muted);line-height:1.5;}
+.page-footer{text-align:center;padding:2rem;color:var(--muted);font-size:.8rem;
+  letter-spacing:.04em;border-top:1px solid var(--line);}
+</style>
+<meta content="noindex,nofollow,noarchive" name="robots"/><style>html,body{overscroll-behavior-y:contain} html{scrollbar-width:thin} .site-header.is-hidden{transform:none}</style></head>
+<body>
+<header class="page-header">
+<a aria-label="Manuel's home" href="/work/interactive/manuels/index.html"><img alt="Manuel's" height="87" src="https://www.manuels.com/assets/images/logo.png" width="256"/></a>
+<a class="back" href="/work/interactive/manuels/index.html">← Back to site</a>
+</header>
+<main class="page-main">
+<p class="eyebrow">E-Club</p>
+<h1>Join E-Club</h1>
+<p class="lead">Be in the know about special offers, giveaways and exclusive invitations.</p>
+<!-- E-CLUB FORM (hidden until wired to an email provider):
+       point this form's submit at your ESP (Mailchimp, Klaviyo, Constant Contact…)
+       and remove `hidden` — the fields match Manuel's E-Club sign-up. -->
+<p><a class="btn btn-primary" href="https://www.manuels.com/e-club" rel="noopener noreferrer" target="_blank">Continue on Manuel’s website</a></p>
+<p aria-live="polite" class="confirm" id="confirm" role="status">Thanks for joining the E-Club!</p>
+<div class="cta-row">
+<a class="btn" href="tel:+15123451042" rel="noopener noreferrer" target="_blank">Call (512) 345-1042</a>
+<a class="btn btn-ghost" href="/work/interactive/manuels/frequent-diner-rewards.html">Frequent Diner Rewards</a>
+</div>
+<p class="note" style="margin-top:1.6rem;">Ask your server to join the E-Club on your next visit — or call and we'll add you on the spot.</p>
+</main>
+<footer class="page-footer">© <span id="yr"></span> <span class="mnl">Manuel's</span> Mexican Cooking · Austin, Texas · Since 1984</footer>
+<script defer="True" src="/work/interactive/manuels/site.js"></script></body>
+</html>
