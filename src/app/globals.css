@@ -614,22 +614,3 @@ html[data-motion="reduced"] {
 .studio-photo {
   box-shadow: 12px 12px 0 var(--color-accent);
 }
-
-/* Presentation-only pointer follows real navigation links in the project tours. */
-.tour-cursor {
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 100ms ease, transform 120ms ease;
-  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.2));
-}
-.tour-cursor[data-clicking="true"] { transform: scale(0.8); }
-.tour-cursor[data-clicking="true"]::before {
-  content: "";
-  position: absolute;
-  inset: -9px;
-  border: 2px solid white;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.2);
-}

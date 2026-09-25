@@ -12,13 +12,9 @@ export function ProjectMedia({
   priority = false,
   paused,
   onPausedChange,
-  durationMs,
-  onComplete,
 }: {
   project: ProjectPreview;
   priority?: boolean;
-  durationMs?: number;
-  onComplete?: () => void;
   paused?: boolean;
   onPausedChange?: (paused: boolean) => void;
 }) {
@@ -29,8 +25,6 @@ export function ProjectMedia({
       poster={project.images.desktop.src}
       posterAlt={project.images.desktop.alt}
       priority={priority}
-      durationMs={durationMs}
-      onComplete={onComplete}
       paused={paused}
       onPausedChange={onPausedChange}
     />

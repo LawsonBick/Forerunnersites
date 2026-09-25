@@ -1,7 +1,8 @@
 "use client";
 import { useCallback, useState } from "react";
 import Link from "next/link";
-import { ProjectMedia, type ProjectPreview } from "@/components/project-media";
+import type { ProjectPreview } from "@/components/project-media";
+import { HomepagePreview } from "@/components/homepage-preview";
 
 const previewLabels: Record<string, { short: string; detail: string }> = {
   manuels: { short: "Manuel’s", detail: "Restaurant & hospitality" },
@@ -10,11 +11,11 @@ const previewLabels: Record<string, { short: string; detail: string }> = {
   "apex-window-cleaning": { short: "Apex", detail: "Window & exterior care" },
 };
 
-/** A ten-second showcase, with manual selection and unobstructed previews. */
+/** Six seconds on each homepage, with its own native animation. */
 export function ProjectReel({
   projects,
 }: {
-  projects: (ProjectPreview & { slug: string; name: string })[];
+  projects: (ProjectPreview & { slug: string; name: string; url: string })[];
 }) {
   const [selected, setSelected] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -39,10 +40,9 @@ export function ProjectReel({
           id="featured-preview"
           aria-label={`${project.name} website preview`}
         >
-          <ProjectMedia
+          <HomepagePreview
             project={project}
             priority={selected === 0}
-            durationMs={10000}
             onComplete={nextProject}
             paused={paused}
             onPausedChange={setPaused}
