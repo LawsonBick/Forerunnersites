@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "@/components/motion-preference";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import { ProjectMedia, type ProjectPreview } from "@/components/project-media";
 
@@ -11,7 +10,7 @@ const previewLabels: Record<string, { short: string; detail: string }> = {
   "apex-window-cleaning": { short: "Apex", detail: "Window & exterior care" },
 };
 
-/** A fifteen-second showcase, with manual selection and unobstructed previews. */
+/** A ten-second showcase, with manual selection and unobstructed previews. */
 export function ProjectReel({
   projects,
 }: {
@@ -19,50 +18,13 @@ export function ProjectReel({
 }) {
   const [selected, setSelected] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const reel = useRef<HTMLDivElement>(null);
-  const elapsed = useRef(0);
-  const reduced = useReducedMotion();
   const project = projects[selected];
-
-  useEffect(() => {
-    const element = reel.current;
-    if (!element) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.35 },
-    );
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!visible || paused || reduced || projects.length < 2) return;
-    let previous = performance.now();
-    const timer = window.setInterval(() => {
-      const now = performance.now();
-      const delta = Math.min(now - previous, 1000);
-      previous = now;
-      // Never replace a preview or project link while someone is using its control.
-      const focused = document.activeElement;
-      if (
-        document.hidden ||
-        (focused?.matches(":focus-visible") &&
-          (reel.current?.querySelector("#featured-preview")?.contains(focused) ||
-            reel.current?.querySelector(".reel-project-link")?.contains(focused)))
-      )
-        return;
-      elapsed.current += delta;
-      if (elapsed.current >= 15000) {
-        elapsed.current = 0;
-        setSelected((index) => (index + 1) % projects.length);
-      }
-    }, 250);
-    return () => window.clearInterval(timer);
-  }, [visible, paused, reduced, projects.length]);
+  const nextProject = useCallback(() => {
+    setSelected((index) => (index + 1) % projects.length);
+  }, [projects.length]);
 
   return (
-    <div ref={reel} className="hero-reel">
+    <div className="hero-reel">
       <div className="flex items-center justify-between gap-4 pb-4 text-[10px] font-medium uppercase tracking-[0.18em] text-ink-soft">
         <span>Made by Forerunner</span>
         <span className="tabular-nums">
@@ -80,6 +42,8 @@ export function ProjectReel({
           <ProjectMedia
             project={project}
             priority={selected === 0}
+            durationMs={10000}
+            onComplete={nextProject}
             paused={paused}
             onPausedChange={setPaused}
           />
@@ -116,7 +80,6 @@ export function ProjectReel({
             aria-pressed={selected === i}
             aria-controls="featured-preview"
             onClick={() => {
-              elapsed.current = 0;
               setSelected(i);
             }}
             className="reel-selector flex min-h-14 items-center gap-2 py-3 text-left text-xs font-medium sm:gap-3"

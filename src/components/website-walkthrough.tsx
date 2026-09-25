@@ -13,7 +13,15 @@ interface Stop {
   to: number;
 }
 /** Wheel-like bursts with varied reading pauses and occasional small corrections. */
-function scrollPlan(max: number) {
+function scrollPlan(max: number, budget?: number) {
+  if (budget) {
+    // Read the opening, glide through the entire page, then hold the footer.
+    const start = 400;
+    return {
+      stops: [{ start, duration: Math.max(1, budget - start - 650), from: 0, to: max }],
+      duration: budget,
+    };
+  }
   const stops: Stop[] = [];
   const distances = [490, 620, 380, 560, 690, 440];
   const pauses = [1500, 950, 1850, 1150, 2200, 1350];
@@ -44,17 +52,22 @@ export function WebsiteWalkthrough({
   priority = false,
   paused: controlledPaused,
   onPausedChange,
+  durationMs,
+  onComplete,
 }: {
   tour: Walkthrough;
   name: string;
   poster: string;
   posterAlt: string;
   priority?: boolean;
+  durationMs?: number;
+  onComplete?: () => void;
   paused?: boolean;
   onPausedChange?: (paused: boolean) => void;
 }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
+  const cursor = useRef<HTMLDivElement>(null);
   const elapsed = useRef(0);
   const plan = useRef<ReturnType<typeof scrollPlan>>({
     stops: [],
@@ -70,6 +83,7 @@ export function WebsiteWalkthrough({
   const [scale, setScale] = useState(1);
   const reduced = useReducedMotion();
   const page = tour.pages[pageIndex];
+  const pageBudget = durationMs ? durationMs / tour.pages.length : undefined;
 
   useEffect(() => {
     const element = viewport.current;
@@ -83,14 +97,14 @@ export function WebsiteWalkthrough({
         setVisible(entry.isIntersecting);
         if (entry.isIntersecting) setStarted(true);
       },
-      { threshold: 0.15 },
+      { threshold: durationMs ? 0.35 : 0.15 },
     );
     observer.observe(element);
     return () => {
       resize.disconnect();
       observer.disconnect();
     };
-  }, []);
+  }, [durationMs]);
 
   useEffect(() => {
     const doc = frame.current?.contentDocument;
@@ -101,8 +115,15 @@ export function WebsiteWalkthrough({
     if (!ready || !visible || paused || reduced) return;
     let request = 0,
       previous = 0;
+    let navigationLink: HTMLAnchorElement | undefined;
+    let navigationY: number | undefined;
     const animate = (now: number) => {
-      if (previous && !document.hidden)
+      const reel = viewport.current?.closest(".hero-reel");
+      const focused = document.activeElement;
+      const interacting = focused?.matches(":focus-visible") &&
+        (reel?.querySelector("#featured-preview")?.contains(focused) ||
+          reel?.querySelector(".reel-project-link")?.contains(focused));
+      if (previous && !document.hidden && !interacting)
         elapsed.current += Math.min(now - previous, 100);
       previous = now;
       const previewDocument = frame.current?.contentDocument;
@@ -111,7 +132,11 @@ export function WebsiteWalkthrough({
         const slides = [
           ...previewDocument.querySelectorAll<HTMLElement>(".hero-slide"),
         ];
-        const selected = Math.floor(elapsed.current / 4600) % slides.length;
+        if (durationMs && elapsed.current >= durationMs && onComplete) {
+          onComplete();
+          return;
+        }
+        const selected = Math.floor(elapsed.current / (durationMs ? durationMs / Math.max(1, slides.length) : 4600)) % Math.max(1, slides.length);
         slides.forEach((slide, i) => {
           if (i === selected || i === (selected + 1) % slides.length) {
             const image = slide.dataset.bg;
@@ -122,8 +147,15 @@ export function WebsiteWalkthrough({
         });
       } else {
         const { stops, duration } = plan.current;
+        if (pageBudget && stops[0]) {
+          stops[0].to = Math.max(0, previewDocument.documentElement.scrollHeight - 800);
+        }
         if (elapsed.current >= duration) {
           elapsed.current = 0;
+          if (pageIndex === tour.pages.length - 1 && onComplete) {
+            onComplete();
+            return;
+          }
           setReady(false);
           setPageIndex((index) => (index + 1) % tour.pages.length);
           return;
@@ -135,9 +167,39 @@ export function WebsiteWalkthrough({
             1,
             (elapsed.current - stop.start) / stop.duration,
           );
-          const ease = 1 - Math.pow(1 - progress, 3);
+          // A gentle speed ramp at each end, without jerky wheel bursts.
+          const ease = pageBudget
+            ? progress * progress * (3 - 2 * progress)
+            : 1 - Math.pow(1 - progress, 3);
           y = stop.from + (stop.to - stop.from) * ease;
           if (progress < 1) break;
+        }
+        // Follow a real link in the presentation copy; never submit client forms.
+        const next = tour.pages[pageIndex + 1];
+        const clickPhase = pageBudget && next ? elapsed.current - (duration - 550) : -1;
+        const pointer = cursor.current;
+        if (pointer) pointer.style.opacity = "0";
+        if (clickPhase >= 0 && next) {
+          const targetPath = new URL(`https://${next.url}`).pathname.replace(/\/$/, "");
+          navigationLink ??= [...previewDocument.querySelectorAll<HTMLAnchorElement>("a[href]")]
+            .filter((link) => new URL(link.href).pathname.replace(/\/$/, "") === targetPath && link.getClientRects().length)
+            .sort((a, b) => Math.abs(a.getBoundingClientRect().top - 650) - Math.abs(b.getBoundingClientRect().top - 650))[0];
+          const link = navigationLink;
+          if (link) {
+            const rect = link.getBoundingClientRect();
+            const currentY = frame.current?.contentWindow?.scrollY ?? 0;
+            navigationY ??= rect.top >= 0 && rect.bottom <= 800
+              ? currentY
+              : Math.max(0, Math.min(previewDocument.documentElement.scrollHeight - 800, currentY + rect.top - 620));
+            const progress = Math.min(1, clickPhase / 280);
+            y += (navigationY - y) * (progress * progress * (3 - 2 * progress));
+            if (pointer && clickPhase > 280) {
+              pointer.style.opacity = "1";
+              pointer.style.left = `${(rect.left + rect.width / 2) / 1280 * 100}%`;
+              pointer.style.top = `${(rect.top + currentY - y + rect.height / 2) / 800 * 100}%`;
+              pointer.dataset.clicking = clickPhase > 430 ? "true" : "false";
+            }
+          }
         }
         frame.current?.contentWindow?.scrollTo(0, y);
       }
@@ -145,7 +207,7 @@ export function WebsiteWalkthrough({
     };
     request = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(request);
-  }, [ready, visible, paused, reduced, pageIndex, tour]);
+  }, [ready, visible, paused, reduced, pageIndex, tour, pageBudget, durationMs, onComplete]);
 
   return (
     <BrowserFrame
@@ -214,13 +276,27 @@ export function WebsiteWalkthrough({
               const doc = frame.current?.contentDocument;
               if (!doc) return;
               frame.current?.contentWindow?.scrollTo(0, 0);
+              if (durationMs && tour.mode === "photos") {
+                doc.querySelectorAll<HTMLElement>(".hero-slide").forEach((slide) => {
+                  slide.style.setProperty("transition", "opacity 450ms ease", "important");
+                });
+              }
               plan.current = scrollPlan(
                 Math.max(0, doc.documentElement.scrollHeight - 800),
+                pageBudget,
               );
+              if (cursor.current) cursor.current.style.opacity = "0";
               elapsed.current = 0;
               setReady(true);
             }}
           />
+        )}
+        {durationMs && !reduced && (
+          <div ref={cursor} aria-hidden="true" className="tour-cursor">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="#202124" stroke="white" strokeWidth="1.5">
+              <path d="M4 2v18l5-5 4 8 4-2-4-8h7Z" />
+            </svg>
+          </div>
         )}
       </div>
     </BrowserFrame>
