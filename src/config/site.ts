@@ -47,7 +47,7 @@ export const site = {
    * sitemap <lastmod> for the static pages, so bump it when copy changes.
    * (Project pages carry their own `updated` date in content/projects.ts.)
    */
-  contentUpdated: "2026-09-18",
+  contentUpdated: "2026-09-26",
 
   /**
    * TODO: paste the Google Search Console HTML-tag verification token
@@ -102,6 +102,7 @@ export const site = {
   nav: [
     { label: "Work", href: "/work" },
     { label: "Services", href: "/services" },
+    { label: "Automation", href: "/automation" },
     { label: "Pricing", href: "/pricing" },
     { label: "Resources", href: "/resources" },
     { label: "About", href: "/about" },
@@ -116,6 +117,7 @@ export const site = {
     { label: "Hosting & support", href: "/hosting" },
     { label: "Work", href: "/work" },
     { label: "Services", href: "/services" },
+    { label: "Automation", href: "/automation" },
     { label: "Pricing", href: "/pricing" },
     { label: "Resources", href: "/resources" },
     { label: "About", href: "/about" },

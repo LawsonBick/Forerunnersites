@@ -52,6 +52,7 @@ export default function ServicesPage() {
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-6" data-reveal>
             <ArrowLink href="/work">See these services in finished websites</ArrowLink>
+            <ArrowLink href="/automation">Explore Business Automation</ArrowLink>
             <ArrowLink href="/pricing" className="text-ink-soft hover:text-ink">
               Compare the three packages
             </ArrowLink>

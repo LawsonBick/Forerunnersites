@@ -16,7 +16,7 @@ import { webPageSchema } from "@/lib/schema";
 const page = {
   title: "Austin Web Design for Small Businesses",
   description:
-    "Distinctive websites for Austin businesses, designed and built by Lawson Bickerstaff. Explore real work. Website builds from $500, with hosting from $50/month.",
+    "Fast, affordable websites for Austin home-service businesses, with AI automation for missed calls, lead follow-up, reviews, and bookings. Website builds from $500.",
   path: "/",
 };
 export const metadata: Metadata = buildMetadata(page);
@@ -26,32 +26,34 @@ export default function HomePage() {
       <section className="home-hero relative overflow-hidden">
         <Container className="grid items-center gap-12 pt-6 pb-14 lg:grid-cols-[1.04fr_1fr] lg:gap-12 lg:pt-12 lg:pb-20">
           <div>
-            <Eyebrow className="rise [&>span]:bg-brand">
-              Independent web studio / Austin, TX
+            <Eyebrow className="rise [&>span]:shrink-0 [&>span]:bg-brand">
+              Websites + AI automation for Austin&apos;s home-service pros
             </Eyebrow>
             <h1 className="hero-title mt-5 uppercase">
               <span className="mask-line">
-                <span className="mask-line-inner">Your business,</span>
+                <span className="mask-line-inner">A website that</span>
               </span>
-              <br />
+              {" "}
               <span className="mask-line">
                 <em
                   className="mask-line-inner text-black"
                   style={{ animationDelay: "70ms" }}
                 >
-                  Upgraded
+                  actually brings you work.
                 </em>
               </span>
             </h1>
-            <p className="rise mt-7 max-w-[350px] text-base leading-relaxed text-ink-soft">
-              Distinctive websites for businesses doing great things. Designed
-              to get noticed. Built to bring people in.
+            <p className="rise mt-7 max-w-lg text-base leading-relaxed text-ink-soft">
+              We design fast, affordable websites for local businesses — then
+              wire them up with automation that answers missed calls, follows up
+              on quotes, and books jobs while you&apos;re on the tools. You do the
+              work. Your website handles the rest.
             </p>
             <div className="rise mt-8 flex flex-wrap items-center gap-6">
               <ButtonLink href="/contact">
                 Let&apos;s build your site <span aria-hidden="true">↗</span>
               </ButtonLink>
-              <ArrowLink href="#selected-work">Explore the work</ArrowLink>
+              <ArrowLink href="/automation">See Automation</ArrowLink>
             </div>
             <p className="rise mt-6 text-[11px] text-ink-soft">
               Design, development & a direct line to your designer.
@@ -108,6 +110,42 @@ export default function HomePage() {
           </div>
           <div className="mt-12 border-t border-line pt-6">
             <ArrowLink href="/work">The complete portfolio</ArrowLink>
+          </div>
+        </Container>
+      </section>
+      <section id="automation" className="border-t border-line py-20 lg:py-28">
+        <Container>
+          <div className="grid items-end gap-8 lg:grid-cols-2 lg:gap-16">
+            <SectionHeading
+              eyebrow="Forerunner Automation"
+              title="Your website's new superpower."
+            />
+            <p className="max-w-xl text-base leading-relaxed text-ink-soft" data-reveal="right">
+              Most websites just sit there. Ours answer. Add automation to any
+              Forerunner site and the follow-up runs itself — no missed calls,
+              no cold quotes, no forgotten reviews.
+            </p>
+          </div>
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal="">
+            {[
+              "Missed-call text-back",
+              "Instant lead response",
+              "Automatic review requests",
+              "Booking reminders",
+            ].map((feature, i) => (
+              <li key={feature} className="flex items-start gap-3 border-t border-line pt-5">
+                <span aria-hidden="true" className="grid size-8 shrink-0 place-items-center rounded-full bg-accent-soft text-xs text-brand">
+                  0{i + 1}
+                </span>
+                <span className="pt-1 text-base font-medium">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-6" data-reveal="">
+            <p className="text-sm leading-relaxed text-ink-soft">
+              Lead Catcher $149/mo · Booking Engine $249/mo · AI Front Desk $397/mo
+            </p>
+            <ButtonLink href="/automation">How automation works</ButtonLink>
           </div>
         </Container>
       </section>
@@ -196,6 +234,26 @@ export default function HomePage() {
               See hosting inclusions and limits.
             </Link>
           </p>
+        </Container>
+      </section>
+      <section id="website-automation-bundle" className="border-y border-line bg-wash py-10 lg:py-12">
+        <Container className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+          <div className="max-w-3xl" data-reveal="">
+            <h2 className="text-balance text-3xl leading-tight tracking-[-0.035em] lg:text-4xl">
+              One monthly payment. Zero missed leads.
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft">
+              Pair any website plan with Lead Catcher and your online presence
+              finally works as hard as you do. Website + automation bundles from
+              $199/mo.
+            </p>
+            <p className="mt-3 text-xs text-ink-soft">
+              One-time website build and automation setup fees apply separately.
+            </p>
+          </div>
+          <ButtonLink href="/contact?package=automation-bundle" className="self-start whitespace-nowrap lg:self-auto">
+            Start a Project
+          </ButtonLink>
         </Container>
       </section>
       <section className="border-t border-line py-20 lg:py-28">

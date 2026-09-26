@@ -8,9 +8,9 @@ import { buildMetadata } from "@/lib/seo";
 import { webPageSchema } from "@/lib/schema";
 
 const page = {
-  title: "Start a Website Project",
+  title: "Start a Project",
   description:
-    "Tell Forerunner Sites about your business and what the website needs to do. Every inquiry gets a personal reply within one business day and a written proposal.",
+    "Tell Forerunner Sites about your website or business automation needs. Every inquiry gets a personal reply within one business day and a written proposal.",
   path: "/contact",
 };
 
@@ -24,7 +24,7 @@ const nextSteps = [
   {
     title: "We talk it through",
     detail:
-      "A short call or email thread about your business, your customers, and what the site has to do.",
+      "A short call or email thread about your business, your customers, and what you want to improve.",
   },
   {
     title: "You get a written proposal",
@@ -46,7 +46,7 @@ export default function ContactPage() {
           as="h1"
           entrance="rise"
           eyebrow="Start a project"
-          title={<>A good website starts<br /><em>with a conversation.</em></>}
+          title={<>A good project starts<br /><em>with a conversation.</em></>}
           lede="Tell me a little about your business. I’ll get back to you personally within one business day."
         />
 

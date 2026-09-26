@@ -57,6 +57,11 @@ const packageOptions = [
   { value: "launch", label: "Launch — $500 + $50/mo" },
   { value: "growth", label: "Growth — $1,500 + $100/mo" },
   { value: "custom", label: "Custom — from $3,000 + $200/mo" },
+  { value: "lead-catcher", label: "Lead Catcher — $149/mo + $500 setup" },
+  { value: "booking-engine", label: "Booking Engine — $249/mo + $1,000 setup" },
+  { value: "ai-front-desk", label: "AI Front Desk — $397/mo + $1,500 setup" },
+  { value: "automation", label: "Business Automation — help me choose" },
+  { value: "automation-bundle", label: "Website + automation bundle" },
   { value: "not-sure", label: "Not sure yet" },
 ];
 
@@ -294,7 +299,7 @@ export function ContactForm() {
           name="details"
           rows={5}
           required
-          placeholder="What does your business do, and what would you like your website to do better?"
+          placeholder="What does your business do, and what would you like your website or business automation to do?"
           aria-invalid={errors.details ? true : undefined}
           aria-describedby={errors.details ? "details-error" : undefined}
           className={cx(inputClasses, "resize-y", errors.details ? "border-[#b3261e]" : "border-ink/20")}

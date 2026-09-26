@@ -73,6 +73,16 @@ export default function PricingPage() {
           </ButtonLink>
         </Container>
       </section>
+      <section className="border-b border-line">
+        <Container className="grid items-center gap-7 py-12 md:grid-cols-[1fr_auto]">
+          <div>
+            <p className="kicker text-ink-soft">Beyond the website</p>
+            <h2 className="mt-4 font-display text-3xl">Never miss another lead.</h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-soft">Business Automation for missed calls, lead follow-up and bookings. From $149/month + $500 one-time setup.</p>
+          </div>
+          <ArrowLink href="/automation">Explore Business Automation</ArrowLink>
+        </Container>
+      </section>
       <section>
         <Container className="py-16 lg:py-20">
           <div id="compare" className="scroll-mt-24">

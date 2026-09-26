@@ -17,6 +17,7 @@ const staticRoutes: { path: string; priority: number; changeFrequency: "monthly"
   { path: "/resources", priority: 0.7, changeFrequency: "monthly" },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" },
   { path: "/pricing", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/automation", priority: 0.8, changeFrequency: "monthly" },
   { path: "/hosting", priority: 0.7, changeFrequency: "monthly" },
   { path: "/pricing/launch", priority: 0.7, changeFrequency: "monthly" },
   { path: "/pricing/growth", priority: 0.7, changeFrequency: "monthly" },

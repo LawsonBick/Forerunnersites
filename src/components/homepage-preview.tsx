@@ -16,6 +16,9 @@ export function HomepagePreview({ project, priority }: {
   const [revision, setRevision] = useState(0);
   const [size, setSize] = useState({ width: 1280, height: 800, scale: 1 });
   const manuels = project.slug === "manuels";
+  const previewSource = project.slug === "trz-detail" ? "/work/preview/trz"
+    : project.slug === "cleanz-atx" ? "/work/preview/cleanz" : null;
+  const isolated = manuels || Boolean(previewSource);
   const poster = project.images.desktop;
 
   useEffect(() => {
@@ -55,9 +58,9 @@ export function HomepagePreview({ project, priority }: {
         <Image src={poster.src} alt={poster.alt} fill sizes="(min-width: 1024px) 50vw, 100vw"
           priority={priority} className="object-cover" />
         {started && (
-          <iframe key={revision} src={manuels ? "/work/interactive/manuels/index.html" : project.url}
+          <iframe key={revision} src={manuels ? "/work/interactive/manuels/index.html" : previewSource ?? project.url}
             title={`${project.name} interactive website preview`}
-            sandbox={manuels
+            sandbox={isolated
               ? "allow-scripts allow-popups allow-popups-to-escape-sandbox"
               : "allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"}
             allow="autoplay; fullscreen" referrerPolicy="no-referrer"
